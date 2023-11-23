@@ -1,0 +1,30 @@
+Package: PubChemR
+Type: Package
+Title: Interface to the 'PubChem' Database for Chemical Data Retrieval
+Version: 0.99-1
+Authors@R: c(person("Selcuk", "Korkmaz", email="selcukorkmaz@gmail.com", role=c("aut", "cre"),
+                    comment = c(ORCID = "0000-0003-4632-6850")), 
+             person("Dincer", "Goksuluk", email="dincer.goksuluk@gmail.com", role="aut",
+                    comment = c(ORCID = "0000-0002-2752-7668")))
+Description: Provides an R interface to the 'PubChem' database, which is a repository for 
+    chemical information and a resource for finding chemical and biological data. The package 
+    simplifies the process of retrieving and handling chemical compound information from 
+    'PubChem'. Users can search for compounds, retrieve standard chemical information, 
+    download data in various formats, and query the database using the 'PubChem' 
+    Power User Gateway (PUG) 'RESTful' API <https://pubchem.ncbi.nlm.nih.gov/docs/pug-rest>. 
+    The package aims to facilitate the integration of chemical data in bioinformatics and cheminformatics workflows.
+License: GPL (>= 2)
+Encoding: UTF-8
+RoxygenNote: 7.2.3
+Suggests: testthat (>= 3.0.0), knitr, rmarkdown
+Config/testthat/edition: 3
+Imports: dplyr, httr, RJSONIO, RCurl, tibble, tidyr, utils, magrittr,
+        stringr
+VignetteBuilder: knitr
+NeedsCompilation: no
+Packaged: 2023-11-23 09:50:56 UTC; selcukkorkmaz
+Author: Selcuk Korkmaz [aut, cre] (<https://orcid.org/0000-0003-4632-6850>),
+  Dincer Goksuluk [aut] (<https://orcid.org/0000-0002-2752-7668>)
+Maintainer: Selcuk Korkmaz <selcukorkmaz@gmail.com>
+Repository: CRAN
+Date/Publication: 2023-11-23 16:00:06 UTC
