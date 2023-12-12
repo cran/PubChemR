@@ -1,6 +1,16 @@
+[![](https://www.r-pkg.org/badges/version/PubChemR)](https://cran.r-project.org/package=PubChemR)
+[![](https://www.r-pkg.org/badges/last-release/PubChemR?color=orange)](https://cran.r-project.org/package=PubChemR)
+[![](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![BUILD & CHECK](https://github.com/selcukorkmaz/PubChemR/actions/workflows/R-BUILD-CHECK.yml/badge.svg)](https://github.com/selcukorkmaz/PubChemR/actions/workflows/R-BUILD-CHECK.yml)
+<!-- [![](https://cranlogs.r-pkg.org/badges/PubChemR)](https://cran.r-project.org/package=PubChemR) -->
+<!-- [![License: GPL (>= 2)](https://img.shields.io/badge/license-GPL%20(%3E=%202)-blue.svg)](https://cran.r-project.org/web/licenses/GPL-2) -->
+
 # PubChemR: An Interface to the PubChem Collection of Chemical Data PubChemR <img src="man/figures/logo.png" align="right" height="32" />
 
-`PubChemR` is an R package that provides a user-friendly interface to the PubChem database, which is a rich resource for chemical information. This package allows users to programmatically access chemical data, including compound identifiers (CIDs), substance identifiers (SIDs), assay information (AIDs), and more.
+`PubChemR` is an R package that provides an interface to the 'PubChem' database via the [PUG REST](https://pubchem.ncbi.nlm.nih.gov/docs/pug-rest) and 
+[PUG View](https://pubchem.ncbi.nlm.nih.gov/docs/pug-view) services. This package allows users to programmatically 
+access chemical and biological data from 'PubChem', including compounds, substances, assays, and various other data types. 
+Functions are available to retrieve data in different formats, perform searches, and access detailed annotations.
 
 ## Installation
 
@@ -8,7 +18,7 @@ You can install the development version of `PubChemR` from [GitHub](https://gith
 
 ```r
 # install.packages("devtools")
-devtools::install_github("your_github_username/PubChemR")
+devtools::install_github("selcukorkmaz/PubChemR")
 ```
 
 **Usage**
@@ -90,7 +100,19 @@ For questions and feedback, please open an issue in the GitHub repository issue 
 
 If you use PubChemR in your research, please cite it as follows:
 
-Your Name (Year). PubChemR: An Interface to the PubChem Collection of Chemical Data. R package version x.x.x. URL: https://github.com/your_github_username/PubChemR
+Korkmaz S, Goksuluk D (2023). _PubChemR: Interface to the 'PubChem' Database for Chemical Data Retrieval_. R package version 0.99-1, <https://CRAN.R-project.org/package=PubChemR>.
+
+A BibTeX entry for LaTeX users is:
+
+```r
+@Manual{,
+  title = {PubChemR: Interface to the 'PubChem' Database for Chemical Data Retrieval},
+  author = {Selcuk Korkmaz and Dincer Goksuluk},
+  year = {2023},
+  note = {R package version 0.99-1},
+  url = {https://CRAN.R-project.org/package=PubChemR},
+}
+```
 
 
 

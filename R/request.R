@@ -8,7 +8,7 @@
 #' @param operation The operation to be performed (default: NULL).
 #' @param output The desired output format (default: 'JSON').
 #' @param searchtype The type of search to be performed (default: NULL).
-#' @param ... Additional parameters. Currently has no effect on the results.
+#' @param options Additional parameters. Currently has no effect on the results.
 #'
 #' @return A constructed URL for the PubChem API.
 #'
@@ -22,7 +22,7 @@
 #'   namespace = "name"
 #' )
 request <- function(identifier = NULL, namespace = 'cid', domain = 'compound',
-                    operation = NULL, output = 'JSON', searchtype = NULL, ...) {
+                    operation = NULL, output = 'JSON', searchtype = NULL, options = NULL) {
 
   # Check for missing identifier
   if (is.null(identifier)) {
@@ -42,6 +42,12 @@ request <- function(identifier = NULL, namespace = 'cid', domain = 'compound',
   urlid <- NULL
   postdata <- NULL
 
+  if(!is.null(options)){
+
+    options <- paste0("?", paste0(unlist(options), collapse = "&"))
+    options <- gsub(" ","", options, fixed = TRUE)
+  }
+
   if (!is.null(namespace) && namespace == 'sourceid') {
     identifier <- gsub("/", ".", identifier)
   }
@@ -54,7 +60,7 @@ request <- function(identifier = NULL, namespace = 'cid', domain = 'compound',
   # Adjusting the logic for building the URL components
   # The identifier now comes before the output format
   comps <- Filter(Negate(is.null), list(api_base, domain, searchtype, namespace, urlid, operation, output))
-  apiurl <- paste(comps, collapse = '/')
+  apiurl <- paste0(paste(comps, collapse = '/'), options)
 
   # if (length(params) > 0) {
   #   apiurl <- paste0(apiurl, "?", paste(names(params), params, sep = "=", collapse = "&"))
