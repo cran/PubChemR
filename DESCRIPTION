@@ -1,7 +1,7 @@
 Package: PubChemR
 Type: Package
 Title: Interface to the 'PubChem' Database for Chemical Data Retrieval
-Version: 1.0.1
+Version: 1.1
 Authors@R: c(person("Selcuk", "Korkmaz", email="selcukorkmaz@gmail.com", role=c("aut", "cre"),
                     comment = c(ORCID = "0000-0003-4632-6850")), 
              person("Dincer", "Goksuluk", email="dincer.goksuluk@gmail.com", role="aut",
@@ -15,13 +15,13 @@ Description: Provides an interface to the 'PubChem' database via the PUG REST <h
 License: GPL (>= 2)
 Encoding: UTF-8
 RoxygenNote: 7.2.3
-Imports: dplyr, httr, RJSONIO, jsonlite, RCurl, tibble, tidyr, utils,
-        magrittr, stringr, magick, png, rsvg, xml2, XML
+Imports: dplyr, httr, RJSONIO, RCurl, tibble, tidyr, utils, magrittr,
+        stringr, magick, png, rsvg, xml2, XML
 NeedsCompilation: no
-Packaged: 2023-12-12 13:35:45 UTC; selcukkorkmaz
+Packaged: 2023-12-19 07:52:53 UTC; selcukkorkmaz
 Author: Selcuk Korkmaz [aut, cre] (<https://orcid.org/0000-0003-4632-6850>),
   Dincer Goksuluk [aut] (<https://orcid.org/0000-0002-2752-7668>),
   Bilge Eren Korkmaz [aut] (<https://orcid.org/0000-0002-6525-2503>)
 Maintainer: Selcuk Korkmaz <selcukorkmaz@gmail.com>
 Repository: CRAN
-Date/Publication: 2023-12-12 14:00:02 UTC
+Date/Publication: 2023-12-19 08:10:05 UTC

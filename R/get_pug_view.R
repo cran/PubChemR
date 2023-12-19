@@ -7,12 +7,12 @@
 #' @param annotation A character string specifying the type of annotation to retrieve.
 #' @param identifier A single identifier for the query, either numeric or character.
 #' @param domain A character string specifying the domain for the request. Default is 'compound'.
-#' @param output A character string specifying the output format. Possible values are 'JSON', 'JSONP', and 'SVG'. Default is 'JSON'.
+#' @param output A character string specifying the output format. Possible values are 'JSON', 'XML', and 'SVG'. Default is 'JSON'.
 #' @param heading An optional character string for specifying a heading in the request.
 #' @param headingType An optional character string for specifying a heading type in the request.
 #' @param page An optional character string for specifying a page number in the request.
 #' @param qrSize A character string specifying the size of the QR code. Possible values are 'short' and 'long'. Default is 'short'.
-#' @param savePNG A logical value indicating whether to save the output as a PNG file. Default is FALSE.
+#' @param save A logical value indicating whether to save the output. Default is FALSE.
 #'
 #' @return Depending on the output format, this function returns different types of content:
 #'         JSON or JSONP format returns parsed JSON content.
@@ -29,11 +29,13 @@
 #' @importFrom RCurl getURLContent
 #' @importFrom png readPNG
 #' @importFrom httr content
+#' @importFrom xml2 as_list read_xml
+
 #' @export
 
 get_pug_view <- function(annotation = NULL, identifier = NULL, domain = 'compound',
                          output = 'JSON', heading = NULL, headingType = NULL, page = NULL,
-                         qrSize = "short", savePNG = FALSE) {
+                         qrSize = "short", save = FALSE) {
 
   # Check for missing annotation
   if (is.null(annotation)) {
@@ -104,8 +106,19 @@ get_pug_view <- function(annotation = NULL, identifier = NULL, domain = 'compoun
   }
 
   # Handling response based on output format
-  if (!is.null(output) && output %in% c('JSON', 'JSONP')) {
-    content <- fromJSON(content(response, "text"))
+
+  if (!is.null(output) && output %in% c('JSON')) {
+
+    savedContent <- content(response, "text", encoding = "UTF-8")
+
+    content <- fromJSON(savedContent)
+
+    if(save){
+
+    write(savedContent, file = paste0(domain, "_", identifier, ".", output))
+
+    }
+
   }
 
   else if(!is.null(output) && output == "SVG" && domain != "key"){
@@ -113,7 +126,7 @@ get_pug_view <- function(annotation = NULL, identifier = NULL, domain = 'compoun
     str <- charToRaw(content(response, as = "text", encoding = "UTF-8"))
     content <- image_read(str)
 
-    if(savePNG){
+    if(save){
 
       rsvg_png(svg = str, file = paste0(identifier, ".png"))
     }
@@ -124,6 +137,18 @@ get_pug_view <- function(annotation = NULL, identifier = NULL, domain = 'compoun
 
     str <- readPNG(getURLContent(apiurl))
     content <- image_read(str)
+  }
+
+  else if(output == "XML"){
+    responseContent <- rawToChar(response$content)
+    xml_file <- read_xml(responseContent)
+    content <-  xml2::as_list(xml_file)
+
+    if(save){
+
+      write_xml(xml_file, file = paste0(domain, "_", identifier, ".", output))
+
+    }
   }
 
   else {
