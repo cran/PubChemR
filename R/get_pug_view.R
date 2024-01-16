@@ -80,7 +80,7 @@ get_pug_view <- function(annotation = NULL, identifier = NULL, domain = 'compoun
 
   else if (annotation == "qr") {
     if(qrSize == "short"){
-    comps <- Filter(Negate(is.null), list(api_base, annotation, "short", domain, identifier, output))
+      comps <- Filter(Negate(is.null), list(api_base, annotation, "short", domain, identifier, output))
     }
 
     else if(qrSize == "long"){
@@ -91,7 +91,7 @@ get_pug_view <- function(annotation = NULL, identifier = NULL, domain = 'compoun
   }
 
   else{
-  apiurl <- paste(comps, collapse = '/')
+    apiurl <- paste(comps, collapse = '/')
   }
 
   # Simple Rate Limiting (5 requests per second)
@@ -115,7 +115,7 @@ get_pug_view <- function(annotation = NULL, identifier = NULL, domain = 'compoun
 
     if(save){
 
-    write(savedContent, file = paste0(domain, "_", identifier, ".", output))
+      write(savedContent, file = paste0(domain, "_", identifier, ".", output))
 
     }
 

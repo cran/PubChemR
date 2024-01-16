@@ -230,7 +230,6 @@ get_pug_rest <- function(identifier = NULL, namespace = 'cid', domain = 'compoun
   }
 
  }
-
 }
 
 

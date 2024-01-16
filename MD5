@@ -1,4 +1,4 @@
-c76b59f90cef99cf77f7cb42f7a16af7 *DESCRIPTION
+dd0cc253f39eb52d5c2eae819763a23f *DESCRIPTION
 9942432b960c11bec210171efff1df96 *NAMESPACE
 5253fe1ea6b6c18c000e85f54a7c998a *R/00_globals.R
 97d49d655421ecf57492db8974bccb3b *R/download.R
@@ -10,11 +10,11 @@ c76b59f90cef99cf77f7cb42f7a16af7 *DESCRIPTION
 71da928421cfa1a0b68ccfa45d1a15bb *R/get_json.R
 46d38731330b564acbf0e2c27076a95c *R/get_properties.R
 40fa5627a822a8e871669fb83f3d9e1f *R/get_pubchem.R
-4c162ae8c993073b3e30519cf9bb5615 *R/get_pug_rest.R
-adecbe8c0572f2f1c2b2a049633cd0c9 *R/get_pug_view.R
+da8b069c917dfeee54052369097d652f *R/get_pug_rest.R
+1cb0a8c09913f064f61310e1b126f9c1 *R/get_pug_view.R
 1533693b1c6fb63372ab74c56501dc1a *R/get_sdf.R
 8e60fe3dea8804a7f69883213ef90724 *R/get_sids.R
-2af845f3a3fade317d806c3962517b2e *R/get_substances.R
+ed83a741a9ae55e01c5916a5fde2237a *R/get_substances.R
 6b49a9cdda5f591da286820342b32ad8 *R/get_synonyms.R
 0b9bad9bef2181146d1746f8c34058d0 *R/pubchem_summary.R
 4957b955e5ebda10e978a17ce6056995 *R/request.R
@@ -38,7 +38,7 @@ c6fa4c4b8889ce2b723e7ec4a4204763 *man/get_pug_rest.Rd
 dba8d8a7d141e59423119543d9027be2 *man/get_pug_view.Rd
 298e2ccc7ab6a7b01f1d0da62b5284f7 *man/get_sdf.Rd
 66a625a4e3c5fd76c3cd3b0ac0069837 *man/get_sids.Rd
-f8455530866c3c552f22532940260cc5 *man/get_substances.Rd
+106bbfda0a5e49704c756e829af91d08 *man/get_substances.Rd
 bbd92f0dd99091a4213a5fbbae02a11e *man/get_synonyms.Rd
 24825426d6601ec605c147894c221c5b *man/property_map.Rd
 e51f809fa8b235804bec5af61e00f2dd *man/pubchem_summary.Rd
