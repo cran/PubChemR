@@ -1,6 +1,7 @@
-#' Request Function for PubChem API
+#' @title Request Function for PubChem API
 #'
 #' @description Constructs a URL for the PubChem API based on the provided parameters.
+#' This function used internally by all get_* functions, and users will not typically run this function directly.
 #'
 #' @param identifier The identifier for the compound.
 #' @param namespace The namespace for the identifier (default: 'cid').
@@ -13,14 +14,9 @@
 #' @return A constructed URL for the PubChem API.
 #'
 #' @importFrom utils URLencode
-#' @importFrom stats setNames
-#' @export
 #'
-#' @examples
-#' request(
-#'   identifier = "aspirin",
-#'   namespace = "name"
-#' )
+#' @keywords internal
+#' @noRd
 request <- function(identifier = NULL, namespace = 'cid', domain = 'compound',
                     operation = NULL, output = 'JSON', searchtype = NULL, options = NULL) {
 

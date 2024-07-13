@@ -23,7 +23,7 @@ get_pug_view(
 
 \item{domain}{A character string specifying the domain for the request. Default is 'compound'.}
 
-\item{output}{A character string specifying the output format. Possible values are 'JSON', 'XML', and 'SVG'. Default is 'JSON'.}
+\item{output}{A character string specifying the output format. Possible values are 'JSON' and 'SVG'. Default is 'JSON'.}
 
 \item{heading}{An optional character string for specifying a heading in the request.}
 
@@ -47,6 +47,6 @@ for a given identifier. It supports fetching annotations, QR codes, and more, wi
 for different output formats including JSON and SVG.
 }
 \examples{
-  get_pug_view(identifier = "2244", annotation = "linkout", domain = "compound")
+get_pug_view(identifier = "2244", annotation = "linkout", domain = "compound")
 
 }

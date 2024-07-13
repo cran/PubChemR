@@ -35,8 +35,6 @@
 #'   identifier = "aspirin",
 #'   namespace = "name",
 #'   domain = "compound",
-#'   operation = NULL,
-#'   searchtype = NULL,
 #'   overwrite = TRUE
 #' )
 #'
@@ -72,5 +70,8 @@ download <- function(filename = NULL, outformat, path, identifier, namespace = '
   # Write the content to the specified path
   writeBin(charToRaw(response_content), full_path)
   message(paste0("The file has been saved to ", "'", full_path, "'"))
+
+  # Return the full path invisibly
+  return(invisible(full_path))
 }
 
