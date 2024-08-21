@@ -31,13 +31,18 @@
 #'
 #' @export
 get_compounds <- function(identifier, namespace = 'cid', operation = NULL, searchtype = NULL, options = NULL) {
-  # Try to get the response and parse JSON
-  # Assuming 'get_json' is a function you've previously defined, similar to your Python environment
-  result <- lapply(identifier, function(x){
-    tmp <- get_json(identifier = x, namespace, operation = operation, searchtype = searchtype, options = options)
-    class(tmp) <- c(class(tmp), "PC_Compounds")
-    return(tmp)
+  result <- lapply(identifier, function(x) {
+    tryCatch({
+      tmp <- get_json(identifier = x, namespace, operation = operation, searchtype = searchtype, options = options)
+      class(tmp) <- c(class(tmp), "PC_Compounds")
+      return(tmp)
+    }, error = function(e) {
+      warning(sprintf("Failed to retrieve data for identifier '%s': %s", x, e$message))
+      return(NULL)
+    })
   })
+
+  success <- sapply(result, function(x) !is.null(x))
 
   Compounds_List <- list(
     result = result,
@@ -45,11 +50,11 @@ get_compounds <- function(identifier, namespace = 'cid', operation = NULL, searc
       namespace = namespace,
       identifier = identifier,
       domain = "compound",
-      operation = "description",
+      operation = operation,
       options = options,
       searchtype = searchtype
     ),
-    success = logical(),
+    success = success,
     error = NULL
   )
 

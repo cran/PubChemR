@@ -129,7 +129,7 @@ result
 pubChemData(result)
 
 ## -----------------------------------------------------------------------------
-result <- get_pug_rest(identifier = "1,2,3,4,5", namespace = "cid", domain = "compound", property = c("MolecularWeight", "MolecularFormula", "HBondDonorCount", "HBondAcceptorCount", "InChIKey", "InChI"), output = "CSV")
+result <- get_pug_rest(identifier = c("1","2","3","4","5"), namespace = "cid", domain = "compound", property = c("MolecularWeight", "MolecularFormula", "HBondDonorCount", "HBondAcceptorCount", "InChIKey", "InChI"), output = "CSV")
 
 ## -----------------------------------------------------------------------------
 pubChemData(result)
