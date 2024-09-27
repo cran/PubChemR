@@ -90,17 +90,17 @@ aids_by_inchikey
 ## ----AIDs_getter_inchikey-----------------------------------------------------
 AIDs(object = aids_by_inchikey, .to.data.frame = TRUE)
 
-## ----get_aids_by_formula------------------------------------------------------
-aids_by_formula <- get_aids(
-  identifier = "C15H12N2O2",
-  namespace = "formula",
-  domain = "compound"
-)
+## ----get_aids_by_formula, eval=FALSE------------------------------------------
+#  aids_by_formula <- get_aids(
+#    identifier = "C15H12N2O2",
+#    namespace = "formula",
+#    domain = "compound"
+#  )
+#  
+#  aids_by_formula
 
-aids_by_formula
-
-## ----AIDs_getter_formula------------------------------------------------------
-AIDs(object = aids_by_formula, .to.data.frame = TRUE)
+## ----AIDs_getter_formula, eval=FALSE------------------------------------------
+#  AIDs(object = aids_by_formula, .to.data.frame = TRUE)
 
 ## ----get_cids_by_name---------------------------------------------------------
 cids_by_name <- get_cids(
@@ -138,17 +138,17 @@ cids_by_inchikey
 ## ----CIDs_by_inchikey---------------------------------------------------------
 CIDs(object = cids_by_inchikey)
 
-## ----get_cids_by_formula------------------------------------------------------
-cids_by_formula <- get_cids(
-  identifier = "C15H12N2O2",
-  namespace = "formula",
-  domain = "compound"
-)
+## ----get_cids_by_formula, eval=FALSE------------------------------------------
+#  cids_by_formula <- get_cids(
+#    identifier = "C15H12N2O2",
+#    namespace = "formula",
+#    domain = "compound"
+#  )
+#  
+#  cids_by_formula
 
-cids_by_formula
-
-## ----CIDs_getter_formula------------------------------------------------------
-CIDs(object = cids_by_formula, .to.data.frame = TRUE)
+## ----CIDs_getter_formula, eval=FALSE------------------------------------------
+#  CIDs(object = cids_by_formula, .to.data.frame = TRUE)
 
 ## -----------------------------------------------------------------------------
 sids_by_cid <- get_sids(
