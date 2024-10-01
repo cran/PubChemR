@@ -11,7 +11,7 @@
 
 <meta name="author" content="Selcuk Korkmaz, Bilge Eren Korkmaz, Dincer Goksuluk" />
 
-<meta name="date" content="2024-09-27" />
+<meta name="date" content="2024-10-01" />
 
 <title>Accessing and Exploring Chemical Data with PubChemR: A Guide to PUG REST Service</title>
 
@@ -1483,7 +1483,7 @@ border-radius: 0px;
 PubChemR: A Guide to PUG REST Service</h1>
 <h4 class="author">Selcuk Korkmaz, Bilge Eren Korkmaz, Dincer
 Goksuluk</h4>
-<h4 class="date">2024-09-27</h4>
+<h4 class="date">2024-10-01</h4>
 
 </div>
 
@@ -2087,7 +2087,7 @@ extract the retrieved data. The function retrieves the output in data
 frame. The output indicates that the search for “glucose” returned a
 single CID:</p>
 <pre class="r"><code>pubChemData(result)
-#&gt;     V1
+#&gt;   Text
 #&gt; 1 5793</code></pre>
 <p>This output reveals that the common name “glucose” corresponds to the
 CID 5793. This CID can then be used in further queries to retrieve
@@ -2122,7 +2122,7 @@ result
 output in data frame. The output indicates that the search for the
 SMILES string “CCCC” returned a single CID:</p>
 <pre class="r"><code>pubChemData(result)
-#&gt;     V1
+#&gt;   Text
 #&gt; 1 7843</code></pre>
 <p>This output reveals that the SMILES string “CCCC” corresponds to the
 CID 7843. This CID can then be used in further queries to gather
@@ -2143,7 +2143,7 @@ efficient for obtaining results quickly and is useful for various types
 of structural queries.</p>
 <p>To illustrate, let’s perform a fast identity search for the compound
 with CID 5793, using the same connectivity option:</p>
-<pre class="r"><code>result &lt;- get_pug_rest(identifier = &quot;5793&quot;, namespace = &quot;cid&quot;, domain = &quot;compound&quot;, operation = &quot;cids&quot;, output = &quot;TXT&quot;, searchtype = &quot;fastidentity&quot;, options = list(&quot;identity_type = same_connectivity&quot;))
+<pre class="r"><code>result &lt;- get_pug_rest(identifier = &quot;5793&quot;, namespace = &quot;cid&quot;, domain = &quot;compound&quot;, operation = &quot;cids&quot;, output = &quot;TXT&quot;, searchtype = &quot;fastidentity&quot;, options = list(identity_type = &quot;same_connectivity&quot;))
 result
 #&gt; 
 #&gt;  An object of class &#39;PugRestInstance&#39;
@@ -2160,7 +2160,7 @@ result
 frame, listing all CIDs that match the fast identity search
 criteria.</p>
 <pre class="r"><code>pubChemData(result)
-#&gt;            V1
+#&gt;          Text
 #&gt; 1        5793
 #&gt; 2         206
 #&gt; 3        6036
@@ -2856,7 +2856,7 @@ result
 #&gt;  NOTE: Run getter function &#39;pubChemData(...)&#39; to extract raw data retrieved from PubChem Database. 
 #&gt;        See ?pubChemData for details.</code></pre>
 <pre class="r"><code>pubChemData(result)
-#&gt;       V1
+#&gt;     Text
 #&gt; 1 180.16</code></pre>
 <p>Or to retrieve a CSV table of multiple compounds and properties:</p>
 <pre class="r"><code>result &lt;- get_pug_rest(identifier = c(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;), namespace = &quot;cid&quot;, domain = &quot;compound&quot;, property = c(&quot;MolecularWeight&quot;, &quot;MolecularFormula&quot;, &quot;HBondDonorCount&quot;, &quot;HBondAcceptorCount&quot;, &quot;InChIKey&quot;, &quot;InChI&quot;), output = &quot;CSV&quot;)</code></pre>
@@ -3107,7 +3107,7 @@ result
 #&gt;  NOTE: Run getter function &#39;pubChemData(...)&#39; to extract raw data retrieved from PubChem Database. 
 #&gt;        See ?pubChemData for details.</code></pre>
 <pre class="r"><code>pubChemData(result)
-#&gt;                 V1
+#&gt;               Text
 #&gt; 1  US20030181500A1
 #&gt; 2  US20050059720A1
 #&gt; 3  US20050124633A1
@@ -5174,7 +5174,7 @@ result
 #&gt;  NOTE: Run getter function &#39;pubChemData(...)&#39; to extract raw data retrieved from PubChem Database. 
 #&gt;        See ?pubChemData for details.</code></pre>
 <pre class="r"><code>pubChemData(result)
-#&gt;         V1
+#&gt;       Text
 #&gt; 1      927
 #&gt; 2     1455
 #&gt; 3     1904
@@ -10042,7 +10042,7 @@ result
 #&gt;  NOTE: Run getter function &#39;pubChemData(...)&#39; to extract raw data retrieved from PubChem Database. 
 #&gt;        See ?pubChemData for details.</code></pre>
 <pre class="r"><code>pubChemData(result)
-#&gt;         V1
+#&gt;       Text
 #&gt; 1    66438
 #&gt; 2    69721
 #&gt; 3    69722
@@ -11750,7 +11750,7 @@ result
 #&gt;  NOTE: Run getter function &#39;pubChemData(...)&#39; to extract raw data retrieved from PubChem Database. 
 #&gt;        See ?pubChemData for details.</code></pre>
 <pre class="r"><code>pubChemData(result)
-#&gt;                        V1
+#&gt;                      Text
 #&gt; 1          PANTHER:P06664
 #&gt; 2     PathBank:SMP0120900
 #&gt; 3     PathBank:SMP0120901
@@ -11971,7 +11971,7 @@ result
 #&gt;  NOTE: Run getter function &#39;pubChemData(...)&#39; to extract raw data retrieved from PubChem Database. 
 #&gt;        See ?pubChemData for details.</code></pre>
 <pre class="r"><code>pubChemData(result)
-#&gt;           V1
+#&gt;         Text
 #&gt; 1       1433
 #&gt; 2       1726
 #&gt; 3       1727
@@ -18357,128 +18357,92 @@ result
 #&gt;  NOTE: Run getter function &#39;pubChemData(...)&#39; to extract raw data retrieved from PubChem Database. 
 #&gt;        See ?pubChemData for details.</code></pre>
 <pre class="r"><code>pubChemData(result)
-#&gt;                                           V1
-#&gt; 1                        PathBank:SMP0000472
-#&gt; 2                        PathBank:SMP0000473
-#&gt; 3                        PathBank:SMP0000474
-#&gt; 4                        PathBank:SMP0000475
-#&gt; 5                        PathBank:SMP0000476
-#&gt; 6                        PathBank:SMP0063810
-#&gt; 7                        PathBank:SMP0063811
-#&gt; 8                                    Pathway
-#&gt; 9                                Interaction
-#&gt; 10       Database:a6b1_a6b4_integrin_pathway
-#&gt; 11                                   Pathway
-#&gt; 12                               Interaction
-#&gt; 13                  Database:ajdiss_2pathway
-#&gt; 14                                   Pathway
-#&gt; 15                               Interaction
-#&gt; 16                     Database:arf6_pathway
-#&gt; 17                                   Pathway
-#&gt; 18                               Interaction
-#&gt; 19   Database:ecadherin_keratinocyte_pathway
-#&gt; 20                                   Pathway
-#&gt; 21                               Interaction
-#&gt; 22  Database:ecadherin_stabilization_pathway
-#&gt; 23                                   Pathway
-#&gt; 24                               Interaction
-#&gt; 25         Database:erbb1_downstream_pathway
-#&gt; 26                                   Pathway
-#&gt; 27                               Interaction
-#&gt; 28    Database:erbb1_internalization_pathway
-#&gt; 29                                   Pathway
-#&gt; 30                               Interaction
-#&gt; 31             Database:erbb_network_pathway
-#&gt; 32                                   Pathway
-#&gt; 33                               Interaction
-#&gt; 34                   Database:et_egfrpathway
-#&gt; 35                                   Pathway
-#&gt; 36                               Interaction
-#&gt; 37         Database:lysophospholipid_pathway
-#&gt; 38                                   Pathway
-#&gt; 39                               Interaction
-#&gt; 40             Database:p53downstreampathway
-#&gt; 41                                   Pathway
-#&gt; 42                               Interaction
-#&gt; 43                     Database:ptp1bpathway
-#&gt; 44                                   Pathway
-#&gt; 45                               Interaction
-#&gt; 46                     Database:shp2_pathway
-#&gt; 47                                   Pathway
-#&gt; 48                               Interaction
-#&gt; 49               Database:syndecan_3_pathway
-#&gt; 50                                   Pathway
-#&gt; 51                               Interaction
-#&gt; 52                    Database:tcptp_pathway
-#&gt; 53                                   Pathway
-#&gt; 54                               Interaction
-#&gt; 55                Database:telomerasepathway
-#&gt; 56                                   Pathway
-#&gt; 57                               Interaction
-#&gt; 58                      Database:txa2pathway
-#&gt; 59                                   Pathway
-#&gt; 60                               Interaction
-#&gt; 61                 Database:upa_upar_pathway
-#&gt; 62                      PharmGKB:PA152325160
-#&gt; 63                      PharmGKB:PA154426903
-#&gt; 64                      PharmGKB:PA162356267
-#&gt; 65                      PharmGKB:PA165980050
-#&gt; 66                    Reactome:R-HSA-1227986
-#&gt; 67                    Reactome:R-HSA-1227990
-#&gt; 68                    Reactome:R-HSA-1236394
-#&gt; 69                    Reactome:R-HSA-1266738
-#&gt; 70                     Reactome:R-HSA-157118
-#&gt; 71                     Reactome:R-HSA-162582
-#&gt; 72                    Reactome:R-HSA-1643685
-#&gt; 73                    Reactome:R-HSA-1643713
-#&gt; 74                     Reactome:R-HSA-177929
-#&gt; 75                     Reactome:R-HSA-179812
-#&gt; 76                     Reactome:R-HSA-180292
-#&gt; 77                     Reactome:R-HSA-180336
-#&gt; 78                     Reactome:R-HSA-182971
-#&gt; 79                     Reactome:R-HSA-199991
-#&gt; 80                     Reactome:R-HSA-212436
-#&gt; 81                     Reactome:R-HSA-212718
-#&gt; 82                    Reactome:R-HSA-2179392
-#&gt; 83                     Reactome:R-HSA-372790
-#&gt; 84                     Reactome:R-HSA-373760
-#&gt; 85                     Reactome:R-HSA-388396
-#&gt; 86                     Reactome:R-HSA-416476
-#&gt; 87                     Reactome:R-HSA-422475
-#&gt; 88                     Reactome:R-HSA-445144
-#&gt; 89                    Reactome:R-HSA-5637810
-#&gt; 90                    Reactome:R-HSA-5637812
-#&gt; 91                    Reactome:R-HSA-5638302
-#&gt; 92                    Reactome:R-HSA-5638303
-#&gt; 93                    Reactome:R-HSA-5653656
-#&gt; 94                    Reactome:R-HSA-5663202
-#&gt; 95                      Reactome:R-HSA-73857
-#&gt; 96                      Reactome:R-HSA-74160
-#&gt; 97                     Reactome:R-HSA-881907
-#&gt; 98                    Reactome:R-HSA-8848021
-#&gt; 99                    Reactome:R-HSA-8856825
-#&gt; 100                   Reactome:R-HSA-8856828
-#&gt; 101                   Reactome:R-HSA-8857538
-#&gt; 102                   Reactome:R-HSA-8864260
-#&gt; 103                   Reactome:R-HSA-8866910
-#&gt; 104                   Reactome:R-HSA-8939211
-#&gt; 105                   Reactome:R-HSA-9006927
-#&gt; 106                   Reactome:R-HSA-9006931
-#&gt; 107                   Reactome:R-HSA-9006934
-#&gt; 108                   Reactome:R-HSA-9009391
-#&gt; 109                   Reactome:R-HSA-9012852
-#&gt; 110                   Reactome:R-HSA-9013507
-#&gt; 111                   Reactome:R-HSA-9634638
-#&gt; 112                   Reactome:R-HSA-9664565
-#&gt; 113                   Reactome:R-HSA-9665348
-#&gt; 114                   Reactome:R-HSA-9665686
-#&gt; 115                   Reactome:R-HSA-9675108
-#&gt; 116                      WikiPathways:WP1984
-#&gt; 117                      WikiPathways:WP2643
-#&gt; 118                      WikiPathways:WP2840
-#&gt; 119                      WikiPathways:WP5144
-#&gt; 120                      WikiPathways:WP5158
-#&gt; 121                      WikiPathways:WP5322</code></pre>
+#&gt;                                                            Text
+#&gt; 1                                           PathBank:SMP0000472
+#&gt; 2                                           PathBank:SMP0000473
+#&gt; 3                                           PathBank:SMP0000474
+#&gt; 4                                           PathBank:SMP0000475
+#&gt; 5                                           PathBank:SMP0000476
+#&gt; 6                                           PathBank:SMP0063810
+#&gt; 7                                           PathBank:SMP0063811
+#&gt; 8       Pathway Interaction Database:a6b1_a6b4_integrin_pathway
+#&gt; 9                  Pathway Interaction Database:ajdiss_2pathway
+#&gt; 10                    Pathway Interaction Database:arf6_pathway
+#&gt; 11  Pathway Interaction Database:ecadherin_keratinocyte_pathway
+#&gt; 12 Pathway Interaction Database:ecadherin_stabilization_pathway
+#&gt; 13        Pathway Interaction Database:erbb1_downstream_pathway
+#&gt; 14   Pathway Interaction Database:erbb1_internalization_pathway
+#&gt; 15            Pathway Interaction Database:erbb_network_pathway
+#&gt; 16                  Pathway Interaction Database:et_egfrpathway
+#&gt; 17        Pathway Interaction Database:lysophospholipid_pathway
+#&gt; 18            Pathway Interaction Database:p53downstreampathway
+#&gt; 19                    Pathway Interaction Database:ptp1bpathway
+#&gt; 20                    Pathway Interaction Database:shp2_pathway
+#&gt; 21              Pathway Interaction Database:syndecan_3_pathway
+#&gt; 22                   Pathway Interaction Database:tcptp_pathway
+#&gt; 23               Pathway Interaction Database:telomerasepathway
+#&gt; 24                     Pathway Interaction Database:txa2pathway
+#&gt; 25                Pathway Interaction Database:upa_upar_pathway
+#&gt; 26                                         PharmGKB:PA152325160
+#&gt; 27                                         PharmGKB:PA154426903
+#&gt; 28                                         PharmGKB:PA162356267
+#&gt; 29                                         PharmGKB:PA165980050
+#&gt; 30                                       Reactome:R-HSA-1227986
+#&gt; 31                                       Reactome:R-HSA-1227990
+#&gt; 32                                       Reactome:R-HSA-1236394
+#&gt; 33                                       Reactome:R-HSA-1266738
+#&gt; 34                                        Reactome:R-HSA-157118
+#&gt; 35                                        Reactome:R-HSA-162582
+#&gt; 36                                       Reactome:R-HSA-1643685
+#&gt; 37                                       Reactome:R-HSA-1643713
+#&gt; 38                                        Reactome:R-HSA-177929
+#&gt; 39                                        Reactome:R-HSA-179812
+#&gt; 40                                        Reactome:R-HSA-180292
+#&gt; 41                                        Reactome:R-HSA-180336
+#&gt; 42                                        Reactome:R-HSA-182971
+#&gt; 43                                        Reactome:R-HSA-199991
+#&gt; 44                                        Reactome:R-HSA-212436
+#&gt; 45                                        Reactome:R-HSA-212718
+#&gt; 46                                       Reactome:R-HSA-2179392
+#&gt; 47                                        Reactome:R-HSA-372790
+#&gt; 48                                        Reactome:R-HSA-373760
+#&gt; 49                                        Reactome:R-HSA-388396
+#&gt; 50                                        Reactome:R-HSA-416476
+#&gt; 51                                        Reactome:R-HSA-422475
+#&gt; 52                                        Reactome:R-HSA-445144
+#&gt; 53                                       Reactome:R-HSA-5637810
+#&gt; 54                                       Reactome:R-HSA-5637812
+#&gt; 55                                       Reactome:R-HSA-5638302
+#&gt; 56                                       Reactome:R-HSA-5638303
+#&gt; 57                                       Reactome:R-HSA-5653656
+#&gt; 58                                       Reactome:R-HSA-5663202
+#&gt; 59                                         Reactome:R-HSA-73857
+#&gt; 60                                         Reactome:R-HSA-74160
+#&gt; 61                                        Reactome:R-HSA-881907
+#&gt; 62                                       Reactome:R-HSA-8848021
+#&gt; 63                                       Reactome:R-HSA-8856825
+#&gt; 64                                       Reactome:R-HSA-8856828
+#&gt; 65                                       Reactome:R-HSA-8857538
+#&gt; 66                                       Reactome:R-HSA-8864260
+#&gt; 67                                       Reactome:R-HSA-8866910
+#&gt; 68                                       Reactome:R-HSA-8939211
+#&gt; 69                                       Reactome:R-HSA-9006927
+#&gt; 70                                       Reactome:R-HSA-9006931
+#&gt; 71                                       Reactome:R-HSA-9006934
+#&gt; 72                                       Reactome:R-HSA-9009391
+#&gt; 73                                       Reactome:R-HSA-9012852
+#&gt; 74                                       Reactome:R-HSA-9013507
+#&gt; 75                                       Reactome:R-HSA-9634638
+#&gt; 76                                       Reactome:R-HSA-9664565
+#&gt; 77                                       Reactome:R-HSA-9665348
+#&gt; 78                                       Reactome:R-HSA-9665686
+#&gt; 79                                       Reactome:R-HSA-9675108
+#&gt; 80                                          WikiPathways:WP1984
+#&gt; 81                                          WikiPathways:WP2643
+#&gt; 82                                          WikiPathways:WP2840
+#&gt; 83                                          WikiPathways:WP5144
+#&gt; 84                                          WikiPathways:WP5158
+#&gt; 85                                          WikiPathways:WP5322</code></pre>
 <p>These methods offer a comprehensive approach to accessing and
 analyzing protein-related data in PubChem, supporting a wide range of
 research applications in the fields of biochemistry, molecular biology,
@@ -18639,7 +18603,7 @@ result
 #&gt;  NOTE: Run getter function &#39;pubChemData(...)&#39; to extract raw data retrieved from PubChem Database. 
 #&gt;        See ?pubChemData for details.</code></pre>
 <pre class="r"><code>pubChemData(result)
-#&gt;          V1
+#&gt;        Text
 #&gt; 1       223
 #&gt; 2       311
 #&gt; 3       753
@@ -18689,7 +18653,7 @@ result
 #&gt;  NOTE: Run getter function &#39;pubChemData(...)&#39; to extract raw data retrieved from PubChem Database. 
 #&gt;        See ?pubChemData for details.</code></pre>
 <pre class="r"><code>pubChemData(result)
-#&gt;        V1
+#&gt;      Text
 #&gt; 1     226
 #&gt; 2     229
 #&gt; 3     230
@@ -18763,7 +18727,7 @@ result
 #&gt;  NOTE: Run getter function &#39;pubChemData(...)&#39; to extract raw data retrieved from PubChem Database. 
 #&gt;        See ?pubChemData for details.</code></pre>
 <pre class="r"><code>pubChemData(result)
-#&gt;          V1
+#&gt;        Text
 #&gt; 1    A6NDG6
 #&gt; 2    A6NNW6
 #&gt; 3    O14556
@@ -19071,7 +19035,7 @@ result
 #&gt;  NOTE: Run getter function &#39;pubChemData(...)&#39; to extract raw data retrieved from PubChem Database. 
 #&gt;        See ?pubChemData for details.</code></pre>
 <pre class="r"><code>pubChemData(result) 
-#&gt;          V1
+#&gt;        Text
 #&gt; 1   1409578
 #&gt; 2   1409579
 #&gt; 3   1409582
@@ -20100,7 +20064,7 @@ result
 #&gt;  NOTE: Run getter function &#39;pubChemData(...)&#39; to extract raw data retrieved from PubChem Database. 
 #&gt;        See ?pubChemData for details.</code></pre>
 <pre class="r"><code>pubChemData(result)
-#&gt;            V1
+#&gt;          Text
 #&gt; 1        1259
 #&gt; 2        1302
 #&gt; 3        1374

@@ -102,7 +102,7 @@ result
 pubChemData(result)
 
 ## -----------------------------------------------------------------------------
-result <- get_pug_rest(identifier = "5793", namespace = "cid", domain = "compound", operation = "cids", output = "TXT", searchtype = "fastidentity", options = list("identity_type = same_connectivity"))
+result <- get_pug_rest(identifier = "5793", namespace = "cid", domain = "compound", operation = "cids", output = "TXT", searchtype = "fastidentity", options = list(identity_type = "same_connectivity"))
 result
 
 ## -----------------------------------------------------------------------------

@@ -11,7 +11,7 @@
 
 <meta name="author" content="Selcuk Korkmaz, Bilge Eren Yamasan, Dincer Goksuluk" />
 
-<meta name="date" content="2024-09-27" />
+<meta name="date" content="2024-10-01" />
 
 <title>Working with PubChemR to Access Chemical Data</title>
 
@@ -1483,7 +1483,7 @@ border-radius: 0px;
 Data</h1>
 <h4 class="author">Selcuk Korkmaz, Bilge Eren Yamasan, Dincer
 Goksuluk</h4>
-<h4 class="date">2024-09-27</h4>
+<h4 class="date">2024-10-01</h4>
 
 </div>
 
@@ -1846,7 +1846,16 @@ molecular formula C15H12N2O2:</p>
   domain = &quot;compound&quot;
 )
 
-aids_by_formula</code></pre>
+aids_by_formula
+#&gt; 
+#&gt;  Assay IDs (AIDs) from PubChem Database
+#&gt; 
+#&gt;  Request Details:  
+#&gt;   - Domain: Compound
+#&gt;   - Namespace: Formula
+#&gt;   - Identifier: C15H12N2O2
+#&gt; 
+#&gt;  NOTE: run AIDs(...) to extract Assays ID data. See ?AIDs for help.</code></pre>
 <p>The above code retrieves Assay IDs for compounds with the molecular
 formula C15H12N2O2. The output shows the request details including the
 domain (Compound), namespace (Formula), and identifier (C15H12N2O2).
@@ -1855,7 +1864,21 @@ This provides a summary of the query performed.</p>
 AIDs function on the result. This getter function returns the results
 either as a tibble (data frame) or as a list, depending on the
 .to.data.frame argument.</p>
-<pre class="r"><code>AIDs(object = aids_by_formula, .to.data.frame = TRUE)</code></pre>
+<pre class="r"><code>AIDs(object = aids_by_formula, .to.data.frame = TRUE)
+#&gt; # A tibble: 50,172 × 3
+#&gt;    FORMULA      CID     AID
+#&gt;    &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt;
+#&gt;  1 C15H12N2O2  1775  625220
+#&gt;  2 C15H12N2O2  1775 1094227
+#&gt;  3 C15H12N2O2  1775 1149315
+#&gt;  4 C15H12N2O2  1775  255686
+#&gt;  5 C15H12N2O2  1775  504845
+#&gt;  6 C15H12N2O2  1775    2313
+#&gt;  7 C15H12N2O2  1775 1096248
+#&gt;  8 C15H12N2O2  1775  136087
+#&gt;  9 C15H12N2O2  1775 1731409
+#&gt; 10 C15H12N2O2  1775  683946
+#&gt; # ℹ 50,162 more rows</code></pre>
 <p>The output is a tibble (data frame) with three columns: FORMULA, CID,
 and AID. The FORMULA column contains the molecular formula (C15H12N2O2),
 the CID column contains the compound ID, and the AID column contains the
@@ -2015,7 +2038,16 @@ the molecular formula C15H12N2O2:</p>
   domain = &quot;compound&quot;
 )
 
-cids_by_formula</code></pre>
+cids_by_formula
+#&gt; 
+#&gt;  Compound IDs (CIDs) from PubChem Database
+#&gt; 
+#&gt;  Request Details:  
+#&gt;   - Domain: Compound
+#&gt;   - Namespace: Formula
+#&gt;   - Identifier: C15H12N2O2
+#&gt; 
+#&gt;  NOTE: run CIDs(...) to extract Compound ID data. See ?CIDs for help.</code></pre>
 <p>The above code retrieves Compound IDs for compounds with the
 molecular formula C15H12N2O2. The output shows the request details
 including the domain (Compound), namespace (Formula), and identifier
@@ -2024,7 +2056,21 @@ including the domain (Compound), namespace (Formula), and identifier
 CIDs function on the result. This getter function returns the results
 either as a tibble (data frame) or as a list, depending on the
 .to.data.frame argument.</p>
-<pre class="r"><code>CIDs(object = cids_by_formula, .to.data.frame = TRUE)</code></pre>
+<pre class="r"><code>CIDs(object = cids_by_formula, .to.data.frame = TRUE)
+#&gt; # A tibble: 5,039 × 2
+#&gt;    Formula          CID
+#&gt;    &lt;chr&gt;          &lt;dbl&gt;
+#&gt;  1 C15H12N2O2      1775
+#&gt;  2 C15H12N2O2     34312
+#&gt;  3 C15H12N2O2      2555
+#&gt;  4 C15H12N2O2     14650
+#&gt;  5 C15H12N2O2    129274
+#&gt;  6 C15H12N2O2    135290
+#&gt;  7 C15H12N2O2    928446
+#&gt;  8 C15H12N2O2     70052
+#&gt;  9 C15H12N2O2 135430309
+#&gt; 10 C15H12N2O2  25113764
+#&gt; # ℹ 5,029 more rows</code></pre>
 <p>The output is a tibble (data frame) with two columns: Formula and
 CID. The Formula column contains the molecular formula (C15H12N2O2), and
 the CID column contains the Compound IDs. This tibble format makes it
@@ -2089,7 +2135,7 @@ results either as a tibble (data frame) or as a list, depending on the
 .to.data.frame argument.</p>
 <pre class="r"><code>sids &lt;- SIDs(object = sids_by_cid, .to.data.frame = TRUE)
 sids
-#&gt; # A tibble: 1,293 × 2
+#&gt; # A tibble: 1,294 × 2
 #&gt;      CID     SID
 #&gt;    &lt;dbl&gt;   &lt;dbl&gt;
 #&gt;  1  2244    4594
@@ -2102,7 +2148,7 @@ sids
 #&gt;  8  2244 3135921
 #&gt;  9  2244 5261264
 #&gt; 10  2244 7847177
-#&gt; # ℹ 1,283 more rows</code></pre>
+#&gt; # ℹ 1,284 more rows</code></pre>
 <p>The output is a tibble (data frame) with two columns: Compound ID and
 SID. The Compound ID column contains the compound IDs, and the SID
 column contains the Substance IDs.</p>
@@ -2649,7 +2695,7 @@ complete list and view all requested instance identifiers.</p>
 #&gt; [1] &quot;compound&quot;
 #&gt; 
 #&gt; $operation
-#&gt; [1] &quot;description&quot;
+#&gt; NULL
 #&gt; 
 #&gt; $options
 #&gt; NULL
@@ -4160,9 +4206,9 @@ Defaults to a combination of the identifier and a timestamp.</li>
   file_name = &quot;aspirin_structure&quot;
 )
 #&gt; &#39;path&#39; is not specified. Saving files into a temporary folder.
-#&gt;   SDF file to save --&gt; &#39;aspirin_structure.sdf&#39;
-#&gt;   Saved into folder --&gt; /var/folders/dr/pwksczrd3gg7sxbphrjs5twh0000gn/T//RtmpCP1gdF
-#&gt;   Completed options</code></pre>
+#&gt; SDF file saved successfully:
+#&gt;   File Name: &#39;aspirin_structure.sdf&#39;
+#&gt;   Saved at: /var/folders/dr/pwksczrd3gg7sxbphrjs5twh0000gn/T//RtmpiMj9IL</code></pre>
 <p>The above code retrieves the SDF data for the compound “aspirin”
 using its name as the identifier. The namespace is set to “name” to
 indicate that the identifier is a chemical name. The path is set to
@@ -4223,7 +4269,7 @@ exists. The default is FALSE.</li>
   domain = &quot;compound&quot;,
   overwrite = TRUE
 )
-#&gt; The file has been saved to &#39;/var/folders/dr/pwksczrd3gg7sxbphrjs5twh0000gn/T//RtmpCP1gdF/Aspirin.JSON&#39;</code></pre>
+#&gt; The file has been saved to &#39;/var/folders/dr/pwksczrd3gg7sxbphrjs5twh0000gn/T//RtmpiMj9IL/Aspirin.JSON&#39;</code></pre>
 <p>The above code downloads the JSON file for the compound
 <em>aspirin</em> using its name as the identifier. The namespace is set
 to “name” to indicate that the identifier is a chemical name. The path

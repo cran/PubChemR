@@ -53,13 +53,13 @@ test_that(".which is ignored when '.combine.all = TRUE'", {
 })
 
 
-# test_that("pulling compounds via an unknown 'namespace'", {
-#   tmp <- get_compounds(
-#     identifier = c("2244", "1234"),
-#     namespace = "taxonomy"
-#   )
-#   expect_false(allSuccess(tmp))
-# })
+test_that("pulling compounds via an unknown 'namespace'", {
+  tmp <- get_compounds(
+    identifier = c("2244", "1234"),
+    namespace = "taxonomy"
+  )
+  expect_false(allSuccess(tmp))
+})
 
 test_that("get_properties() returns an object of class 'PubChemInstanceList'", {
   expect_true("PubChemInstanceList" %in% class(props))

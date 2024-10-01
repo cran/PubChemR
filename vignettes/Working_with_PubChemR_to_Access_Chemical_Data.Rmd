@@ -247,7 +247,7 @@ The output is a tibble (data frame) with three columns: INCHIKEY, CID, and AID. 
 
 In this example, we retrieve Assay IDs for compounds with the molecular formula C15H12N2O2:
 
-```{r get_aids_by_formula, eval=FALSE}
+```{r get_aids_by_formula}
 aids_by_formula <- get_aids(
   identifier = "C15H12N2O2",
   namespace = "formula",
@@ -260,7 +260,7 @@ The above code retrieves Assay IDs for compounds with the molecular formula C15H
 
 To retrieve the Assay IDs associated with this formula, we use the AIDs function on the result. This getter function returns the results either as a tibble (data frame) or as a list, depending on the .to.data.frame argument.
 
-```{r AIDs_getter_formula, eval=FALSE}
+```{r AIDs_getter_formula}
 AIDs(object = aids_by_formula, .to.data.frame = TRUE)
 ```
 The output is a tibble (data frame) with three columns: FORMULA, CID, and AID. The FORMULA column contains the molecular formula (C15H12N2O2), the CID column contains the compound ID, and the AID column contains the Assay IDs. This tibble format makes it easy to analyze and manipulate the data in R. There are 50,116 rows in total, indicating a comprehensive list of assays related to compounds with the specified molecular formula.
@@ -353,7 +353,7 @@ The `CIDs` function call on the result extracts the CIDs associated with the InC
 #### Retrieving CIDs by Formula
 In this example, we retrieve Compound IDs (CIDs) for compounds with the molecular formula C15H12N2O2:
 
-```{r get_cids_by_formula, eval=FALSE}
+```{r get_cids_by_formula}
 cids_by_formula <- get_cids(
   identifier = "C15H12N2O2",
   namespace = "formula",
@@ -367,7 +367,7 @@ The above code retrieves Compound IDs for compounds with the molecular formula C
 
 To retrieve the Compound IDs associated with this formula, we use the CIDs function on the result. This getter function returns the results either as a tibble (data frame) or as a list, depending on the .to.data.frame argument.
 
-```{r CIDs_getter_formula, eval=FALSE}
+```{r CIDs_getter_formula}
 CIDs(object = cids_by_formula, .to.data.frame = TRUE)
 ```
 
