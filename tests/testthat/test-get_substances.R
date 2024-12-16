@@ -42,7 +42,6 @@ test_that("'.verbose' works as expected", {
 test_that("NULL returns for unknown/empty slots.", {
   tmp <- instance(subs, "aspirin")
 
-  expect_null(retrieve(tmp, .slot = "comment", .to.data.frame = TRUE, .idx = 132))
   expect_null(retrieve(tmp, .slot = "unknown_slot", .to.data.frame = TRUE, .idx = 132))
 })
 

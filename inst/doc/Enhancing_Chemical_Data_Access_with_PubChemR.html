@@ -11,7 +11,7 @@
 
 <meta name="author" content="Selcuk Korkmaz, Bilge Eren Yamasan, Dincer Goksuluk" />
 
-<meta name="date" content="2024-10-01" />
+<meta name="date" content="2024-12-17" />
 
 <title>Enhancing Chemical Data Access with PubChemR: A Guide to Utilizing PUG View Service</title>
 
@@ -1483,7 +1483,7 @@ border-radius: 0px;
 PubChemR: A Guide to Utilizing PUG View Service</h1>
 <h4 class="author">Selcuk Korkmaz, Bilge Eren Yamasan, Dincer
 Goksuluk</h4>
-<h4 class="date">2024-10-01</h4>
+<h4 class="date">2024-12-17</h4>
 
 </div>
 
@@ -1556,7 +1556,7 @@ compound data.</p>
 #&gt;   - RecordNumber (1): [&lt;unnamed numeric&gt;] 
 #&gt;   - RecordTitle (1): [&lt;unnamed character&gt;] 
 #&gt;   - Section (14): [&lt;unnamed list&gt;] Structures, Names and Identifiers, ... and 12 more.
-#&gt;   - Reference (47): [&lt;unnamed list&gt;] 
+#&gt;   - Reference (50): [&lt;unnamed list&gt;] 
 #&gt; 
 #&gt;  NOTE: Run getter function &#39;retrieve()&#39; with element name above to extract data from corresponding list. 
 #&gt;        See ?retrieve for details.</code></pre>
@@ -1675,7 +1675,7 @@ overview of the types of structures included.</p>
 #&gt; [[1]]$Information
 #&gt; [[1]]$Information[[1]]
 #&gt; [[1]]$Information[[1]]$ReferenceNumber
-#&gt; [1] 33
+#&gt; [1] 35
 #&gt; 
 #&gt; [[1]]$Information[[1]]$Value
 #&gt; [[1]]$Information[[1]]$Value$Boolean
@@ -1702,7 +1702,7 @@ overview of the types of structures included.</p>
 #&gt; [[2]]$Information
 #&gt; [[2]]$Information[[1]]
 #&gt; [[2]]$Information[[1]]$ReferenceNumber
-#&gt; [1] 33
+#&gt; [1] 35
 #&gt; 
 #&gt; [[2]]$Information[[1]]$Description
 #&gt; [1] &quot;Gallopamil&quot;
@@ -1841,7 +1841,7 @@ related to the LogP property.</p>
 <pre class="r"><code>retrieve(object = s1_s1_s10, .slot = &quot;Information&quot;, .to.data.frame = FALSE)
 #&gt; [[1]]
 #&gt; [[1]]$ReferenceNumber
-#&gt; [1] 32
+#&gt; [1] 35
 #&gt; 
 #&gt; [[1]]$Reference
 #&gt; [1] &quot;https://www.fip.org/files/fip/BPS/BCS/Monographs/AcetylsalicylicAcid.pdf&quot;
@@ -1854,7 +1854,7 @@ related to the LogP property.</p>
 #&gt; 
 #&gt; [[2]]
 #&gt; [[2]]$ReferenceNumber
-#&gt; [1] 56
+#&gt; [1] 59
 #&gt; 
 #&gt; [[2]]$Description
 #&gt; [1] &quot;PEER REVIEWED&quot;
@@ -1873,7 +1873,7 @@ related to the LogP property.</p>
 #&gt; 
 #&gt; [[3]]
 #&gt; [[3]]$ReferenceNumber
-#&gt; [1] 57
+#&gt; [1] 60
 #&gt; 
 #&gt; [[3]]$Reference
 #&gt; [1] &quot;HANSCH,C ET AL. (1995)&quot;
@@ -1889,7 +1889,7 @@ related to the LogP property.</p>
 #&gt; 
 #&gt; [[4]]
 #&gt; [[4]]$ReferenceNumber
-#&gt; [1] 74
+#&gt; [1] 77
 #&gt; 
 #&gt; [[4]]$Name
 #&gt; [1] &quot;&quot;
@@ -2068,7 +2068,7 @@ the following details:</p>
 #&gt;   - RecordTitle (1): [&lt;unnamed character&gt;] 
 #&gt;   - RecordExternalURL (1): [&lt;unnamed character&gt;] 
 #&gt;   - Section (13): [&lt;unnamed list&gt;] Record Description, Gene Information, ... and 11 more.
-#&gt;   - Reference (20): [&lt;unnamed list&gt;] 
+#&gt;   - Reference (22): [&lt;unnamed list&gt;] 
 #&gt; 
 #&gt;  NOTE: Run getter function &#39;retrieve()&#39; with element name above to extract data from corresponding list. 
 #&gt;        See ?retrieve for details.</code></pre>
@@ -2126,7 +2126,7 @@ object, result, contains the following details:</p>
 #&gt;   - Identifier: Viscosity
 #&gt; 
 #&gt;  Pug View Details: 
-#&gt;   - Annotation (810): [&lt;unnamed list&gt;] 
+#&gt;   - Annotation (820): [&lt;unnamed list&gt;] 
 #&gt;   - Page (1): [&lt;unnamed numeric&gt;] 
 #&gt;   - TotalPages (1): [&lt;unnamed numeric&gt;] 
 #&gt; 
@@ -6316,6 +6316,7 @@ function parameters specify that we are looking for “literature” in the
 #&gt;   - RecordType (1): [&lt;unnamed character&gt;] 
 #&gt;   - RecordNumber (1): [&lt;unnamed numeric&gt;] 
 #&gt;   - AllURL (1): [&lt;unnamed character&gt;] 
+#&gt;   - Subheadings (15): [&lt;unnamed list&gt;] 
 #&gt; 
 #&gt;  NOTE: Run getter function &#39;retrieve()&#39; with element name above to extract data from corresponding list. 
 #&gt;        See ?retrieve for details.</code></pre>
@@ -6323,7 +6324,7 @@ function parameters specify that we are looking for “literature” in the
 URLs to the relevant literature. The following code retrieves the
 detailed information about the literature from the result object:</p>
 <pre class="r"><code>retrieve(object = result, .slot = &quot;AllURL&quot;, .to.data.frame = FALSE)
-#&gt; [1] &quot;https://www.ncbi.nlm.nih.gov/sites/entrez?cmd=search&amp;db=pubmed&amp;term=%22Gallopamil%22[NM]&quot;</code></pre>
+#&gt; [1] &quot;https://www.ncbi.nlm.nih.gov/sites/entrez?cmd=search&amp;db=pubmed&amp;term=%22Gallopamil%22[Mesh%20Terms%3anoexp]&quot;</code></pre>
 <p>This URL directs to PubMed and shows the literature related to the
 compound “Gallopamil” identified by the CID “1234”.</p>
 </div>

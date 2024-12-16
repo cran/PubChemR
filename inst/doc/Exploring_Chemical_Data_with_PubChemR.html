@@ -11,7 +11,7 @@
 
 <meta name="author" content="Selcuk Korkmaz, Bilge Eren Korkmaz, Dincer Goksuluk" />
 
-<meta name="date" content="2024-10-01" />
+<meta name="date" content="2024-12-17" />
 
 <title>Accessing and Exploring Chemical Data with PubChemR: A Guide to PUG REST Service</title>
 
@@ -1483,7 +1483,7 @@ border-radius: 0px;
 PubChemR: A Guide to PUG REST Service</h1>
 <h4 class="author">Selcuk Korkmaz, Bilge Eren Korkmaz, Dincer
 Goksuluk</h4>
-<h4 class="date">2024-10-01</h4>
+<h4 class="date">2024-12-17</h4>
 
 </div>
 
@@ -2499,7 +2499,10 @@ criteria.</p>
 #&gt; 336 169440997
 #&gt; 337 169493886
 #&gt; 338 169493887
-#&gt; 339 169494552</code></pre>
+#&gt; 339 169494552
+#&gt; 340 172182394
+#&gt; 341 172402795
+#&gt; 342 172406756</code></pre>
 <p>The output indicates that there are numerous compounds with similar
 connectivity to the compound identified by CID 5793. Each row in the
 output represents a different CID that shares the same connectivity
@@ -5238,21 +5241,19 @@ result
 #&gt; 61 1680000
 #&gt; 62 1692429
 #&gt; 63 1794863
-#&gt; 64 1802686
-#&gt; 65 1802687
-#&gt; 66 1857650
-#&gt; 67 1881105
-#&gt; 68 1897518
-#&gt; 69 1925871
-#&gt; 70 1930792
-#&gt; 71 1930821
-#&gt; 72 1930826
-#&gt; 73 1930827
-#&gt; 74 1947415
-#&gt; 75 1947418
-#&gt; 76 1947449
-#&gt; 77 1947457
-#&gt; 78 1947524</code></pre>
+#&gt; 64 1857650
+#&gt; 65 1881105
+#&gt; 66 1897518
+#&gt; 67 1925871
+#&gt; 68 1930792
+#&gt; 69 1930821
+#&gt; 70 1930826
+#&gt; 71 1930827
+#&gt; 72 1947415
+#&gt; 73 1947418
+#&gt; 74 1947449
+#&gt; 75 1947457
+#&gt; 76 1947524</code></pre>
 <p><strong>4. Activity Name:</strong> To select BioAssays by the name of
 the primary activity column:</p>
 <pre class="r"><code>result &lt;- get_pug_rest(identifier = &quot;EC50&quot;, namespace = &quot;activity&quot;, domain = &quot;assay&quot;, operation = &quot;aids&quot;, output = &quot;JSON&quot;)
@@ -9597,7 +9598,8 @@ result
 #&gt; [38908] 1963354 1963370 1963383 1963386 1963395 1963396 1963398 1963401 1963402
 #&gt; [38917] 1963405 1963407 1963408 1963409 1963459 1963461 1963462 1963463 1963464
 #&gt; [38926] 1963468 1963471 1963473 1963474 1963475 1963480 1963506 1963528 1963534
-#&gt; [38935] 1963539 1963599 1963623</code></pre>
+#&gt; [38935] 1963539 1963599 1963623 1963638 1963675 1963722 1963759 1963762 1964014
+#&gt; [38944] 1964015 1964043 1964070 1964083 1964093</code></pre>
 <p>These examples demonstrate the flexibility of PUG REST in accessing
 specific BioAssay data. Users can efficiently retrieve detailed
 descriptions, comprehensive data sets, concise readouts, and target
@@ -9686,7 +9688,7 @@ result
 #&gt; [1] &quot;Mus musculus (house mouse)&quot;
 #&gt; 
 #&gt; $GeneSummaries$GeneSummary[[2]]$Description
-#&gt; [1] &quot;&quot;
+#&gt; [1] &quot;Enables epidermal growth factor binding activity and epidermal growth factor receptor activity. Involved in several processes, including ERBB2-EGFR signaling pathway; negative regulation of epidermal growth factor receptor signaling pathway; and positive regulation of fibroblast proliferation. Acts upstream of or within several processes, including eyelid development in camera-type eye; hair follicle development; and protein autophosphorylation. Located in several cellular components, including basolateral plasma membrane; endocytic vesicle; and perinuclear region of cytoplasm. Is active in plasma membrane. Is expressed in several structures, including alimentary system; brain; integumental system; limb; and sensory organ. Used to study Coronavirus infectious disease and aortic valve disease. Human ortholog(s) of this gene implicated in several diseases, including colorectal cancer; lung cancer (multiple); pancreatic cancer; prostate cancer; and pulmonary tuberculosis. Orthologous to human EGFR (epidermal growth factor receptor). [provided by Alliance of Genome Resources, Nov 2024]&quot;
 #&gt; 
 #&gt; $GeneSummaries$GeneSummary[[2]]$Synonym
 #&gt; [1] &quot;9030024J15Rik&quot;                                                 
@@ -9830,7 +9832,7 @@ result
 #&gt; [1] &quot;Rattus norvegicus (Norway rat)&quot;
 #&gt; 
 #&gt; $GeneSummaries$GeneSummary[[2]]$Description
-#&gt; [1] &quot;promotes cell proliferation and differentiation; mediates GPCR regulated induction of protein synthesis [RGD, Feb 2006]&quot;
+#&gt; [1] &quot;Enables several functions, including calmodulin binding activity; enzyme binding activity; and epidermal growth factor binding activity. Involved in several processes, including blood vessel diameter maintenance; positive regulation of cell communication; and protein phosphorylation. Located in several cellular components, including apical plasma membrane; basolateral plasma membrane; and cytoplasmic vesicle. Is active in glutamatergic synapse and synaptic membrane. Used to study bronchiolo-alveolar adenocarcinoma; dilated cardiomyopathy; and high grade glioma. Biomarker of several diseases, including Parkinsonism; acute kidney failure; lung disease (multiple); median neuropathy; and peptic esophagitis. Human ortholog(s) of this gene implicated in several diseases, including colorectal cancer; lung cancer (multiple); pancreatic cancer; prostate cancer; and pulmonary tuberculosis. Orthologous to human EGFR (epidermal growth factor receptor). [provided by Alliance of Genome Resources, Nov 2024]&quot;
 #&gt; 
 #&gt; $GeneSummaries$GeneSummary[[2]]$Synonym
 #&gt; [1] &quot;ERBB1&quot;                                                                                                           
@@ -9859,7 +9861,7 @@ result
 #&gt; [1] &quot;Xenopus laevis (African clawed frog)&quot;
 #&gt; 
 #&gt; $GeneSummaries$GeneSummary[[3]]$Description
-#&gt; [1] &quot;&quot;
+#&gt; [1] &quot;Predicted to enable ATP binding activity; epidermal growth factor binding activity; and epidermal growth factor receptor activity. Predicted to act upstream of or within several processes, including ERBB signaling pathway; positive regulation of kinase activity; and protein phosphorylation. Predicted to be located in basal plasma membrane. Predicted to be part of receptor complex. Is expressed in musculoskeletal system; nervous system; pharyngeal arch; and primary germ layer. Human ortholog(s) of this gene implicated in several diseases, including colorectal cancer; lung cancer (multiple); pancreatic cancer; prostate cancer; and pulmonary tuberculosis. Orthologous to human EGFR (epidermal growth factor receptor). [provided by Alliance of Genome Resources, Nov 2024]&quot;
 #&gt; 
 #&gt; $GeneSummaries$GeneSummary[[3]]$Synonym
 #&gt; [1] &quot;XEgfr&quot;                            &quot;egfr&quot;                            
@@ -9884,7 +9886,7 @@ result
 #&gt; [1] &quot;Xenopus tropicalis (tropical clawed frog)&quot;
 #&gt; 
 #&gt; $GeneSummaries$GeneSummary[[4]]$Description
-#&gt; [1] &quot;&quot;
+#&gt; [1] &quot;Predicted to enable ATP binding activity and transmembrane receptor protein tyrosine kinase activity. Predicted to act upstream of or within several processes, including ERBB signaling pathway; protein phosphorylation; and regulation of cell population proliferation. Predicted to be located in membrane. Human ortholog(s) of this gene implicated in several diseases, including colorectal cancer; lung cancer (multiple); pancreatic cancer; prostate cancer; and pulmonary tuberculosis. Orthologous to human EGFR (epidermal growth factor receptor). [provided by Alliance of Genome Resources, Nov 2024]&quot;
 #&gt; 
 #&gt; $GeneSummaries$GeneSummary[[4]]$Synonym
 #&gt; [1] &quot;XEgfr&quot; &quot;erbb&quot;  &quot;erbb1&quot; &quot;her1&quot; 
@@ -9907,7 +9909,7 @@ result
 #&gt; [1] &quot;Danio rerio (zebrafish)&quot;
 #&gt; 
 #&gt; $GeneSummaries$GeneSummary[[5]]$Description
-#&gt; [1] &quot;&quot;
+#&gt; [1] &quot;Is expressed in liver. Human ortholog(s) of this gene implicated in several diseases, including colorectal cancer; lung cancer (multiple); pancreatic cancer; prostate cancer; and pulmonary tuberculosis. Orthologous to human EGFR (epidermal growth factor receptor). [provided by Alliance of Genome Resources, Nov 2024]&quot;
 #&gt; 
 #&gt; $GeneSummaries$GeneSummary[[5]]$Synonym
 #&gt; [1] &quot;erbb1&quot;  &quot;erbb1b&quot;
@@ -9930,7 +9932,7 @@ result
 #&gt; [1] &quot;Xenopus laevis (African clawed frog)&quot;
 #&gt; 
 #&gt; $GeneSummaries$GeneSummary[[6]]$Description
-#&gt; [1] &quot;&quot;
+#&gt; [1] &quot;Predicted to enable ATP binding activity; epidermal growth factor binding activity; and epidermal growth factor receptor activity. Predicted to act upstream of or within several processes, including ERBB signaling pathway; positive regulation of kinase activity; and protein phosphorylation. Predicted to be located in basal plasma membrane. Predicted to be part of receptor complex. Human ortholog(s) of this gene implicated in several diseases, including colorectal cancer; lung cancer (multiple); pancreatic cancer; prostate cancer; and pulmonary tuberculosis. Orthologous to human EGFR (epidermal growth factor receptor). [provided by Alliance of Genome Resources, Nov 2024]&quot;
 #&gt; 
 #&gt; $GeneSummaries$GeneSummary[[6]]$Synonym
 #&gt; [1] &quot;XEgfr&quot;                            &quot;erbb&quot;                            
@@ -10012,7 +10014,7 @@ result
 #&gt; [1] &quot;Mus musculus (house mouse)&quot;
 #&gt; 
 #&gt; $GeneSummaries$GeneSummary[[2]]$Description
-#&gt; [1] &quot;&quot;
+#&gt; [1] &quot;Enables epidermal growth factor binding activity and epidermal growth factor receptor activity. Involved in several processes, including ERBB2-EGFR signaling pathway; negative regulation of epidermal growth factor receptor signaling pathway; and positive regulation of fibroblast proliferation. Acts upstream of or within several processes, including eyelid development in camera-type eye; hair follicle development; and protein autophosphorylation. Located in several cellular components, including basolateral plasma membrane; endocytic vesicle; and perinuclear region of cytoplasm. Is active in plasma membrane. Is expressed in several structures, including alimentary system; brain; integumental system; limb; and sensory organ. Used to study Coronavirus infectious disease and aortic valve disease. Human ortholog(s) of this gene implicated in several diseases, including colorectal cancer; lung cancer (multiple); pancreatic cancer; prostate cancer; and pulmonary tuberculosis. Orthologous to human EGFR (epidermal growth factor receptor). [provided by Alliance of Genome Resources, Nov 2024]&quot;
 #&gt; 
 #&gt; $GeneSummaries$GeneSummary[[2]]$Synonym
 #&gt; [1] &quot;9030024J15Rik&quot;                                                 
@@ -16831,7 +16833,12 @@ result
 #&gt; 4857 1962577
 #&gt; 4858 1963350
 #&gt; 4859 1963351
-#&gt; 4860 1963502</code></pre>
+#&gt; 4860 1963502
+#&gt; 4861 1963689
+#&gt; 4862 1963758
+#&gt; 4863 1963793
+#&gt; 4864 1963795
+#&gt; 4865 1963935</code></pre>
 <p><strong>Bioactivities from Protein:</strong> Returns concise
 bioactivity data for a specific protein. For example:</p>
 <pre class="r"><code>result &lt;- get_pug_rest(identifier = &quot;Q01279&quot;, namespace = &quot;accession&quot;, domain = &quot;protein&quot;, operation = &quot;concise&quot;, output = &quot;JSON&quot;)
@@ -18605,36 +18612,36 @@ result
 <pre class="r"><code>pubChemData(result)
 #&gt;        Text
 #&gt; 1       223
-#&gt; 2       311
-#&gt; 3       753
-#&gt; 4       813
-#&gt; 5       888
-#&gt; 6       962
-#&gt; 7      1038
+#&gt; 2       753
+#&gt; 3       813
+#&gt; 4       888
+#&gt; 5       962
+#&gt; 6      1038
+#&gt; 7     31348
 #&gt; 8     65246
 #&gt; 9     79025
 #&gt; 10    82400
 #&gt; 11   105021
 #&gt; 12   107735
 #&gt; 13   152306
-#&gt; 14   439217
-#&gt; 15  3674425
-#&gt; 16  3681305
-#&gt; 17  4643300
-#&gt; 18  5460765
-#&gt; 19  5461108
-#&gt; 20  7058055
-#&gt; 21  7059571
-#&gt; 22  9548671
-#&gt; 23 15938965
-#&gt; 24 15938971
-#&gt; 25 21604863
-#&gt; 26 21604864
-#&gt; 27 21604869
-#&gt; 28 24794350
-#&gt; 29 25245548
-#&gt; 30 40467846
-#&gt; 31 45266541
+#&gt; 14  3674425
+#&gt; 15  3681305
+#&gt; 16  4643300
+#&gt; 17  5460765
+#&gt; 18  5461108
+#&gt; 19  7058055
+#&gt; 20  7059571
+#&gt; 21  9548671
+#&gt; 22 15938965
+#&gt; 23 15938971
+#&gt; 24 21604864
+#&gt; 25 21604869
+#&gt; 26 23421195
+#&gt; 27 24794350
+#&gt; 28 25245548
+#&gt; 29 40467846
+#&gt; 30 45266541
+#&gt; 31 45266742
 #&gt; 32 46878409</code></pre>
 <p><strong>Genes from Pathway:</strong> Provides a list of genes
 involved in a specific pathway. For example, for the Reactome pathway

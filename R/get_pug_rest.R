@@ -193,6 +193,11 @@ get_pug_rest <- function(identifier = NULL, namespace = 'cid', domain = 'compoun
     return(list(size = size, unit = unit))
   }
 
+  # Load required packages
+  if (!requireNamespace("httr", quietly = TRUE)) {
+    stop("The 'httr' package is required. Please install it using install.packages('httr').")
+  }
+
   # Validate output parameter before any use
   if (is.null(output)) {
     return(createPugRestObject(
@@ -206,6 +211,13 @@ get_pug_rest <- function(identifier = NULL, namespace = 'cid', domain = 'compoun
     ))
   } else {
     output <- toupper(output)
+  }
+
+  # Load 'png' package if needed
+  if (output == "PNG") {
+    if (!requireNamespace("png", quietly = TRUE)) {
+      stop("The 'png' package is required for handling PNG outputs. Please install it using install.packages('png').")
+    }
   }
 
   # Validate identifier
@@ -267,7 +279,7 @@ get_pug_rest <- function(identifier = NULL, namespace = 'cid', domain = 'compoun
   base_url <- "https://pubchem.ncbi.nlm.nih.gov/rest/pug"
   apiurl <- paste(base_url, domain, sep = "/")
 
-  # Add searchtype, identifier, operation, and property to URL as needed
+  # Add searchtype, namespace, identifier, operation, and property to URL as needed
   if (!is.null(searchtype)) {
     apiurl <- paste(apiurl, searchtype, sep = "/")
   }
@@ -296,18 +308,10 @@ get_pug_rest <- function(identifier = NULL, namespace = 'cid', domain = 'compoun
 
   # Add options as query parameters
   if (!is.null(options)) {
-    options_query <- if (namespace == "inchi") {
-      paste0("?", paste("inchi=", curlEscape(unlist(options)), collapse = "&"))
-    } else {
-      # Ensure proper encoding of query parameters
-      query_params <- paste(names(options), unlist(options), sep = "=", collapse = "&")
-      options_query <- paste0("?", query_params)
-    }
+    query_params <- paste(names(options), unlist(options), sep = "=", collapse = "&")
+    options_query <- paste0("?", query_params)
     apiurl <- paste0(apiurl, options_query)
   }
-
-  # Print the constructed URL for debugging purposes
-  # cat("Constructed URL:", apiurl, "\n")
 
   # Perform the HTTP GET request within a tryCatch block
   response <- tryCatch({
@@ -324,6 +328,11 @@ get_pug_rest <- function(identifier = NULL, namespace = 'cid', domain = 'compoun
     ))
   })
 
+  # If response is an error object, return it immediately
+  if (inherits(response, "PugRestInstance")) {
+    return(response)
+  }
+
   # If the response is NULL due to an error, return an error object
   if (is.null(response)) {
     return(createPugRestObject(
@@ -338,10 +347,11 @@ get_pug_rest <- function(identifier = NULL, namespace = 'cid', domain = 'compoun
   }
 
   # Handle non-200 status codes
-  if (response$status_code != 200) {
+  if (!inherits(response, "response") || response$status_code != 200) {
+    status_code <- if (inherits(response, "response")) response$status_code else "Unknown"
     return(createPugRestObject(
       success = FALSE,
-      error = list(Message = paste("Error in API request: HTTP", response$status_code)),
+      error = list(Message = paste("Error in API request: HTTP", status_code)),
       request_args = list(
         identifier = identifier, namespace = namespace, domain = domain, operation = operation,
         output = output, searchtype = searchtype, property = property, options = options,
