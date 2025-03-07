@@ -11,7 +11,7 @@
 
 <meta name="author" content="Selcuk Korkmaz, Bilge Eren Yamasan, Dincer Goksuluk" />
 
-<meta name="date" content="2024-12-17" />
+<meta name="date" content="2025-03-07" />
 
 <title>Enhancing Chemical Data Access with PubChemR: A Guide to Utilizing PUG View Service</title>
 
@@ -1483,7 +1483,7 @@ border-radius: 0px;
 PubChemR: A Guide to Utilizing PUG View Service</h1>
 <h4 class="author">Selcuk Korkmaz, Bilge Eren Yamasan, Dincer
 Goksuluk</h4>
-<h4 class="date">2024-12-17</h4>
+<h4 class="date">2025-03-07</h4>
 
 </div>
 
@@ -1555,8 +1555,8 @@ compound data.</p>
 #&gt;   - RecordType (1): [&lt;unnamed character&gt;] 
 #&gt;   - RecordNumber (1): [&lt;unnamed numeric&gt;] 
 #&gt;   - RecordTitle (1): [&lt;unnamed character&gt;] 
-#&gt;   - Section (14): [&lt;unnamed list&gt;] Structures, Names and Identifiers, ... and 12 more.
-#&gt;   - Reference (50): [&lt;unnamed list&gt;] 
+#&gt;   - Section (15): [&lt;unnamed list&gt;] Structures, Names and Identifiers, ... and 13 more.
+#&gt;   - Reference (52): [&lt;unnamed list&gt;] 
 #&gt; 
 #&gt;  NOTE: Run getter function &#39;retrieve()&#39; with element name above to extract data from corresponding list. 
 #&gt;        See ?retrieve for details.</code></pre>
@@ -1589,8 +1589,8 @@ section
 #&gt;   - Record Title: Gallopamil
 #&gt; 
 #&gt;  Section Details: 
-#&gt;   - Number of available sections: 14
-#&gt;   - Section headings: Structures, Names and Identifiers, ... and 12 more.
+#&gt;   - Number of available sections: 15
+#&gt;   - Section headings: Structures, Names and Identifiers, ... and 13 more.
 #&gt; 
 #&gt;  NOTE: Run getter function &#39;section()&#39; to extract section data. To list available sections, run &#39;sectionList()&#39;. 
 #&gt;        See ?section and ?sectionList for details.</code></pre>
@@ -1599,7 +1599,7 @@ compound. It provides an overview of the number of sections and their
 headings.</p>
 <p>To list the available sections:</p>
 <pre class="r"><code>sectionList(section)
-#&gt; # A tibble: 14 × 2
+#&gt; # A tibble: 15 × 2
 #&gt;    SectionID Headings                         
 #&gt;    &lt;chr&gt;     &lt;chr&gt;                            
 #&gt;  1 S1        Structures                       
@@ -1610,12 +1610,13 @@ headings.</p>
 #&gt;  6 S6        Chemical Vendors                 
 #&gt;  7 S7        Drug and Medication Information  
 #&gt;  8 S8        Pharmacology and Biochemistry    
-#&gt;  9 S9        Associated Disorders and Diseases
-#&gt; 10 S10       Literature                       
-#&gt; 11 S11       Patents                          
-#&gt; 12 S12       Interactions and Pathways        
-#&gt; 13 S13       Biological Test Results          
-#&gt; 14 S14       Classification</code></pre>
+#&gt;  9 S9        Use and Manufacturing            
+#&gt; 10 S10       Associated Disorders and Diseases
+#&gt; 11 S11       Literature                       
+#&gt; 12 S12       Patents                          
+#&gt; 13 S13       Interactions and Pathways        
+#&gt; 14 S14       Biological Test Results          
+#&gt; 15 S15       Classification</code></pre>
 <p>This code lists all the sections available for the compound data,
 along with their section IDs and headings.</p>
 <p><strong>S1: Structures</strong></p>
@@ -1675,7 +1676,7 @@ overview of the types of structures included.</p>
 #&gt; [[1]]$Information
 #&gt; [[1]]$Information[[1]]
 #&gt; [[1]]$Information[[1]]$ReferenceNumber
-#&gt; [1] 35
+#&gt; [1] 37
 #&gt; 
 #&gt; [[1]]$Information[[1]]$Value
 #&gt; [[1]]$Information[[1]]$Value$Boolean
@@ -1702,7 +1703,7 @@ overview of the types of structures included.</p>
 #&gt; [[2]]$Information
 #&gt; [[2]]$Information[[1]]
 #&gt; [[2]]$Information[[1]]$ReferenceNumber
-#&gt; [1] 35
+#&gt; [1] 37
 #&gt; 
 #&gt; [[2]]$Information[[1]]$Description
 #&gt; [1] &quot;Gallopamil&quot;
@@ -3787,7 +3788,7 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; [1] &quot;CQ_16662-47-8&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[28]]$SourceRecordURL
-#&gt; [1] &quot;https://cymitquimica.com/cas/16662-47-8/&quot;
+#&gt; [1] &quot;https://cymitquimica.com/cas/16662-47-8/?cpm_campaign=pubchem&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[28]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -4788,21 +4789,38 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[3]]$Sources[[18]]
 #&gt; [[3]]$Sources[[18]]$SID
-#&gt; [1] 313041716
+#&gt; [1] 505629845
 #&gt; 
 #&gt; [[3]]$Sources[[18]]$SourceName
-#&gt; [1] &quot;Small Molecule Screening Facility, UW Madison&quot;
-#&gt; 
-#&gt; [[3]]$Sources[[18]]$SourceURL
-#&gt; [1] &quot;https://cancer.wisc.edu/research/&quot;
+#&gt; [1] &quot;PubChem Reference Collection&quot;
 #&gt; 
 #&gt; [[3]]$Sources[[18]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Small%20Molecule%20Screening%20Facility,%20UW%20Madison&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/PubChem%20Reference%20Collection&quot;
 #&gt; 
 #&gt; [[3]]$Sources[[18]]$RegistryID
-#&gt; [1] &quot;SMSSF-0439491&quot;
+#&gt; [1] &quot;634116&quot;
 #&gt; 
 #&gt; [[3]]$Sources[[18]]$SourceCategories
+#&gt; [1] &quot;Governmental Organizations&quot;
+#&gt; 
+#&gt; 
+#&gt; [[3]]$Sources[[19]]
+#&gt; [[3]]$Sources[[19]]$SID
+#&gt; [1] 313041716
+#&gt; 
+#&gt; [[3]]$Sources[[19]]$SourceName
+#&gt; [1] &quot;Small Molecule Screening Facility, UW Madison&quot;
+#&gt; 
+#&gt; [[3]]$Sources[[19]]$SourceURL
+#&gt; [1] &quot;https://cancer.wisc.edu/research/&quot;
+#&gt; 
+#&gt; [[3]]$Sources[[19]]$SourceDetail
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Small%20Molecule%20Screening%20Facility,%20UW%20Madison&quot;
+#&gt; 
+#&gt; [[3]]$Sources[[19]]$RegistryID
+#&gt; [1] &quot;SMSSF-0439491&quot;
+#&gt; 
+#&gt; [[3]]$Sources[[19]]$SourceCategories
 #&gt; [1] &quot;Governmental Organizations&quot;
 #&gt; 
 #&gt; 

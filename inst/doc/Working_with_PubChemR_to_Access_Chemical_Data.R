@@ -8,16 +8,16 @@ knitr::opts_chunk$set(
 )
 
 ## ----install_package, eval=FALSE----------------------------------------------
-#  install.packages("PubChemR")
+# install.packages("PubChemR")
 
 ## ----library, warning=FALSE---------------------------------------------------
 library(PubChemR)
 
 ## ----install_devtools, eval=FALSE---------------------------------------------
-#  install.packages("devtools")
+# install.packages("devtools")
 
 ## ----install_github, eval=FALSE-----------------------------------------------
-#  devtools::install_github("selcukorkmaz/PubChemR")
+# devtools::install_github("selcukorkmaz/PubChemR")
 
 ## ----load_PubChemR------------------------------------------------------------
 library(PubChemR)

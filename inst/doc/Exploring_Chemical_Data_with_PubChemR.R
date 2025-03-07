@@ -9,21 +9,21 @@ knitr::opts_chunk$set(
 library(PubChemR)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  get_pug_rest(
-#    identifier = NULL,
-#    namespace = "cid",
-#    domain = "compound",
-#    operation = NULL,
-#    output = "JSON",
-#    searchtype = NULL,
-#    property = NULL,
-#    options = NULL,
-#    save = FALSE,
-#    dpi = 300,
-#    path = NULL,
-#    file_name = NULL,
-#    ...
-#  )
+# get_pug_rest(
+#   identifier = NULL,
+#   namespace = "cid",
+#   domain = "compound",
+#   operation = NULL,
+#   output = "JSON",
+#   searchtype = NULL,
+#   property = NULL,
+#   options = NULL,
+#   save = FALSE,
+#   dpi = 300,
+#   path = NULL,
+#   file_name = NULL,
+#   ...
+# )
 
 ## -----------------------------------------------------------------------------
 result <- get_pug_rest(identifier = "2244", namespace = "cid", domain = "compound", output = "JSON")
@@ -116,7 +116,7 @@ result
 pubChemData(result)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  result <- get_pug_rest(identifier = "2244", namespace = "cid", domain = "compound", output = "SDF")
+# result <- get_pug_rest(identifier = "2244", namespace = "cid", domain = "compound", output = "SDF")
 
 ## -----------------------------------------------------------------------------
 get_pug_rest(identifier = "lipitor", namespace = "name", domain = "compound", output = "PNG")
