@@ -1,4 +1,4 @@
-7c93c1df83dd379e7275cca8786d2294 *DESCRIPTION
+db3a4f01bd46106868ab67bc913fdf43 *DESCRIPTION
 fb2e0afc6dec69cc3b3f90bfef4876f6 *NAMESPACE
 b27aefe15e0b68c2a010422045249aba *R/00_globals.R
 e3d1ee283b1c821b098b1f202827f5ed *R/01_all_classes.R
@@ -15,7 +15,7 @@ f558b8e9b4ffca9f505f3dd74c2bd790 *R/get_properties.R
 0b29dc3f8e61d56d5529d6ee629e4edc *R/get_pug_view.R
 13b1a79a49b1d52527b0bd5719d1c4b1 *R/get_sdf.R
 2acd61e0de9465b92ed60449e8b6384b *R/get_sids.R
-705421f07fa55caf5988924a0c880c0b *R/get_substances.R
+18ba82e423add23587671f46c05419bc *R/get_substances.R
 061825da0aa8144a2367460c62bb8817 *R/get_synonyms.R
 295099f3ad06265392383eb5dbf2b57f *R/getter_functions.R
 cf7b0eb6014149bfb436e4a956ad7c48 *R/printMethods.R
@@ -23,13 +23,13 @@ d6ca7c796305d5a69aaf35d4878f6c08 *R/request.R
 530c6e1bf69e71bc6055f57bf3df68e2 *build/vignette.rds
 d58917c7148491751bc8868fb04207a4 *inst/doc/Enhancing_Chemical_Data_Access_with_PubChemR.R
 7ca8d220498598060ef1a2e328d4a973 *inst/doc/Enhancing_Chemical_Data_Access_with_PubChemR.Rmd
-896b95482941a88f5d83bc41dedca219 *inst/doc/Enhancing_Chemical_Data_Access_with_PubChemR.html
+5c6bb08d2d79969e1dd962004c879200 *inst/doc/Enhancing_Chemical_Data_Access_with_PubChemR.html
 a291af346aa7344500cbd873fd5b8f0d *inst/doc/Exploring_Chemical_Data_with_PubChemR.R
 12686b2bc3e34e34248e888ed50da8fe *inst/doc/Exploring_Chemical_Data_with_PubChemR.Rmd
-de30d656578ea4481346f8ee43694a2e *inst/doc/Exploring_Chemical_Data_with_PubChemR.html
+4dde029bfd6dea2293facf9665054911 *inst/doc/Exploring_Chemical_Data_with_PubChemR.html
 1509f9f6066021d0fc93119bac13dde5 *inst/doc/Working_with_PubChemR_to_Access_Chemical_Data.R
 454207491152c9c1d486eca746b27cd6 *inst/doc/Working_with_PubChemR_to_Access_Chemical_Data.Rmd
-de4a9cfa8ac0db3c713593542b05ebd2 *inst/doc/Working_with_PubChemR_to_Access_Chemical_Data.html
+e22bbd6873c9fd4dd3151dc8e99f2533 *inst/doc/Working_with_PubChemR_to_Access_Chemical_Data.html
 805d8156c74d358616446422d9f4a0d5 *man/AIDs-SIDs-CIDs.Rd
 224c23369453fbaaaf71d3c66202b228 *man/PubChemR-classes.Rd
 58d11269088deda6d1fcefada5843d89 *man/PugView-classes.Rd

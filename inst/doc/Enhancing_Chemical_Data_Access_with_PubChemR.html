@@ -11,7 +11,7 @@
 
 <meta name="author" content="Selcuk Korkmaz, Bilge Eren Yamasan, Dincer Goksuluk" />
 
-<meta name="date" content="2025-03-07" />
+<meta name="date" content="2025-08-29" />
 
 <title>Enhancing Chemical Data Access with PubChemR: A Guide to Utilizing PUG View Service</title>
 
@@ -1483,7 +1483,7 @@ border-radius: 0px;
 PubChemR: A Guide to Utilizing PUG View Service</h1>
 <h4 class="author">Selcuk Korkmaz, Bilge Eren Yamasan, Dincer
 Goksuluk</h4>
-<h4 class="date">2025-03-07</h4>
+<h4 class="date">2025-08-29</h4>
 
 </div>
 
@@ -1556,7 +1556,7 @@ compound data.</p>
 #&gt;   - RecordNumber (1): [&lt;unnamed numeric&gt;] 
 #&gt;   - RecordTitle (1): [&lt;unnamed character&gt;] 
 #&gt;   - Section (15): [&lt;unnamed list&gt;] Structures, Names and Identifiers, ... and 13 more.
-#&gt;   - Reference (52): [&lt;unnamed list&gt;] 
+#&gt;   - Reference (53): [&lt;unnamed list&gt;] 
 #&gt; 
 #&gt;  NOTE: Run getter function &#39;retrieve()&#39; with element name above to extract data from corresponding list. 
 #&gt;        See ?retrieve for details.</code></pre>
@@ -1676,7 +1676,7 @@ overview of the types of structures included.</p>
 #&gt; [[1]]$Information
 #&gt; [[1]]$Information[[1]]
 #&gt; [[1]]$Information[[1]]$ReferenceNumber
-#&gt; [1] 37
+#&gt; [1] 36
 #&gt; 
 #&gt; [[1]]$Information[[1]]$Value
 #&gt; [[1]]$Information[[1]]$Value$Boolean
@@ -1703,7 +1703,7 @@ overview of the types of structures included.</p>
 #&gt; [[2]]$Information
 #&gt; [[2]]$Information[[1]]
 #&gt; [[2]]$Information[[1]]$ReferenceNumber
-#&gt; [1] 37
+#&gt; [1] 36
 #&gt; 
 #&gt; [[2]]$Information[[1]]$Description
 #&gt; [1] &quot;Gallopamil&quot;
@@ -1847,6 +1847,21 @@ related to the LogP property.</p>
 #&gt; [[1]]$Reference
 #&gt; [1] &quot;https://www.fip.org/files/fip/BPS/BCS/Monographs/AcetylsalicylicAcid.pdf&quot;
 #&gt; 
+#&gt; [[1]]$ExtendedReference
+#&gt; [[1]]$ExtendedReference[[1]]
+#&gt; [[1]]$ExtendedReference[[1]]$Citation
+#&gt; [1] &quot;https://www.fip.org/files/fip/BPS/BCS/Monographs/AcetylsalicylicAcid.pdf&quot;
+#&gt; 
+#&gt; [[1]]$ExtendedReference[[1]]$Matched
+#&gt; [[1]]$ExtendedReference[[1]]$Matched$PCLID
+#&gt; [1] 900289255
+#&gt; 
+#&gt; [[1]]$ExtendedReference[[1]]$Matched$Citation
+#&gt; [1] &quot;https://www.fip.org/files/fip/BPS/BCS/Monographs/AcetylsalicylicAcid.pdf&quot;
+#&gt; 
+#&gt; 
+#&gt; 
+#&gt; 
 #&gt; [[1]]$Value
 #&gt; [[1]]$Value$Number
 #&gt; [1] 1.18
@@ -1855,13 +1870,28 @@ related to the LogP property.</p>
 #&gt; 
 #&gt; [[2]]
 #&gt; [[2]]$ReferenceNumber
-#&gt; [1] 59
+#&gt; [1] 60
 #&gt; 
 #&gt; [[2]]$Description
 #&gt; [1] &quot;PEER REVIEWED&quot;
 #&gt; 
 #&gt; [[2]]$Reference
 #&gt; [1] &quot;Hansch, C., Leo, A., D. Hoekman. Exploring QSAR - Hydrophobic, Electronic, and Steric Constants. Washington, DC: American Chemical Society., 1995., p. 54&quot;
+#&gt; 
+#&gt; [[2]]$ExtendedReference
+#&gt; [[2]]$ExtendedReference[[1]]
+#&gt; [[2]]$ExtendedReference[[1]]$Citation
+#&gt; [1] &quot;Hansch, C., Leo, A., D. Hoekman. Exploring QSAR - Hydrophobic, Electronic, and Steric Constants. Washington, DC: American Chemical Society., 1995., p. 54&quot;
+#&gt; 
+#&gt; [[2]]$ExtendedReference[[1]]$Matched
+#&gt; [[2]]$ExtendedReference[[1]]$Matched$PCLID
+#&gt; [1] 906279669
+#&gt; 
+#&gt; [[2]]$ExtendedReference[[1]]$Matched$Citation
+#&gt; [1] &quot;Hansch, C., Leo, A., D. Hoekman. Exploring QSAR - Hydrophobic, Electronic, and Steric Constants. Washington, DC: American Chemical Society., 1995., p. 54&quot;
+#&gt; 
+#&gt; 
+#&gt; 
 #&gt; 
 #&gt; [[2]]$Value
 #&gt; [[2]]$Value$StringWithMarkup
@@ -1874,10 +1904,25 @@ related to the LogP property.</p>
 #&gt; 
 #&gt; [[3]]
 #&gt; [[3]]$ReferenceNumber
-#&gt; [1] 60
+#&gt; [1] 61
 #&gt; 
 #&gt; [[3]]$Reference
 #&gt; [1] &quot;HANSCH,C ET AL. (1995)&quot;
+#&gt; 
+#&gt; [[3]]$ExtendedReference
+#&gt; [[3]]$ExtendedReference[[1]]
+#&gt; [[3]]$ExtendedReference[[1]]$Citation
+#&gt; [1] &quot;HANSCH,C ET AL. (1995)&quot;
+#&gt; 
+#&gt; [[3]]$ExtendedReference[[1]]$Matched
+#&gt; [[3]]$ExtendedReference[[1]]$Matched$PCLID
+#&gt; [1] 906299842
+#&gt; 
+#&gt; [[3]]$ExtendedReference[[1]]$Matched$Citation
+#&gt; [1] &quot;HANSCH,C ET AL. (1995)&quot;
+#&gt; 
+#&gt; 
+#&gt; 
 #&gt; 
 #&gt; [[3]]$Value
 #&gt; [[3]]$Value$StringWithMarkup
@@ -1890,7 +1935,7 @@ related to the LogP property.</p>
 #&gt; 
 #&gt; [[4]]
 #&gt; [[4]]$ReferenceNumber
-#&gt; [1] 77
+#&gt; [1] 78
 #&gt; 
 #&gt; [[4]]$Name
 #&gt; [1] &quot;&quot;
@@ -2068,8 +2113,8 @@ the following details:</p>
 #&gt;   - RecordNumber (1): [&lt;unnamed numeric&gt;] 
 #&gt;   - RecordTitle (1): [&lt;unnamed character&gt;] 
 #&gt;   - RecordExternalURL (1): [&lt;unnamed character&gt;] 
-#&gt;   - Section (13): [&lt;unnamed list&gt;] Record Description, Gene Information, ... and 11 more.
-#&gt;   - Reference (22): [&lt;unnamed list&gt;] 
+#&gt;   - Section (15): [&lt;unnamed list&gt;] Record Description, Gene Information, ... and 13 more.
+#&gt;   - Reference (23): [&lt;unnamed list&gt;] 
 #&gt; 
 #&gt;  NOTE: Run getter function &#39;retrieve()&#39; with element name above to extract data from corresponding list. 
 #&gt;        See ?retrieve for details.</code></pre>
@@ -2086,22 +2131,24 @@ Information”.</p>
 alpha-1-B glycoprotein (human)”.</p>
 <p>The code returns the list of sub-sections for gene ID 1:</p>
 <pre class="r"><code>sectionList(object = result)
-#&gt; # A tibble: 13 × 2
-#&gt;    SectionID Headings                 
-#&gt;    &lt;chr&gt;     &lt;chr&gt;                    
-#&gt;  1 S1        Record Description       
-#&gt;  2 S2        Gene Information         
-#&gt;  3 S3        Names and Identifiers    
-#&gt;  4 S4        Related Records          
-#&gt;  5 S5        Proteins                 
-#&gt;  6 S6        BioAssays                
-#&gt;  7 S7        Diseases and Phenotypes  
-#&gt;  8 S8        Interactions and Pathways
-#&gt;  9 S9        Expression               
-#&gt; 10 S10       Target Development Level 
-#&gt; 11 S11       Literature               
-#&gt; 12 S12       Patents                  
-#&gt; 13 S13       Classification</code></pre>
+#&gt; # A tibble: 15 × 2
+#&gt;    SectionID Headings                   
+#&gt;    &lt;chr&gt;     &lt;chr&gt;                      
+#&gt;  1 S1        Record Description         
+#&gt;  2 S2        Gene Information           
+#&gt;  3 S3        Names and Identifiers      
+#&gt;  4 S4        Related Records            
+#&gt;  5 S5        Proteins                   
+#&gt;  6 S6        Chemicals and Bioactivities
+#&gt;  7 S7        BioAssays                  
+#&gt;  8 S8        Diseases and Phenotypes    
+#&gt;  9 S9        Interactions and Pathways  
+#&gt; 10 S10       Cell Lines                 
+#&gt; 11 S11       Expression                 
+#&gt; 12 S12       Target Development Level   
+#&gt; 13 S13       Literature                 
+#&gt; 14 S14       Patents                    
+#&gt; 15 S15       Classification</code></pre>
 <p>These detailed interpretations illustrate how to access different
 types of records, view sub-sections, and extract specific information
 from PubChem using PUG REST. This approach is applicable for compounds,
@@ -2169,6 +2216,21 @@ is an example of what the extracted annotations might look like:</p>
 #&gt; [[1]]$Data[[1]]$Reference
 #&gt; [1] &quot;Kirk-Othmer Encyclopedia of Chemical Technology. 4th ed. Volumes 1: New York, NY. John Wiley and Sons, 1991-Present., p. V10 (1993) 22&quot;
 #&gt; 
+#&gt; [[1]]$Data[[1]]$ExtendedReference
+#&gt; [[1]]$Data[[1]]$ExtendedReference[[1]]
+#&gt; [[1]]$Data[[1]]$ExtendedReference[[1]]$Citation
+#&gt; [1] &quot;Kirk-Othmer Encyclopedia of Chemical Technology. 4th ed. Volumes 1: New York, NY. John Wiley and Sons, 1991-Present., p. V10 (1993) 22&quot;
+#&gt; 
+#&gt; [[1]]$Data[[1]]$ExtendedReference[[1]]$Matched
+#&gt; [[1]]$Data[[1]]$ExtendedReference[[1]]$Matched$PCLID
+#&gt; [1] 900067039
+#&gt; 
+#&gt; [[1]]$Data[[1]]$ExtendedReference[[1]]$Matched$Citation
+#&gt; [1] &quot;Kirk-Othmer Encyclopedia of Chemical Technology. 4th ed. Volumes 1: New York, NY. John Wiley and Sons, 1991-Present., p. V10 (1993) 22&quot;
+#&gt; 
+#&gt; 
+#&gt; 
+#&gt; 
 #&gt; [[1]]$Data[[1]]$Value
 #&gt; [[1]]$Data[[1]]$Value$StringWithMarkup
 #&gt; [[1]]$Data[[1]]$Value$StringWithMarkup[[1]]
@@ -2218,6 +2280,21 @@ is an example of what the extracted annotations might look like:</p>
 #&gt; 
 #&gt; [[2]]$Data[[1]]$Reference
 #&gt; [1] &quot;Weast, R.C. (ed.) Handbook of Chemistry and Physics. 69th ed. Boca Raton, FL: CRC Press Inc., 1988-1989., p. F-43&quot;
+#&gt; 
+#&gt; [[2]]$Data[[1]]$ExtendedReference
+#&gt; [[2]]$Data[[1]]$ExtendedReference[[1]]
+#&gt; [[2]]$Data[[1]]$ExtendedReference[[1]]$Citation
+#&gt; [1] &quot;Weast, R.C. (ed.) Handbook of Chemistry and Physics. 69th ed. Boca Raton, FL: CRC Press Inc., 1988-1989., p. F-43&quot;
+#&gt; 
+#&gt; [[2]]$Data[[1]]$ExtendedReference[[1]]$Matched
+#&gt; [[2]]$Data[[1]]$ExtendedReference[[1]]$Matched$PCLID
+#&gt; [1] 900005035
+#&gt; 
+#&gt; [[2]]$Data[[1]]$ExtendedReference[[1]]$Matched$Citation
+#&gt; [1] &quot;Weast, R.C. (ed.) Handbook of Chemistry and Physics. 69th ed. Boca Raton, FL: CRC Press Inc., 1988-1989., p. F-43&quot;
+#&gt; 
+#&gt; 
+#&gt; 
 #&gt; 
 #&gt; [[2]]$Data[[1]]$Value
 #&gt; [[2]]$Data[[1]]$Value$StringWithMarkup
@@ -2269,6 +2346,21 @@ is an example of what the extracted annotations might look like:</p>
 #&gt; [[3]]$Data[[1]]$Reference
 #&gt; [1] &quot;Haynes, W.M. (ed.). CRC Handbook of Chemistry and Physics. 94th Edition. CRC Press LLC, Boca Raton: FL 2013-2014, p. 6-238&quot;
 #&gt; 
+#&gt; [[3]]$Data[[1]]$ExtendedReference
+#&gt; [[3]]$Data[[1]]$ExtendedReference[[1]]
+#&gt; [[3]]$Data[[1]]$ExtendedReference[[1]]$Citation
+#&gt; [1] &quot;Haynes, W.M. (ed.). CRC Handbook of Chemistry and Physics. 94th Edition. CRC Press LLC, Boca Raton: FL 2013-2014, p. 6-238&quot;
+#&gt; 
+#&gt; [[3]]$Data[[1]]$ExtendedReference[[1]]$Matched
+#&gt; [[3]]$Data[[1]]$ExtendedReference[[1]]$Matched$PCLID
+#&gt; [1] 900085684
+#&gt; 
+#&gt; [[3]]$Data[[1]]$ExtendedReference[[1]]$Matched$Citation
+#&gt; [1] &quot;Haynes, W.M. (ed.). CRC Handbook of Chemistry and Physics. 94th Edition. CRC Press LLC, Boca Raton: FL 2013-2014, p. 6-238&quot;
+#&gt; 
+#&gt; 
+#&gt; 
+#&gt; 
 #&gt; [[3]]$Data[[1]]$Value
 #&gt; [[3]]$Data[[1]]$Value$StringWithMarkup
 #&gt; [[3]]$Data[[1]]$Value$StringWithMarkup[[1]]
@@ -2318,6 +2410,21 @@ is an example of what the extracted annotations might look like:</p>
 #&gt; 
 #&gt; [[4]]$Data[[1]]$Reference
 #&gt; [1] &quot;Lewis, R.J., Sr (Ed.). Hawley&#39;s Condensed Chemical  Dictionary. 13th ed. New York, NY: John Wiley &amp; Sons, Inc.  1997., p. 449&quot;
+#&gt; 
+#&gt; [[4]]$Data[[1]]$ExtendedReference
+#&gt; [[4]]$Data[[1]]$ExtendedReference[[1]]
+#&gt; [[4]]$Data[[1]]$ExtendedReference[[1]]$Citation
+#&gt; [1] &quot;Lewis, R.J., Sr (Ed.). Hawley&#39;s Condensed Chemical  Dictionary. 13th ed. New York, NY: John Wiley &amp; Sons, Inc.  1997., p. 449&quot;
+#&gt; 
+#&gt; [[4]]$Data[[1]]$ExtendedReference[[1]]$Matched
+#&gt; [[4]]$Data[[1]]$ExtendedReference[[1]]$Matched$PCLID
+#&gt; [1] 900102703
+#&gt; 
+#&gt; [[4]]$Data[[1]]$ExtendedReference[[1]]$Matched$Citation
+#&gt; [1] &quot;Lewis, R.J., Sr (Ed.). Hawley&#39;s Condensed Chemical  Dictionary. 13th ed. New York, NY: John Wiley &amp; Sons, Inc.  1997., p. 449&quot;
+#&gt; 
+#&gt; 
+#&gt; 
 #&gt; 
 #&gt; [[4]]$Data[[1]]$Value
 #&gt; [[4]]$Data[[1]]$Value$StringWithMarkup
@@ -2369,6 +2476,21 @@ is an example of what the extracted annotations might look like:</p>
 #&gt; [[5]]$Data[[1]]$Reference
 #&gt; [1] &quot;Haynes, W.M. (ed.). CRC Handbook of Chemistry and Physics. 94th Edition. CRC Press LLC, Boca Raton: FL 2013-2014, p. 6-232&quot;
 #&gt; 
+#&gt; [[5]]$Data[[1]]$ExtendedReference
+#&gt; [[5]]$Data[[1]]$ExtendedReference[[1]]
+#&gt; [[5]]$Data[[1]]$ExtendedReference[[1]]$Citation
+#&gt; [1] &quot;Haynes, W.M. (ed.). CRC Handbook of Chemistry and Physics. 94th Edition. CRC Press LLC, Boca Raton: FL 2013-2014, p. 6-232&quot;
+#&gt; 
+#&gt; [[5]]$Data[[1]]$ExtendedReference[[1]]$Matched
+#&gt; [[5]]$Data[[1]]$ExtendedReference[[1]]$Matched$PCLID
+#&gt; [1] 900108113
+#&gt; 
+#&gt; [[5]]$Data[[1]]$ExtendedReference[[1]]$Matched$Citation
+#&gt; [1] &quot;Haynes, W.M. (ed.). CRC Handbook of Chemistry and Physics. 94th Edition. CRC Press LLC, Boca Raton: FL 2013-2014, p. 6-232&quot;
+#&gt; 
+#&gt; 
+#&gt; 
+#&gt; 
 #&gt; [[5]]$Data[[1]]$Value
 #&gt; [[5]]$Data[[1]]$Value$StringWithMarkup
 #&gt; [[5]]$Data[[1]]$Value$StringWithMarkup[[1]]
@@ -2418,6 +2540,21 @@ is an example of what the extracted annotations might look like:</p>
 #&gt; 
 #&gt; [[6]]$Data[[1]]$Reference
 #&gt; [1] &quot;Howard HL; Acetone. Kirk-Othmer Encyclopedia of Chemical Technology. (1999-2015). New York, NY: John Wiley &amp; Sons. Online Posting Date: Jan 14, 2011.&quot;
+#&gt; 
+#&gt; [[6]]$Data[[1]]$ExtendedReference
+#&gt; [[6]]$Data[[1]]$ExtendedReference[[1]]
+#&gt; [[6]]$Data[[1]]$ExtendedReference[[1]]$Citation
+#&gt; [1] &quot;Howard HL; Acetone. Kirk-Othmer Encyclopedia of Chemical Technology. (1999-2015). New York, NY: John Wiley &amp; Sons. Online Posting Date: Jan 14, 2011.&quot;
+#&gt; 
+#&gt; [[6]]$Data[[1]]$ExtendedReference[[1]]$Matched
+#&gt; [[6]]$Data[[1]]$ExtendedReference[[1]]$Matched$PCLID
+#&gt; [1] 900068138
+#&gt; 
+#&gt; [[6]]$Data[[1]]$ExtendedReference[[1]]$Matched$Citation
+#&gt; [1] &quot;Howard HL; Acetone. Kirk-Othmer Encyclopedia of Chemical Technology. (1999-2015). New York, NY: John Wiley &amp; Sons. Online Posting Date: Jan 14, 2011.&quot;
+#&gt; 
+#&gt; 
+#&gt; 
 #&gt; 
 #&gt; [[6]]$Data[[1]]$Value
 #&gt; [[6]]$Data[[1]]$Value$StringWithMarkup
@@ -2504,6 +2641,21 @@ compounds. The resulting object, result, contains detailed data:</p>
 #&gt; [[1]]$Data[[1]]$Reference
 #&gt; [1] &quot;O&#39;Neil, M.J. (ed.). The Merck Index - An Encyclopedia of  Chemicals, Drugs, and Biologicals. 13th Edition, Whitehouse  Station, NJ:  Merck and Co., Inc., 2001., p. 1185&quot;
 #&gt; 
+#&gt; [[1]]$Data[[1]]$ExtendedReference
+#&gt; [[1]]$Data[[1]]$ExtendedReference[[1]]
+#&gt; [[1]]$Data[[1]]$ExtendedReference[[1]]$Citation
+#&gt; [1] &quot;O&#39;Neil, M.J. (ed.). The Merck Index - An Encyclopedia of  Chemicals, Drugs, and Biologicals. 13th Edition, Whitehouse  Station, NJ:  Merck and Co., Inc., 2001., p. 1185&quot;
+#&gt; 
+#&gt; [[1]]$Data[[1]]$ExtendedReference[[1]]$Matched
+#&gt; [[1]]$Data[[1]]$ExtendedReference[[1]]$Matched$PCLID
+#&gt; [1] 900133450
+#&gt; 
+#&gt; [[1]]$Data[[1]]$ExtendedReference[[1]]$Matched$Citation
+#&gt; [1] &quot;O&#39;Neil, M.J. (ed.). The Merck Index - An Encyclopedia of  Chemicals, Drugs, and Biologicals. 13th Edition, Whitehouse  Station, NJ:  Merck and Co., Inc., 2001., p. 1185&quot;
+#&gt; 
+#&gt; 
+#&gt; 
+#&gt; 
 #&gt; [[1]]$Data[[1]]$Value
 #&gt; [[1]]$Data[[1]]$Value$StringWithMarkup
 #&gt; [[1]]$Data[[1]]$Value$StringWithMarkup[[1]]
@@ -2523,6 +2675,21 @@ compounds. The resulting object, result, contains detailed data:</p>
 #&gt; 
 #&gt; [[1]]$Data[[2]]$Reference
 #&gt; [1] &quot;Weast, R.C. (ed.) Handbook of Chemistry and Physics. 69th ed. Boca Raton, FL: CRC Press Inc., 1988-1989., p. C-291&quot;
+#&gt; 
+#&gt; [[1]]$Data[[2]]$ExtendedReference
+#&gt; [[1]]$Data[[2]]$ExtendedReference[[1]]
+#&gt; [[1]]$Data[[2]]$ExtendedReference[[1]]$Citation
+#&gt; [1] &quot;Weast, R.C. (ed.) Handbook of Chemistry and Physics. 69th ed. Boca Raton, FL: CRC Press Inc., 1988-1989., p. C-291&quot;
+#&gt; 
+#&gt; [[1]]$Data[[2]]$ExtendedReference[[1]]$Matched
+#&gt; [[1]]$Data[[2]]$ExtendedReference[[1]]$Matched$PCLID
+#&gt; [1] 900017161
+#&gt; 
+#&gt; [[1]]$Data[[2]]$ExtendedReference[[1]]$Matched$Citation
+#&gt; [1] &quot;Weast, R.C. (ed.) Handbook of Chemistry and Physics. 69th ed. Boca Raton, FL: CRC Press Inc., 1988-1989., p. C-291&quot;
+#&gt; 
+#&gt; 
+#&gt; 
 #&gt; 
 #&gt; [[1]]$Data[[2]]$Value
 #&gt; [[1]]$Data[[2]]$Value$StringWithMarkup
@@ -2574,6 +2741,21 @@ compounds. The resulting object, result, contains detailed data:</p>
 #&gt; [[2]]$Data[[1]]$Reference
 #&gt; [1] &quot;Lewis, R.J. Sr.; Hawley&#39;s Condensed Chemical Dictionary 14th Edition. John Wiley &amp; Sons, Inc. New York, NY 2001., p. 631&quot;
 #&gt; 
+#&gt; [[2]]$Data[[1]]$ExtendedReference
+#&gt; [[2]]$Data[[1]]$ExtendedReference[[1]]
+#&gt; [[2]]$Data[[1]]$ExtendedReference[[1]]$Citation
+#&gt; [1] &quot;Lewis, R.J. Sr.; Hawley&#39;s Condensed Chemical Dictionary 14th Edition. John Wiley &amp; Sons, Inc. New York, NY 2001., p. 631&quot;
+#&gt; 
+#&gt; [[2]]$Data[[1]]$ExtendedReference[[1]]$Matched
+#&gt; [[2]]$Data[[1]]$ExtendedReference[[1]]$Matched$PCLID
+#&gt; [1] 906273699
+#&gt; 
+#&gt; [[2]]$Data[[1]]$ExtendedReference[[1]]$Matched$Citation
+#&gt; [1] &quot;Lewis, R.J. Sr.; Hawley&#39;s Condensed Chemical Dictionary 14th Edition. John Wiley &amp; Sons, Inc. New York, NY 2001., p. 631&quot;
+#&gt; 
+#&gt; 
+#&gt; 
+#&gt; 
 #&gt; [[2]]$Data[[1]]$Value
 #&gt; [[2]]$Data[[1]]$Value$StringWithMarkup
 #&gt; [[2]]$Data[[1]]$Value$StringWithMarkup[[1]]
@@ -2623,6 +2805,21 @@ compounds. The resulting object, result, contains detailed data:</p>
 #&gt; 
 #&gt; [[3]]$Data[[1]]$Reference
 #&gt; [1] &quot;Weiss, G.; Hazardous Chemicals Handbook. 1986, Noyes Data Corporation, Park Ridge, NJ 1986., p. 652&quot;
+#&gt; 
+#&gt; [[3]]$Data[[1]]$ExtendedReference
+#&gt; [[3]]$Data[[1]]$ExtendedReference[[1]]
+#&gt; [[3]]$Data[[1]]$ExtendedReference[[1]]$Citation
+#&gt; [1] &quot;Weiss, G.; Hazardous Chemicals Handbook. 1986, Noyes Data Corporation, Park Ridge, NJ 1986., p. 652&quot;
+#&gt; 
+#&gt; [[3]]$Data[[1]]$ExtendedReference[[1]]$Matched
+#&gt; [[3]]$Data[[1]]$ExtendedReference[[1]]$Matched$PCLID
+#&gt; [1] 900136977
+#&gt; 
+#&gt; [[3]]$Data[[1]]$ExtendedReference[[1]]$Matched$Citation
+#&gt; [1] &quot;Weiss, G.; Hazardous Chemicals Handbook. 1986, Noyes Data Corporation, Park Ridge, NJ 1986., p. 652&quot;
+#&gt; 
+#&gt; 
+#&gt; 
 #&gt; 
 #&gt; [[3]]$Data[[1]]$Value
 #&gt; [[3]]$Data[[1]]$Value$StringWithMarkup
@@ -2674,6 +2871,21 @@ compounds. The resulting object, result, contains detailed data:</p>
 #&gt; [[4]]$Data[[1]]$Reference
 #&gt; [1] &quot;Lide, D.R. CRC Handbook of Chemistry and Physics 86TH  Edition 2005-2006. CRC Press, Taylor &amp; Francis, Boca Raton,  FL 2005, p. 4-19&quot;
 #&gt; 
+#&gt; [[4]]$Data[[1]]$ExtendedReference
+#&gt; [[4]]$Data[[1]]$ExtendedReference[[1]]
+#&gt; [[4]]$Data[[1]]$ExtendedReference[[1]]$Citation
+#&gt; [1] &quot;Lide, D.R. CRC Handbook of Chemistry and Physics 86TH  Edition 2005-2006. CRC Press, Taylor &amp; Francis, Boca Raton,  FL 2005, p. 4-19&quot;
+#&gt; 
+#&gt; [[4]]$Data[[1]]$ExtendedReference[[1]]$Matched
+#&gt; [[4]]$Data[[1]]$ExtendedReference[[1]]$Matched$PCLID
+#&gt; [1] 906277294
+#&gt; 
+#&gt; [[4]]$Data[[1]]$ExtendedReference[[1]]$Matched$Citation
+#&gt; [1] &quot;Lide, D.R. CRC Handbook of Chemistry and Physics 86TH  Edition 2005-2006. CRC Press, Taylor &amp; Francis, Boca Raton,  FL 2005, p. 4-19&quot;
+#&gt; 
+#&gt; 
+#&gt; 
+#&gt; 
 #&gt; [[4]]$Data[[1]]$Value
 #&gt; [[4]]$Data[[1]]$Value$StringWithMarkup
 #&gt; [[4]]$Data[[1]]$Value$StringWithMarkup[[1]]
@@ -2724,6 +2936,21 @@ compounds. The resulting object, result, contains detailed data:</p>
 #&gt; [[5]]$Data[[1]]$Reference
 #&gt; [1] &quot;Haynes, W.M. (ed.). CRC Handbook of Chemistry and Physics. 94th Edition. CRC Press LLC, Boca Raton: FL 2013-2014, p. 3-34&quot;
 #&gt; 
+#&gt; [[5]]$Data[[1]]$ExtendedReference
+#&gt; [[5]]$Data[[1]]$ExtendedReference[[1]]
+#&gt; [[5]]$Data[[1]]$ExtendedReference[[1]]$Citation
+#&gt; [1] &quot;Haynes, W.M. (ed.). CRC Handbook of Chemistry and Physics. 94th Edition. CRC Press LLC, Boca Raton: FL 2013-2014, p. 3-34&quot;
+#&gt; 
+#&gt; [[5]]$Data[[1]]$ExtendedReference[[1]]$Matched
+#&gt; [[5]]$Data[[1]]$ExtendedReference[[1]]$Matched$PCLID
+#&gt; [1] 900094770
+#&gt; 
+#&gt; [[5]]$Data[[1]]$ExtendedReference[[1]]$Matched$Citation
+#&gt; [1] &quot;Haynes, W.M. (ed.). CRC Handbook of Chemistry and Physics. 94th Edition. CRC Press LLC, Boca Raton: FL 2013-2014, p. 3-34&quot;
+#&gt; 
+#&gt; 
+#&gt; 
+#&gt; 
 #&gt; [[5]]$Data[[1]]$Value
 #&gt; [[5]]$Data[[1]]$Value$StringWithMarkup
 #&gt; [[5]]$Data[[1]]$Value$StringWithMarkup[[1]]
@@ -2773,6 +3000,21 @@ compounds. The resulting object, result, contains detailed data:</p>
 #&gt; 
 #&gt; [[6]]$Data[[1]]$Reference
 #&gt; [1] &quot;O&#39;Neil, M.J. (ed.). The Merck Index - An Encyclopedia of Chemicals, Drugs, and Biologicals. Cambridge, UK:  Royal Society of Chemistry, 2013., p. 289&quot;
+#&gt; 
+#&gt; [[6]]$Data[[1]]$ExtendedReference
+#&gt; [[6]]$Data[[1]]$ExtendedReference[[1]]
+#&gt; [[6]]$Data[[1]]$ExtendedReference[[1]]$Citation
+#&gt; [1] &quot;O&#39;Neil, M.J. (ed.). The Merck Index - An Encyclopedia of Chemicals, Drugs, and Biologicals. Cambridge, UK:  Royal Society of Chemistry, 2013., p. 289&quot;
+#&gt; 
+#&gt; [[6]]$Data[[1]]$ExtendedReference[[1]]$Matched
+#&gt; [[6]]$Data[[1]]$ExtendedReference[[1]]$Matched$PCLID
+#&gt; [1] 900118661
+#&gt; 
+#&gt; [[6]]$Data[[1]]$ExtendedReference[[1]]$Matched$Citation
+#&gt; [1] &quot;O&#39;Neil, M.J. (ed.). The Merck Index - An Encyclopedia of Chemicals, Drugs, and Biologicals. Cambridge, UK:  Royal Society of Chemistry, 2013., p. 289&quot;
+#&gt; 
+#&gt; 
+#&gt; 
 #&gt; 
 #&gt; [[6]]$Data[[1]]$Value
 #&gt; [[6]]$Data[[1]]$Value$StringWithMarkup
@@ -2914,11 +3156,6 @@ The detailed structure of the annotations is shown below:</p>
 #&gt; 
 #&gt; [[2]]$ANID
 #&gt; [1] 759942
-#&gt; 
-#&gt; [[2]]$LinkedRecords
-#&gt; [[2]]$LinkedRecords$CID
-#&gt; [1] 7340
-#&gt; 
 #&gt; 
 #&gt; 
 #&gt; [[3]]
@@ -3158,22 +3395,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; [[1]]$Sources
 #&gt; [[1]]$Sources[[1]]
 #&gt; [[1]]$Sources[[1]]$SID
-#&gt; [1] 254789975
+#&gt; [1] 492643591
 #&gt; 
 #&gt; [[1]]$Sources[[1]]$SourceName
-#&gt; [1] &quot;BOC Sciences&quot;
+#&gt; [1] &quot;Mcule&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[1]]$SourceURL
-#&gt; [1] &quot;https://www.bocsci.com/&quot;
+#&gt; [1] &quot;https://mcule.com&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[1]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/BOC%20Sciences&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Mcule&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[1]]$RegistryID
-#&gt; [1] &quot;16662-46-7&quot;
+#&gt; [1] &quot;MCULE-1747721727&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[1]]$SourceRecordURL
-#&gt; [1] &quot;https://www.bocsci.com/3-cyano-3-3-4-5-trimethoxyphenyl-hex-6-yl-5-6-dimethoxyphenethyl-cas-16662-46-7-item-60526.html&quot;
+#&gt; [1] &quot;https://mcule.com/MCULE-1747721727&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[1]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3181,22 +3418,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[2]]
 #&gt; [[1]]$Sources[[2]]$SID
-#&gt; [1] 341112340
+#&gt; [1] 446164551
 #&gt; 
 #&gt; [[1]]$Sources[[2]]$SourceName
-#&gt; [1] &quot;BOC Sciences&quot;
+#&gt; [1] &quot;MolCore&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[2]]$SourceURL
-#&gt; [1] &quot;https://www.bocsci.com/&quot;
+#&gt; [1] &quot;https://www.001chemical.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[2]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/BOC%20Sciences&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/MolCore&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[2]]$RegistryID
-#&gt; [1] &quot;16662-47-8&quot;
+#&gt; [1] &quot;DY114903&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[2]]$SourceRecordURL
-#&gt; [1] &quot;https://www.bocsci.com/product/gallopamil-cas-16662-47-8-60527.html&quot;
+#&gt; [1] &quot;https://www.001chemical.com/chem/16662-47-8&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[2]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3204,22 +3441,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[3]]
 #&gt; [[1]]$Sources[[3]]$SID
-#&gt; [1] 443845441
+#&gt; [1] 335977281
 #&gt; 
 #&gt; [[1]]$Sources[[3]]$SourceName
-#&gt; [1] &quot;TargetMol&quot;
+#&gt; [1] &quot;MolCore&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[3]]$SourceURL
-#&gt; [1] &quot;https://www.targetmol.com/contact-us&quot;
+#&gt; [1] &quot;https://www.molcore.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[3]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/TargetMol&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/MolCore&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[3]]$RegistryID
-#&gt; [1] &quot;T11353&quot;
+#&gt; [1] &quot;MC114903&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[3]]$SourceRecordURL
-#&gt; [1] &quot;https://www.targetmol.com/compound/Gallopamil&quot;
+#&gt; [1] &quot;https://www.molcore.com/product/16662-47-8&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[3]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3227,22 +3464,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[4]]
 #&gt; [[1]]$Sources[[4]]$SID
-#&gt; [1] 491505959
+#&gt; [1] 439452223
 #&gt; 
 #&gt; [[1]]$Sources[[4]]$SourceName
-#&gt; [1] &quot;10X CHEM&quot;
+#&gt; [1] &quot;THE BioTek&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[4]]$SourceURL
-#&gt; [1] &quot;https://www.10xchem.com/&quot;
+#&gt; [1] &quot;https://www.thebiotek.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[4]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/10X%20CHEM&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/THE%20BioTek&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[4]]$RegistryID
-#&gt; [1] &quot;TX001Y13&quot;
+#&gt; [1] &quot;bt-308528&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[4]]$SourceRecordURL
-#&gt; [1] &quot;https://www.10xchem.com/prod/16662-47-8&quot;
+#&gt; [1] &quot;https://www.thebiotek.com/product/others/bt-308528&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[4]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3250,22 +3487,19 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[5]]
 #&gt; [[1]]$Sources[[5]]$SID
-#&gt; [1] 373325381
+#&gt; [1] 496728131
 #&gt; 
 #&gt; [[1]]$Sources[[5]]$SourceName
-#&gt; [1] &quot;Ambinter&quot;
-#&gt; 
-#&gt; [[1]]$Sources[[5]]$SourceURL
-#&gt; [1] &quot;http://www.ambinter.com&quot;
+#&gt; [1] &quot;Debye Scientific Co., Ltd&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[5]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Ambinter&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Debye%20Scientific%20Co.,%20Ltd&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[5]]$RegistryID
-#&gt; [1] &quot;Amb21926585&quot;
+#&gt; [1] &quot;DA-63679&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[5]]$SourceRecordURL
-#&gt; [1] &quot;http://www.ambinter.com/reference/21926585&quot;
+#&gt; [1] &quot;http://www.debyesci.com/cas_16662-47-8&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[5]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3273,22 +3507,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[6]]
 #&gt; [[1]]$Sources[[6]]$SID
-#&gt; [1] 443331886
+#&gt; [1] 254789975
 #&gt; 
 #&gt; [[1]]$Sources[[6]]$SourceName
-#&gt; [1] &quot;AA BLOCKS&quot;
+#&gt; [1] &quot;BOC Sciences&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[6]]$SourceURL
-#&gt; [1] &quot;https://www.aablocks.com&quot;
+#&gt; [1] &quot;https://www.bocsci.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[6]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/AA%20BLOCKS&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/BOC%20Sciences&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[6]]$RegistryID
-#&gt; [1] &quot;AA001WSN&quot;
+#&gt; [1] &quot;16662-46-7&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[6]]$SourceRecordURL
-#&gt; [1] &quot;https://www.aablocks.com/prod/16662-47-8&quot;
+#&gt; [1] &quot;https://www.bocsci.com/3-cyano-3-3-4-5-trimethoxyphenyl-hex-6-yl-5-6-dimethoxyphenethyl-cas-16662-46-7-item-60526.html&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[6]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3296,22 +3530,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[7]]
 #&gt; [[1]]$Sources[[7]]$SID
-#&gt; [1] 438803399
+#&gt; [1] 341112340
 #&gt; 
 #&gt; [[1]]$Sources[[7]]$SourceName
-#&gt; [1] &quot;Smolecule&quot;
+#&gt; [1] &quot;BOC Sciences&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[7]]$SourceURL
-#&gt; [1] &quot;https://www.smolecule.com/&quot;
+#&gt; [1] &quot;https://www.bocsci.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[7]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Smolecule&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/BOC%20Sciences&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[7]]$RegistryID
-#&gt; [1] &quot;S572969&quot;
+#&gt; [1] &quot;16662-47-8&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[7]]$SourceRecordURL
-#&gt; [1] &quot;https://www.smolecule.com/products/s572969&quot;
+#&gt; [1] &quot;https://www.bocsci.com/product/gallopamil-cas-16662-47-8-60527.html&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[7]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3319,22 +3553,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[8]]
 #&gt; [[1]]$Sources[[8]]$SID
-#&gt; [1] 468739220
+#&gt; [1] 385325083
 #&gt; 
 #&gt; [[1]]$Sources[[8]]$SourceName
-#&gt; [1] &quot;J&amp;H Chemical Co.,ltd&quot;
+#&gt; [1] &quot;MedChemexpress MCE&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[8]]$SourceURL
-#&gt; [1] &quot;http://www.jhechem.com&quot;
+#&gt; [1] &quot;https://www.medchemexpress.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[8]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/J&amp;H%20Chemical%20Co.,ltd&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/MedChemexpress%20MCE&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[8]]$RegistryID
-#&gt; [1] &quot;JH169373&quot;
+#&gt; [1] &quot;HY-14276&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[8]]$SourceRecordURL
-#&gt; [1] &quot;http://www.jhechem.com/ProductDetail/169373&quot;
+#&gt; [1] &quot;https://www.medchemexpress.com/gallopamil.html&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[8]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3342,22 +3576,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[9]]
 #&gt; [[1]]$Sources[[9]]$SID
-#&gt; [1] 434290301
+#&gt; [1] 152053510
 #&gt; 
 #&gt; [[1]]$Sources[[9]]$SourceName
-#&gt; [1] &quot;BLD Pharm&quot;
+#&gt; [1] &quot;AKos Consulting &amp; Solutions&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[9]]$SourceURL
-#&gt; [1] &quot;https://www.bldpharm.com/&quot;
+#&gt; [1] &quot;http://www.akosgmbh.de/AKosSamples/index.html&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[9]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/BLD%20Pharm&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/AKos%20Consulting%20&amp;%20Solutions&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[9]]$RegistryID
-#&gt; [1] &quot;BD238932&quot;
+#&gt; [1] &quot;AKOS015914091&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[9]]$SourceRecordURL
-#&gt; [1] &quot;http://www.bldpharm.com/products/16662-47-8.html&quot;
+#&gt; [1] &quot;http://akoscompounds.de/catalogue/akossamplesretrieval.php?IDNUMBERS=AKOS015914091&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[9]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3365,22 +3599,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[10]]
 #&gt; [[1]]$Sources[[10]]$SID
-#&gt; [1] 446164551
+#&gt; [1] 406674279
 #&gt; 
 #&gt; [[1]]$Sources[[10]]$SourceName
-#&gt; [1] &quot;MolCore&quot;
+#&gt; [1] &quot;Matrix Scientific&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[10]]$SourceURL
-#&gt; [1] &quot;https://www.001chemical.com/&quot;
+#&gt; [1] &quot;https://www.matrixscientific.com&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[10]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/MolCore&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Matrix%20Scientific&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[10]]$RegistryID
-#&gt; [1] &quot;DY114903&quot;
+#&gt; [1] &quot;097175&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[10]]$SourceRecordURL
-#&gt; [1] &quot;https://www.001chemical.com/chem/16662-47-8&quot;
+#&gt; [1] &quot;https://www.matrixscientific.com/097175.html&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[10]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3388,22 +3622,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[11]]
 #&gt; [[1]]$Sources[[11]]$SID
-#&gt; [1] 335977281
+#&gt; [1] 483726845
 #&gt; 
 #&gt; [[1]]$Sources[[11]]$SourceName
-#&gt; [1] &quot;MolCore&quot;
+#&gt; [1] &quot;1st Scientific&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[11]]$SourceURL
-#&gt; [1] &quot;https://www.molcore.com/&quot;
+#&gt; [1] &quot;https://www.1stsci.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[11]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/MolCore&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/1st%20Scientific&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[11]]$RegistryID
-#&gt; [1] &quot;MC114903&quot;
+#&gt; [1] &quot;ST001YC7&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[11]]$SourceRecordURL
-#&gt; [1] &quot;https://www.molcore.com/product/16662-47-8&quot;
+#&gt; [1] &quot;https://www.1stsci.com/prod/16662-47-8&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[11]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3411,22 +3645,19 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[12]]
 #&gt; [[1]]$Sources[[12]]$SID
-#&gt; [1] 91721411
+#&gt; [1] 508665039
 #&gt; 
 #&gt; [[1]]$Sources[[12]]$SourceName
-#&gt; [1] &quot;MolPort&quot;
-#&gt; 
-#&gt; [[1]]$Sources[[12]]$SourceURL
-#&gt; [1] &quot;https://www.molport.com&quot;
+#&gt; [1] &quot;eNovation Chemicals&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[12]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/MolPort&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/eNovation%20Chemicals&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[12]]$RegistryID
-#&gt; [1] &quot;MolPort-003-958-631&quot;
+#&gt; [1] &quot;Y3310388&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[12]]$SourceRecordURL
-#&gt; [1] &quot;https://www.molport.com/shop/molecule-link/MolPort-003-958-631&quot;
+#&gt; [1] &quot;https://enovationchem.com/PDetailP.asp?PID=Y3310388&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[12]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3434,22 +3665,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[13]]
 #&gt; [[1]]$Sources[[13]]$SID
-#&gt; [1] 485297280
+#&gt; [1] 507571580
 #&gt; 
 #&gt; [[1]]$Sources[[13]]$SourceName
-#&gt; [1] &quot;LGC Standards&quot;
+#&gt; [1] &quot;Accel Scientific&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[13]]$SourceURL
-#&gt; [1] &quot;https://www.lgcstandards.com/US/en/&quot;
+#&gt; [1] &quot;https://www.accelsci.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[13]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/LGC%20Standards&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Accel%20Scientific&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[13]]$RegistryID
-#&gt; [1] &quot;TRC-M271768&quot;
+#&gt; [1] &quot;EC001Z17&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[13]]$SourceRecordURL
-#&gt; [1] &quot;https://www.lgcstandards.com/CA/en/p/TRC-M271768-100MG&quot;
+#&gt; [1] &quot;https://www.accelsci.com/pro/16662-47-8&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[13]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3457,22 +3688,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[14]]
 #&gt; [[1]]$Sources[[14]]$SID
-#&gt; [1] 496060445
+#&gt; [1] 434734889
 #&gt; 
 #&gt; [[1]]$Sources[[14]]$SourceName
-#&gt; [1] &quot;LGC Standards&quot;
+#&gt; [1] &quot;Chem-Space.com Database&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[14]]$SourceURL
-#&gt; [1] &quot;https://www.lgcstandards.com/US/en/&quot;
+#&gt; [1] &quot;https://chem-space.com&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[14]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/LGC%20Standards&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Chem-Space.com%20Database&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[14]]$RegistryID
-#&gt; [1] &quot;TRC-M271768-100MG&quot;
+#&gt; [1] &quot;CSSB00020631059&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[14]]$SourceRecordURL
-#&gt; [1] &quot;https://www.lgcstandards.com/GB/en/p/TRC-M271768-100MG&quot;
+#&gt; [1] &quot;https://chem-space.com/CSSB00020631059&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[14]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3480,22 +3711,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[15]]
 #&gt; [[1]]$Sources[[15]]$SID
-#&gt; [1] 478133809
+#&gt; [1] 91721411
 #&gt; 
 #&gt; [[1]]$Sources[[15]]$SourceName
-#&gt; [1] &quot;Thoreauchem&quot;
+#&gt; [1] &quot;Molport&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[15]]$SourceURL
-#&gt; [1] &quot;http://www.thoreauchem.com/&quot;
+#&gt; [1] &quot;https://www.molport.com&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[15]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Thoreauchem&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Molport&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[15]]$RegistryID
-#&gt; [1] &quot;TH-B02072&quot;
+#&gt; [1] &quot;MolPort-003-958-631&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[15]]$SourceRecordURL
-#&gt; [1] &quot;http://www.thoreauchem.com/prod/16161/&quot;
+#&gt; [1] &quot;https://www.molport.com/shop/molecule-link/MolPort-003-958-631&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[15]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3503,19 +3734,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[16]]
 #&gt; [[1]]$Sources[[16]]$SID
-#&gt; [1] 468530044
+#&gt; [1] 387207023
 #&gt; 
 #&gt; [[1]]$Sources[[16]]$SourceName
-#&gt; [1] &quot;Starshine Chemical&quot;
+#&gt; [1] &quot;Clearsynth&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[16]]$SourceURL
-#&gt; [1] &quot;https://www.starshinechemical.com&quot;
+#&gt; [1] &quot;https://www.clearsynth.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[16]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Starshine%20Chemical&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Clearsynth&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[16]]$RegistryID
-#&gt; [1] &quot;starbld0087386&quot;
+#&gt; [1] &quot;CS-T-81658&quot;
+#&gt; 
+#&gt; [[1]]$Sources[[16]]$SourceRecordURL
+#&gt; [1] &quot;https://www.clearsynth.com/en/CST81658.html&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[16]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3523,22 +3757,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[17]]
 #&gt; [[1]]$Sources[[17]]$SID
-#&gt; [1] 375768453
+#&gt; [1] 468739220
 #&gt; 
 #&gt; [[1]]$Sources[[17]]$SourceName
-#&gt; [1] &quot;001Chemical&quot;
+#&gt; [1] &quot;J&amp;H Chemical Co.,ltd&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[17]]$SourceURL
-#&gt; [1] &quot;https://www.001chemical.com/&quot;
+#&gt; [1] &quot;http://www.jhechem.com&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[17]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/001Chemical&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/J&amp;H%20Chemical%20Co.,ltd&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[17]]$RegistryID
-#&gt; [1] &quot;DY114903&quot;
+#&gt; [1] &quot;JH169373&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[17]]$SourceRecordURL
-#&gt; [1] &quot;https://www.001chemical.com/chem/16662-47-8&quot;
+#&gt; [1] &quot;http://www.jhechem.com/ProductDetail/169373&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[17]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3546,22 +3780,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[18]]
 #&gt; [[1]]$Sources[[18]]$SID
-#&gt; [1] 381391039
+#&gt; [1] 516434433
 #&gt; 
 #&gt; [[1]]$Sources[[18]]$SourceName
-#&gt; [1] &quot;Achemtek&quot;
+#&gt; [1] &quot;Biorbyt&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[18]]$SourceURL
-#&gt; [1] &quot;http://achemtek.com/&quot;
+#&gt; [1] &quot;https://www.biorbyt.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[18]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Achemtek&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Biorbyt&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[18]]$RegistryID
-#&gt; [1] &quot;0102-012956&quot;
+#&gt; [1] &quot;orb1309646&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[18]]$SourceRecordURL
-#&gt; [1] &quot;http://www.achemtek.com/16662-47-8&quot;
+#&gt; [1] &quot;https://www.biorbyt.com/gallopamil-orb1309646.html&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[18]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3569,22 +3803,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[19]]
 #&gt; [[1]]$Sources[[19]]$SID
-#&gt; [1] 445871730
+#&gt; [1] 470411934
 #&gt; 
 #&gt; [[1]]$Sources[[19]]$SourceName
-#&gt; [1] &quot;BenchChem&quot;
+#&gt; [1] &quot;CymitQuimica&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[19]]$SourceURL
-#&gt; [1] &quot;https://www.benchchem.com/&quot;
+#&gt; [1] &quot;https://cymitquimica.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[19]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/BenchChem&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/CymitQuimica&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[19]]$RegistryID
-#&gt; [1] &quot;B102620&quot;
+#&gt; [1] &quot;CQ_16662-47-8&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[19]]$SourceRecordURL
-#&gt; [1] &quot;https://www.benchchem.com/product/b102620&quot;
+#&gt; [1] &quot;https://cymitquimica.com/cas/16662-47-8/?cpm_campaign=pubchem&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[19]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3592,22 +3826,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[20]]
 #&gt; [[1]]$Sources[[20]]$SID
-#&gt; [1] 406674279
+#&gt; [1] 485297280
 #&gt; 
 #&gt; [[1]]$Sources[[20]]$SourceName
-#&gt; [1] &quot;Matrix Scientific&quot;
+#&gt; [1] &quot;LGC Standards&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[20]]$SourceURL
-#&gt; [1] &quot;https://www.matrixscientific.com&quot;
+#&gt; [1] &quot;https://www.lgcstandards.com/US/en/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[20]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Matrix%20Scientific&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/LGC%20Standards&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[20]]$RegistryID
-#&gt; [1] &quot;097175&quot;
+#&gt; [1] &quot;TRC-M271768&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[20]]$SourceRecordURL
-#&gt; [1] &quot;https://www.matrixscientific.com/097175.html&quot;
+#&gt; [1] &quot;https://www.lgcstandards.com/GB/en/p/TRC-M271768&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[20]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3615,22 +3849,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[21]]
 #&gt; [[1]]$Sources[[21]]$SID
-#&gt; [1] 444597784
+#&gt; [1] 496060445
 #&gt; 
 #&gt; [[1]]$Sources[[21]]$SourceName
-#&gt; [1] &quot;A2B Chem&quot;
+#&gt; [1] &quot;LGC Standards&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[21]]$SourceURL
-#&gt; [1] &quot;https://www.a2bchem.com&quot;
+#&gt; [1] &quot;https://www.lgcstandards.com/US/en/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[21]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/A2B%20Chem&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/LGC%20Standards&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[21]]$RegistryID
-#&gt; [1] &quot;AA89059&quot;
+#&gt; [1] &quot;TRC-M271768-100MG&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[21]]$SourceRecordURL
-#&gt; [1] &quot;https://www.a2bchem.com/16662-47-8.html&quot;
+#&gt; [1] &quot;https://www.lgcstandards.com/GB/en/p/TRC-M271768-100MG&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[21]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3638,22 +3872,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[22]]
 #&gt; [[1]]$Sources[[22]]$SID
-#&gt; [1] 472466263
+#&gt; [1] 373325381
 #&gt; 
 #&gt; [[1]]$Sources[[22]]$SourceName
-#&gt; [1] &quot;RR Scientific&quot;
+#&gt; [1] &quot;Ambinter&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[22]]$SourceURL
-#&gt; [1] &quot;http://www.rrscientific.com&quot;
+#&gt; [1] &quot;http://www.ambinter.com&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[22]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/RR%20Scientific&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Ambinter&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[22]]$RegistryID
-#&gt; [1] &quot;R125872&quot;
+#&gt; [1] &quot;Amb21926585&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[22]]$SourceRecordURL
-#&gt; [1] &quot;http://www.rrscientific.com/product/info/125872&quot;
+#&gt; [1] &quot;http://www.ambinter.com/reference/21926585&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[22]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3661,22 +3895,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[23]]
 #&gt; [[1]]$Sources[[23]]$SID
-#&gt; [1] 490667706
+#&gt; [1] 434290301
 #&gt; 
 #&gt; [[1]]$Sources[[23]]$SourceName
-#&gt; [1] &quot;eMolecules&quot;
+#&gt; [1] &quot;BLD Pharm&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[23]]$SourceURL
-#&gt; [1] &quot;https://www.emolecules.com/&quot;
+#&gt; [1] &quot;https://www.bldpharm.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[23]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/eMolecules&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/BLD%20Pharm&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[23]]$RegistryID
-#&gt; [1] &quot;591564&quot;
+#&gt; [1] &quot;BD238932&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[23]]$SourceRecordURL
-#&gt; [1] &quot;https://search.emolecules.com/search/#?querytype=emoleculesid&amp;p=1&amp;query=591564&quot;
+#&gt; [1] &quot;http://www.bldpharm.com/products/16662-47-8.html&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[23]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3684,22 +3918,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[24]]
 #&gt; [[1]]$Sources[[24]]$SID
-#&gt; [1] 385325083
+#&gt; [1] 443845441
 #&gt; 
 #&gt; [[1]]$Sources[[24]]$SourceName
-#&gt; [1] &quot;MedChemexpress MCE&quot;
+#&gt; [1] &quot;TargetMol&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[24]]$SourceURL
-#&gt; [1] &quot;https://www.medchemexpress.com/&quot;
+#&gt; [1] &quot;https://www.targetmol.com/contact-us&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[24]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/MedChemexpress%20MCE&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/TargetMol&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[24]]$RegistryID
-#&gt; [1] &quot;HY-14276&quot;
+#&gt; [1] &quot;T11353&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[24]]$SourceRecordURL
-#&gt; [1] &quot;https://www.medchemexpress.com/gallopamil.html&quot;
+#&gt; [1] &quot;https://www.targetmol.com/compound/Gallopamil&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[24]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3707,19 +3941,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[25]]
 #&gt; [[1]]$Sources[[25]]$SID
-#&gt; [1] 496728131
+#&gt; [1] 491505959
 #&gt; 
 #&gt; [[1]]$Sources[[25]]$SourceName
-#&gt; [1] &quot;Debye Scientific Co., Ltd&quot;
+#&gt; [1] &quot;10X CHEM&quot;
+#&gt; 
+#&gt; [[1]]$Sources[[25]]$SourceURL
+#&gt; [1] &quot;https://www.10xchem.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[25]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Debye%20Scientific%20Co.,%20Ltd&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/10X%20CHEM&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[25]]$RegistryID
-#&gt; [1] &quot;DA-63679&quot;
+#&gt; [1] &quot;TX001Y13&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[25]]$SourceRecordURL
-#&gt; [1] &quot;http://www.debyesci.com/cas_16662-47-8&quot;
+#&gt; [1] &quot;https://www.10xchem.com/prod/16662-47-8&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[25]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3727,22 +3964,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[26]]
 #&gt; [[1]]$Sources[[26]]$SID
-#&gt; [1] 434734889
+#&gt; [1] 438803399
 #&gt; 
 #&gt; [[1]]$Sources[[26]]$SourceName
-#&gt; [1] &quot;Chem-Space.com Database&quot;
+#&gt; [1] &quot;Smolecule&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[26]]$SourceURL
-#&gt; [1] &quot;https://chem-space.com&quot;
+#&gt; [1] &quot;https://www.smolecule.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[26]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Chem-Space.com%20Database&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Smolecule&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[26]]$RegistryID
-#&gt; [1] &quot;CSSB00020631059&quot;
+#&gt; [1] &quot;S572969&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[26]]$SourceRecordURL
-#&gt; [1] &quot;https://chem-space.com/CSSB00020631059&quot;
+#&gt; [1] &quot;https://www.smolecule.com/products/s572969&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[26]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3750,22 +3987,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[27]]
 #&gt; [[1]]$Sources[[27]]$SID
-#&gt; [1] 355178902
+#&gt; [1] 443331886
 #&gt; 
 #&gt; [[1]]$Sources[[27]]$SourceName
-#&gt; [1] &quot;MuseChem&quot;
+#&gt; [1] &quot;AA BLOCKS&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[27]]$SourceURL
-#&gt; [1] &quot;https://www.musechem.com&quot;
+#&gt; [1] &quot;https://www.aablocks.com&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[27]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/MuseChem&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/AA%20BLOCKS&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[27]]$RegistryID
-#&gt; [1] &quot;M085731&quot;
+#&gt; [1] &quot;AA001WSN&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[27]]$SourceRecordURL
-#&gt; [1] &quot;https://www.musechem.com/product/M085731.html&quot;
+#&gt; [1] &quot;https://www.aablocks.com/prod/16662-47-8&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[27]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3773,22 +4010,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[28]]
 #&gt; [[1]]$Sources[[28]]$SID
-#&gt; [1] 470411934
+#&gt; [1] 478133809
 #&gt; 
 #&gt; [[1]]$Sources[[28]]$SourceName
-#&gt; [1] &quot;CymitQuimica&quot;
+#&gt; [1] &quot;Thoreauchem&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[28]]$SourceURL
-#&gt; [1] &quot;https://cymitquimica.com/&quot;
+#&gt; [1] &quot;http://www.thoreauchem.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[28]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/CymitQuimica&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Thoreauchem&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[28]]$RegistryID
-#&gt; [1] &quot;CQ_16662-47-8&quot;
+#&gt; [1] &quot;TH-B02072&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[28]]$SourceRecordURL
-#&gt; [1] &quot;https://cymitquimica.com/cas/16662-47-8/?cpm_campaign=pubchem&quot;
+#&gt; [1] &quot;http://www.thoreauchem.com/prod/16161/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[28]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3796,22 +4033,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[29]]
 #&gt; [[1]]$Sources[[29]]$SID
-#&gt; [1] 489612100
+#&gt; [1] 385327068
 #&gt; 
 #&gt; [[1]]$Sources[[29]]$SourceName
-#&gt; [1] &quot;Molecule Market&quot;
+#&gt; [1] &quot;AbaChemScene&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[29]]$SourceURL
-#&gt; [1] &quot;https://www.moleculemarket.com/&quot;
+#&gt; [1] &quot;https://www.chemscene.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[29]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Molecule%20Market&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/AbaChemScene&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[29]]$RegistryID
-#&gt; [1] &quot;2242825&quot;
+#&gt; [1] &quot;CS-0002968&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[29]]$SourceRecordURL
-#&gt; [1] &quot;https://www.moleculemarket.com/molecule/gallo%ce%b2/&quot;
+#&gt; [1] &quot;https://www.chemscene.com/16662-47-8.html&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[29]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3819,22 +4056,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[30]]
 #&gt; [[1]]$Sources[[30]]$SID
-#&gt; [1] 387207023
+#&gt; [1] 444597784
 #&gt; 
 #&gt; [[1]]$Sources[[30]]$SourceName
-#&gt; [1] &quot;Clearsynth&quot;
+#&gt; [1] &quot;A2B Chem&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[30]]$SourceURL
-#&gt; [1] &quot;https://www.clearsynth.com/&quot;
+#&gt; [1] &quot;https://www.a2bchem.com&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[30]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Clearsynth&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/A2B%20Chem&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[30]]$RegistryID
-#&gt; [1] &quot;CS-T-81658&quot;
+#&gt; [1] &quot;AA89059&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[30]]$SourceRecordURL
-#&gt; [1] &quot;https://www.clearsynth.com/en/CST81658.html&quot;
+#&gt; [1] &quot;https://www.a2bchem.com/16662-47-8.html&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[30]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3842,22 +4079,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[31]]
 #&gt; [[1]]$Sources[[31]]$SID
-#&gt; [1] 498255173
+#&gt; [1] 445871730
 #&gt; 
 #&gt; [[1]]$Sources[[31]]$SourceName
-#&gt; [1] &quot;Amadis Chemical&quot;
+#&gt; [1] &quot;BenchChem&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[31]]$SourceURL
-#&gt; [1] &quot;https://www.amadischem.com/&quot;
+#&gt; [1] &quot;https://www.benchchem.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[31]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Amadis%20Chemical&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/BenchChem&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[31]]$RegistryID
-#&gt; [1] &quot;A1200992&quot;
+#&gt; [1] &quot;B102620&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[31]]$SourceRecordURL
-#&gt; [1] &quot;https://www.amadischem.com/product-A1200992&quot;
+#&gt; [1] &quot;https://www.benchchem.com/product/b102620&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[31]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3865,22 +4102,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[32]]
 #&gt; [[1]]$Sources[[32]]$SID
-#&gt; [1] 385327068
+#&gt; [1] 508733925
 #&gt; 
 #&gt; [[1]]$Sources[[32]]$SourceName
-#&gt; [1] &quot;AbaChemScene&quot;
+#&gt; [1] &quot;Achemtek&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[32]]$SourceURL
-#&gt; [1] &quot;https://www.chemscene.com/&quot;
+#&gt; [1] &quot;http://achemtek.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[32]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/AbaChemScene&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Achemtek&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[32]]$RegistryID
-#&gt; [1] &quot;CS-0002968&quot;
+#&gt; [1] &quot;MSK10644A&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[32]]$SourceRecordURL
-#&gt; [1] &quot;https://www.chemscene.com/16662-47-8.html&quot;
+#&gt; [1] &quot;http://www.achemtek.com/products/MSK10644A&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[32]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3888,22 +4125,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[33]]
 #&gt; [[1]]$Sources[[33]]$SID
-#&gt; [1] 492643591
+#&gt; [1] 517671027
 #&gt; 
 #&gt; [[1]]$Sources[[33]]$SourceName
-#&gt; [1] &quot;Mcule&quot;
+#&gt; [1] &quot;ChemoSapiens&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[33]]$SourceURL
-#&gt; [1] &quot;https://mcule.com&quot;
+#&gt; [1] &quot;https://chemosapiens.com&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[33]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Mcule&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/ChemoSapiens&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[33]]$RegistryID
-#&gt; [1] &quot;MCULE-1747721727&quot;
+#&gt; [1] &quot;460942&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[33]]$SourceRecordURL
-#&gt; [1] &quot;https://mcule.com/MCULE-1747721727&quot;
+#&gt; [1] &quot;https://chemosapiens.com/product/460942&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[33]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3911,22 +4148,19 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[34]]
 #&gt; [[1]]$Sources[[34]]$SID
-#&gt; [1] 439452223
+#&gt; [1] 468530044
 #&gt; 
 #&gt; [[1]]$Sources[[34]]$SourceName
-#&gt; [1] &quot;THE BioTek&quot;
+#&gt; [1] &quot;Starshine Chemical&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[34]]$SourceURL
-#&gt; [1] &quot;https://www.thebiotek.com/&quot;
+#&gt; [1] &quot;https://www.starshinechemical.com&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[34]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/THE%20BioTek&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Starshine%20Chemical&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[34]]$RegistryID
-#&gt; [1] &quot;bt-308528&quot;
-#&gt; 
-#&gt; [[1]]$Sources[[34]]$SourceRecordURL
-#&gt; [1] &quot;https://www.thebiotek.com/product/others/bt-308528&quot;
+#&gt; [1] &quot;starbld0087386&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[34]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3934,22 +4168,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[35]]
 #&gt; [[1]]$Sources[[35]]$SID
-#&gt; [1] 483726845
+#&gt; [1] 355178902
 #&gt; 
 #&gt; [[1]]$Sources[[35]]$SourceName
-#&gt; [1] &quot;1st Scientific&quot;
+#&gt; [1] &quot;MuseChem&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[35]]$SourceURL
-#&gt; [1] &quot;https://www.1stsci.com/&quot;
+#&gt; [1] &quot;https://www.musechem.com&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[35]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/1st%20Scientific&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/MuseChem&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[35]]$RegistryID
-#&gt; [1] &quot;ST001YC7&quot;
+#&gt; [1] &quot;M085731&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[35]]$SourceRecordURL
-#&gt; [1] &quot;https://www.1stsci.com/prod/16662-47-8&quot;
+#&gt; [1] &quot;https://www.musechem.com/product/M085731.html&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[35]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -3957,24 +4191,93 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[1]]$Sources[[36]]
 #&gt; [[1]]$Sources[[36]]$SID
-#&gt; [1] 152053510
+#&gt; [1] 498255173
 #&gt; 
 #&gt; [[1]]$Sources[[36]]$SourceName
-#&gt; [1] &quot;AKos Consulting &amp; Solutions&quot;
+#&gt; [1] &quot;Amadis Chemical&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[36]]$SourceURL
-#&gt; [1] &quot;http://www.akosgmbh.de/AKosSamples/index.html&quot;
+#&gt; [1] &quot;https://www.amadischem.com/&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[36]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/AKos%20Consulting%20&amp;%20Solutions&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Amadis%20Chemical&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[36]]$RegistryID
-#&gt; [1] &quot;AKOS015914091&quot;
+#&gt; [1] &quot;A1200992&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[36]]$SourceRecordURL
-#&gt; [1] &quot;http://akoscompounds.de/catalogue/akossamplesretrieval.php?IDNUMBERS=AKOS015914091&quot;
+#&gt; [1] &quot;https://www.amadischem.com/product-A1200992&quot;
 #&gt; 
 #&gt; [[1]]$Sources[[36]]$SourceCategories
+#&gt; [1] &quot;Chemical Vendors&quot;
+#&gt; 
+#&gt; 
+#&gt; [[1]]$Sources[[37]]
+#&gt; [[1]]$Sources[[37]]$SID
+#&gt; [1] 472466263
+#&gt; 
+#&gt; [[1]]$Sources[[37]]$SourceName
+#&gt; [1] &quot;RR Scientific&quot;
+#&gt; 
+#&gt; [[1]]$Sources[[37]]$SourceURL
+#&gt; [1] &quot;http://www.rrscientific.com&quot;
+#&gt; 
+#&gt; [[1]]$Sources[[37]]$SourceDetail
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/RR%20Scientific&quot;
+#&gt; 
+#&gt; [[1]]$Sources[[37]]$RegistryID
+#&gt; [1] &quot;R125872&quot;
+#&gt; 
+#&gt; [[1]]$Sources[[37]]$SourceRecordURL
+#&gt; [1] &quot;http://www.rrscientific.com/product/info/125872&quot;
+#&gt; 
+#&gt; [[1]]$Sources[[37]]$SourceCategories
+#&gt; [1] &quot;Chemical Vendors&quot;
+#&gt; 
+#&gt; 
+#&gt; [[1]]$Sources[[38]]
+#&gt; [[1]]$Sources[[38]]$SID
+#&gt; [1] 490667706
+#&gt; 
+#&gt; [[1]]$Sources[[38]]$SourceName
+#&gt; [1] &quot;eMolecules&quot;
+#&gt; 
+#&gt; [[1]]$Sources[[38]]$SourceURL
+#&gt; [1] &quot;https://www.emolecules.com/&quot;
+#&gt; 
+#&gt; [[1]]$Sources[[38]]$SourceDetail
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/eMolecules&quot;
+#&gt; 
+#&gt; [[1]]$Sources[[38]]$RegistryID
+#&gt; [1] &quot;591564&quot;
+#&gt; 
+#&gt; [[1]]$Sources[[38]]$SourceRecordURL
+#&gt; [1] &quot;https://search.emolecules.com/search/#?querytype=emoleculesid&amp;p=1&amp;query=591564&quot;
+#&gt; 
+#&gt; [[1]]$Sources[[38]]$SourceCategories
+#&gt; [1] &quot;Chemical Vendors&quot;
+#&gt; 
+#&gt; 
+#&gt; [[1]]$Sources[[39]]
+#&gt; [[1]]$Sources[[39]]$SID
+#&gt; [1] 375768453
+#&gt; 
+#&gt; [[1]]$Sources[[39]]$SourceName
+#&gt; [1] &quot;001Chemical&quot;
+#&gt; 
+#&gt; [[1]]$Sources[[39]]$SourceURL
+#&gt; [1] &quot;https://www.001chemical.com/&quot;
+#&gt; 
+#&gt; [[1]]$Sources[[39]]$SourceDetail
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/001Chemical&quot;
+#&gt; 
+#&gt; [[1]]$Sources[[39]]$RegistryID
+#&gt; [1] &quot;DY114903&quot;
+#&gt; 
+#&gt; [[1]]$Sources[[39]]$SourceRecordURL
+#&gt; [1] &quot;https://www.001chemical.com/chem/16662-47-8&quot;
+#&gt; 
+#&gt; [[1]]$Sources[[39]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
 #&gt; 
 #&gt; 
@@ -4334,7 +4637,7 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[2]]$Sources[[16]]
 #&gt; [[2]]$Sources[[16]]$SID
-#&gt; [1] 226433192
+#&gt; [1] 514371888
 #&gt; 
 #&gt; [[2]]$Sources[[16]]$SourceName
 #&gt; [1] &quot;SureChEMBL&quot;
@@ -4346,10 +4649,10 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/SureChEMBL&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[16]]$RegistryID
-#&gt; [1] &quot;SCHEMBL49428&quot;
+#&gt; [1] &quot;SCHEMBL29563394&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[16]]$SourceRecordURL
-#&gt; [1] &quot;https://www.surechembl.org/chemical/SCHEMBL49428&quot;
+#&gt; [1] &quot;https://www.surechembl.org/chemical/29563394&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[16]]$SourceCategories
 #&gt; [1] &quot;Curation Efforts&quot;         &quot;Research and Development&quot;
@@ -4357,22 +4660,22 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[2]]$Sources[[17]]
 #&gt; [[2]]$Sources[[17]]$SID
-#&gt; [1] 349974529
+#&gt; [1] 226433192
 #&gt; 
 #&gt; [[2]]$Sources[[17]]$SourceName
-#&gt; [1] &quot;Therapeutic Target Database (TTD)&quot;
+#&gt; [1] &quot;SureChEMBL&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[17]]$SourceURL
-#&gt; [1] &quot;https://db.idrblab.org/ttd/&quot;
+#&gt; [1] &quot;https://www.surechembl.org/&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[17]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Therapeutic%20Target%20Database%20(TTD)&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/SureChEMBL&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[17]]$RegistryID
-#&gt; [1] &quot;D00ERV&quot;
+#&gt; [1] &quot;SCHEMBL49428&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[17]]$SourceRecordURL
-#&gt; [1] &quot;https://db.idrblab.org/ttd/drug/D00ERV&quot;
+#&gt; [1] &quot;https://www.surechembl.org/chemical/49428&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[17]]$SourceCategories
 #&gt; [1] &quot;Curation Efforts&quot;         &quot;Research and Development&quot;
@@ -4380,7 +4683,7 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[2]]$Sources[[18]]
 #&gt; [[2]]$Sources[[18]]$SID
-#&gt; [1] 349982452
+#&gt; [1] 349974529
 #&gt; 
 #&gt; [[2]]$Sources[[18]]$SourceName
 #&gt; [1] &quot;Therapeutic Target Database (TTD)&quot;
@@ -4392,10 +4695,10 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Therapeutic%20Target%20Database%20(TTD)&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[18]]$RegistryID
-#&gt; [1] &quot;D08FVE&quot;
+#&gt; [1] &quot;D00ERV&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[18]]$SourceRecordURL
-#&gt; [1] &quot;https://db.idrblab.org/ttd/drug/D08FVE&quot;
+#&gt; [1] &quot;https://db.idrblab.org/ttd/drug/D00ERV&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[18]]$SourceCategories
 #&gt; [1] &quot;Curation Efforts&quot;         &quot;Research and Development&quot;
@@ -4403,7 +4706,7 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[2]]$Sources[[19]]
 #&gt; [[2]]$Sources[[19]]$SID
-#&gt; [1] 349986988
+#&gt; [1] 349982452
 #&gt; 
 #&gt; [[2]]$Sources[[19]]$SourceName
 #&gt; [1] &quot;Therapeutic Target Database (TTD)&quot;
@@ -4415,10 +4718,10 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Therapeutic%20Target%20Database%20(TTD)&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[19]]$RegistryID
-#&gt; [1] &quot;D0G4RQ&quot;
+#&gt; [1] &quot;D08FVE&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[19]]$SourceRecordURL
-#&gt; [1] &quot;https://db.idrblab.org/ttd/drug/D0G4RQ&quot;
+#&gt; [1] &quot;https://db.idrblab.org/ttd/drug/D08FVE&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[19]]$SourceCategories
 #&gt; [1] &quot;Curation Efforts&quot;         &quot;Research and Development&quot;
@@ -4426,24 +4729,47 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[2]]$Sources[[20]]
 #&gt; [[2]]$Sources[[20]]$SID
-#&gt; [1] 386619745
+#&gt; [1] 349986988
 #&gt; 
 #&gt; [[2]]$Sources[[20]]$SourceName
-#&gt; [1] &quot;Wikidata&quot;
+#&gt; [1] &quot;Therapeutic Target Database (TTD)&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[20]]$SourceURL
-#&gt; [1] &quot;https://www.wikidata.org/wiki/Wikidata:Main_Page&quot;
+#&gt; [1] &quot;https://db.idrblab.org/ttd/&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[20]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Wikidata&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Therapeutic%20Target%20Database%20(TTD)&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[20]]$RegistryID
-#&gt; [1] &quot;Q412127&quot;
+#&gt; [1] &quot;D0G4RQ&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[20]]$SourceRecordURL
-#&gt; [1] &quot;https://scholia.toolforge.org/Q412127&quot;
+#&gt; [1] &quot;https://db.idrblab.org/ttd/drug/D0G4RQ&quot;
 #&gt; 
 #&gt; [[2]]$Sources[[20]]$SourceCategories
+#&gt; [1] &quot;Curation Efforts&quot;         &quot;Research and Development&quot;
+#&gt; 
+#&gt; 
+#&gt; [[2]]$Sources[[21]]
+#&gt; [[2]]$Sources[[21]]$SID
+#&gt; [1] 386619745
+#&gt; 
+#&gt; [[2]]$Sources[[21]]$SourceName
+#&gt; [1] &quot;Wikidata&quot;
+#&gt; 
+#&gt; [[2]]$Sources[[21]]$SourceURL
+#&gt; [1] &quot;https://www.wikidata.org/wiki/Wikidata:Main_Page&quot;
+#&gt; 
+#&gt; [[2]]$Sources[[21]]$SourceDetail
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Wikidata&quot;
+#&gt; 
+#&gt; [[2]]$Sources[[21]]$RegistryID
+#&gt; [1] &quot;Q412127&quot;
+#&gt; 
+#&gt; [[2]]$Sources[[21]]$SourceRecordURL
+#&gt; [1] &quot;https://scholia.toolforge.org/Q412127&quot;
+#&gt; 
+#&gt; [[2]]$Sources[[21]]$SourceCategories
 #&gt; [1] &quot;Curation Efforts&quot;
 #&gt; 
 #&gt; 
@@ -4876,19 +5202,19 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[4]]$Sources[[3]]
 #&gt; [[4]]$Sources[[3]]$SID
-#&gt; [1] 376719123
+#&gt; [1] 516851417
 #&gt; 
 #&gt; [[4]]$Sources[[3]]$SourceName
 #&gt; [1] &quot;Thieme Chemistry&quot;
 #&gt; 
 #&gt; [[4]]$Sources[[3]]$SourceURL
-#&gt; [1] &quot;http://www.thieme-chemistry.com&quot;
+#&gt; [1] &quot;http://www.thieme.com&quot;
 #&gt; 
 #&gt; [[4]]$Sources[[3]]$SourceDetail
 #&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Thieme%20Chemistry&quot;
 #&gt; 
 #&gt; [[4]]$Sources[[3]]$RegistryID
-#&gt; [1] &quot;35061510-294217537&quot;
+#&gt; [1] &quot;XQLWNAFCTODIRK-UHFFFAOYSA-N&quot;
 #&gt; 
 #&gt; [[4]]$Sources[[3]]$SourceCategories
 #&gt; [1] &quot;Journal Publishers&quot;    &quot;Subscription Services&quot;
@@ -5742,16 +6068,16 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[5]]$Sources[[49]]
 #&gt; [[5]]$Sources[[49]]$SID
-#&gt; [1] 252416316
+#&gt; [1] 489612100
 #&gt; 
 #&gt; [[5]]$Sources[[49]]$SourceName
-#&gt; [1] &quot;Molepedia&quot;
+#&gt; [1] &quot;Molecule Market&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[49]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Molepedia&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Molecule%20Market&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[49]]$RegistryID
-#&gt; [1] &quot;M90144243P&quot;
+#&gt; [1] &quot;2242825&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[49]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -5759,16 +6085,16 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[5]]$Sources[[50]]
 #&gt; [[5]]$Sources[[50]]$SID
-#&gt; [1] 85087629
+#&gt; [1] 252416316
 #&gt; 
 #&gt; [[5]]$Sources[[50]]$SourceName
-#&gt; [1] &quot;MP Biomedicals&quot;
+#&gt; [1] &quot;Molepedia&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[50]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/MP%20Biomedicals&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Molepedia&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[50]]$RegistryID
-#&gt; [1] &quot;119128&quot;
+#&gt; [1] &quot;M90144243P&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[50]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -5776,84 +6102,84 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[5]]$Sources[[51]]
 #&gt; [[5]]$Sources[[51]]$SID
-#&gt; [1] 76626821
+#&gt; [1] 85087629
 #&gt; 
 #&gt; [[5]]$Sources[[51]]$SourceName
-#&gt; [1] &quot;NextBio&quot;
+#&gt; [1] &quot;MP Biomedicals&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[51]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/NextBio&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/MP%20Biomedicals&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[51]]$RegistryID
-#&gt; [1] &quot;1234&quot;
+#&gt; [1] &quot;119128&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[51]]$SourceCategories
-#&gt; [1] &quot;Subscription Services&quot;
+#&gt; [1] &quot;Chemical Vendors&quot;
 #&gt; 
 #&gt; 
 #&gt; [[5]]$Sources[[52]]
 #&gt; [[5]]$Sources[[52]]$SID
-#&gt; [1] 10510120
+#&gt; [1] 76626821
 #&gt; 
 #&gt; [[5]]$Sources[[52]]$SourceName
-#&gt; [1] &quot;NIST Chemistry WebBook&quot;
+#&gt; [1] &quot;NextBio&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[52]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/NIST%20Chemistry%20WebBook&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/NextBio&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[52]]$RegistryID
-#&gt; [1] &quot;718195110&quot;
+#&gt; [1] &quot;1234&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[52]]$SourceCategories
-#&gt; [1] &quot;Curation Efforts&quot;         &quot;Research and Development&quot;
+#&gt; [1] &quot;Subscription Services&quot;
 #&gt; 
 #&gt; 
 #&gt; [[5]]$Sources[[53]]
 #&gt; [[5]]$Sources[[53]]$SID
-#&gt; [1] 250122017
+#&gt; [1] 10510120
 #&gt; 
 #&gt; [[5]]$Sources[[53]]$SourceName
-#&gt; [1] &quot;NIST Mass Spectrometry Data Center&quot;
+#&gt; [1] &quot;NIST Chemistry WebBook&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[53]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/NIST%20Mass%20Spectrometry%20Data%20Center&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/NIST%20Chemistry%20WebBook&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[53]]$RegistryID
-#&gt; [1] &quot;XQLWNAFCTODIRK-UHFFFAOYSA-N&quot;
+#&gt; [1] &quot;718195110&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[53]]$SourceCategories
-#&gt; [1] &quot;Governmental Organizations&quot;
+#&gt; [1] &quot;Curation Efforts&quot;         &quot;Research and Development&quot;
 #&gt; 
 #&gt; 
 #&gt; [[5]]$Sources[[54]]
 #&gt; [[5]]$Sources[[54]]$SID
-#&gt; [1] 57320831
+#&gt; [1] 250122017
 #&gt; 
 #&gt; [[5]]$Sources[[54]]$SourceName
-#&gt; [1] &quot;NovoSeek&quot;
+#&gt; [1] &quot;NIST Mass Spectrometry Data Center&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[54]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/NovoSeek&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/NIST%20Mass%20Spectrometry%20Data%20Center&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[54]]$RegistryID
-#&gt; [1] &quot;1234&quot;
+#&gt; [1] &quot;XQLWNAFCTODIRK-UHFFFAOYSA-N&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[54]]$SourceCategories
-#&gt; [1] &quot;Chemical Vendors&quot;
+#&gt; [1] &quot;Governmental Organizations&quot;
 #&gt; 
 #&gt; 
 #&gt; [[5]]$Sources[[55]]
 #&gt; [[5]]$Sources[[55]]$SID
-#&gt; [1] 255430606
+#&gt; [1] 57320831
 #&gt; 
 #&gt; [[5]]$Sources[[55]]$SourceName
-#&gt; [1] &quot;OXCHEM CORPORATION&quot;
+#&gt; [1] &quot;NovoSeek&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[55]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/OXCHEM%20CORPORATION&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/NovoSeek&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[55]]$RegistryID
-#&gt; [1] &quot;AX8238932&quot;
+#&gt; [1] &quot;1234&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[55]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -5861,101 +6187,101 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[5]]$Sources[[56]]
 #&gt; [[5]]$Sources[[56]]$SID
-#&gt; [1] 142059950
+#&gt; [1] 255430606
 #&gt; 
 #&gt; [[5]]$Sources[[56]]$SourceName
-#&gt; [1] &quot;SCRIPDB&quot;
+#&gt; [1] &quot;OXCHEM CORPORATION&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[56]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/SCRIPDB&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/OXCHEM%20CORPORATION&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[56]]$RegistryID
-#&gt; [1] &quot;US06391872-20020521-C00146_1&quot;
+#&gt; [1] &quot;AX8238932&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[56]]$SourceCategories
-#&gt; [1] &quot;Research and Development&quot;
+#&gt; [1] &quot;Chemical Vendors&quot;
 #&gt; 
 #&gt; 
 #&gt; [[5]]$Sources[[57]]
 #&gt; [[5]]$Sources[[57]]$SID
-#&gt; [1] 249826480
+#&gt; [1] 142059950
 #&gt; 
 #&gt; [[5]]$Sources[[57]]$SourceName
-#&gt; [1] &quot;Syntree&quot;
+#&gt; [1] &quot;SCRIPDB&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[57]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Syntree&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/SCRIPDB&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[57]]$RegistryID
-#&gt; [1] &quot;ST2405982&quot;
+#&gt; [1] &quot;US06391872-20020521-C00146_1&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[57]]$SourceCategories
-#&gt; [1] &quot;Chemical Vendors&quot;
+#&gt; [1] &quot;Research and Development&quot;
 #&gt; 
 #&gt; 
 #&gt; [[5]]$Sources[[58]]
 #&gt; [[5]]$Sources[[58]]$SID
-#&gt; [1] 14834960
+#&gt; [1] 249826480
 #&gt; 
 #&gt; [[5]]$Sources[[58]]$SourceName
-#&gt; [1] &quot;Thomson Pharma&quot;
+#&gt; [1] &quot;Syntree&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[58]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Thomson%20Pharma&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Syntree&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[58]]$RegistryID
-#&gt; [1] &quot;00053884&quot;
+#&gt; [1] &quot;ST2405982&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[58]]$SourceCategories
-#&gt; [1] &quot;Journal Publishers&quot;    &quot;Subscription Services&quot;
+#&gt; [1] &quot;Chemical Vendors&quot;
 #&gt; 
 #&gt; 
 #&gt; [[5]]$Sources[[59]]
 #&gt; [[5]]$Sources[[59]]$SID
-#&gt; [1] 318692992
+#&gt; [1] 14834960
 #&gt; 
 #&gt; [[5]]$Sources[[59]]$SourceName
-#&gt; [1] &quot;ToxPlanet&quot;
+#&gt; [1] &quot;Thomson Pharma&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[59]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/ToxPlanet&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Thomson%20Pharma&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[59]]$RegistryID
-#&gt; [1] &quot;ToxPlanet-MTY2NjItNDctODEyMzQ=&quot;
+#&gt; [1] &quot;00053884&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[59]]$SourceCategories
-#&gt; [1] &quot;Subscription Services&quot;
+#&gt; [1] &quot;Journal Publishers&quot;    &quot;Subscription Services&quot;
 #&gt; 
 #&gt; 
 #&gt; [[5]]$Sources[[60]]
 #&gt; [[5]]$Sources[[60]]$SID
-#&gt; [1] 204389295
+#&gt; [1] 318692992
 #&gt; 
 #&gt; [[5]]$Sources[[60]]$SourceName
-#&gt; [1] &quot;Tractus&quot;
+#&gt; [1] &quot;ToxPlanet&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[60]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Tractus&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/ToxPlanet&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[60]]$RegistryID
-#&gt; [1] &quot;TC-159801&quot;
+#&gt; [1] &quot;ToxPlanet-MTY2NjItNDctODEyMzQ=&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[60]]$SourceCategories
-#&gt; [1] &quot;Chemical Vendors&quot;
+#&gt; [1] &quot;Subscription Services&quot;
 #&gt; 
 #&gt; 
 #&gt; [[5]]$Sources[[61]]
 #&gt; [[5]]$Sources[[61]]$SID
-#&gt; [1] 203355969
+#&gt; [1] 204389295
 #&gt; 
 #&gt; [[5]]$Sources[[61]]$SourceName
-#&gt; [1] &quot;Wuhan Atomole Chemicals Co., Ltd.&quot;
+#&gt; [1] &quot;Tractus&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[61]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Wuhan%20Atomole%20Chemicals%20Co.,%20Ltd.&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Tractus&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[61]]$RegistryID
-#&gt; [1] &quot;AT-44300&quot;
+#&gt; [1] &quot;TC-159801&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[61]]$SourceCategories
 #&gt; [1] &quot;Chemical Vendors&quot;
@@ -5963,35 +6289,52 @@ detailed record of the source The categories the source belongs to</p>
 #&gt; 
 #&gt; [[5]]$Sources[[62]]
 #&gt; [[5]]$Sources[[62]]$SID
-#&gt; [1] 7979354
+#&gt; [1] 203355969
 #&gt; 
 #&gt; [[5]]$Sources[[62]]$SourceName
-#&gt; [1] &quot;xPharm: The Comprehensive Pharmacology Reference&quot;
+#&gt; [1] &quot;Wuhan Atomole Chemicals Co., Ltd.&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[62]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/xPharm:%20The%20Comprehensive%20Pharmacology%20Reference&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Wuhan%20Atomole%20Chemicals%20Co.,%20Ltd.&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[62]]$RegistryID
-#&gt; [1] &quot;8530&quot;
+#&gt; [1] &quot;AT-44300&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[62]]$SourceCategories
-#&gt; [1] &quot;Journal Publishers&quot;
+#&gt; [1] &quot;Chemical Vendors&quot;
 #&gt; 
 #&gt; 
 #&gt; [[5]]$Sources[[63]]
 #&gt; [[5]]$Sources[[63]]$SID
-#&gt; [1] 402405891
+#&gt; [1] 7979354
 #&gt; 
 #&gt; [[5]]$Sources[[63]]$SourceName
-#&gt; [1] &quot;Zoeller Lab, School of Medicine, Boston University&quot;
+#&gt; [1] &quot;xPharm: The Comprehensive Pharmacology Reference&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[63]]$SourceDetail
-#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Zoeller%20Lab,%20School%20of%20Medicine,%20Boston%20University&quot;
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/xPharm:%20The%20Comprehensive%20Pharmacology%20Reference&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[63]]$RegistryID
-#&gt; [1] &quot;BUHTS-0002678&quot;
+#&gt; [1] &quot;8530&quot;
 #&gt; 
 #&gt; [[5]]$Sources[[63]]$SourceCategories
+#&gt; [1] &quot;Journal Publishers&quot;
+#&gt; 
+#&gt; 
+#&gt; [[5]]$Sources[[64]]
+#&gt; [[5]]$Sources[[64]]$SID
+#&gt; [1] 402405891
+#&gt; 
+#&gt; [[5]]$Sources[[64]]$SourceName
+#&gt; [1] &quot;Zoeller Lab, School of Medicine, Boston University&quot;
+#&gt; 
+#&gt; [[5]]$Sources[[64]]$SourceDetail
+#&gt; [1] &quot;https://pubchem.ncbi.nlm.nih.gov/source/Zoeller%20Lab,%20School%20of%20Medicine,%20Boston%20University&quot;
+#&gt; 
+#&gt; [[5]]$Sources[[64]]$RegistryID
+#&gt; [1] &quot;BUHTS-0002678&quot;
+#&gt; 
+#&gt; [[5]]$Sources[[64]]$SourceCategories
 #&gt; [1] &quot;NIH Initiatives&quot;
 #&gt; 
 #&gt; 
@@ -6342,7 +6685,7 @@ function parameters specify that we are looking for “literature” in the
 URLs to the relevant literature. The following code retrieves the
 detailed information about the literature from the result object:</p>
 <pre class="r"><code>retrieve(object = result, .slot = &quot;AllURL&quot;, .to.data.frame = FALSE)
-#&gt; [1] &quot;https://www.ncbi.nlm.nih.gov/sites/entrez?cmd=search&amp;db=pubmed&amp;term=%22Gallopamil%22[Mesh%20Terms%3anoexp]&quot;</code></pre>
+#&gt; [1] &quot;https://pubmed.ncbi.nlm.nih.gov/?cmd=search&amp;term=%22Gallopamil%22[Mesh%20Terms%3anoexp]&quot;</code></pre>
 <p>This URL directs to PubMed and shows the literature related to the
 compound “Gallopamil” identified by the CID “1234”.</p>
 </div>
