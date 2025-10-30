@@ -1,4 +1,4 @@
-db3a4f01bd46106868ab67bc913fdf43 *DESCRIPTION
+27ce4566ef9512b6bfba189a0fa0e1ff *DESCRIPTION
 fb2e0afc6dec69cc3b3f90bfef4876f6 *NAMESPACE
 b27aefe15e0b68c2a010422045249aba *R/00_globals.R
 e3d1ee283b1c821b098b1f202827f5ed *R/01_all_classes.R
@@ -20,16 +20,7 @@ f558b8e9b4ffca9f505f3dd74c2bd790 *R/get_properties.R
 295099f3ad06265392383eb5dbf2b57f *R/getter_functions.R
 cf7b0eb6014149bfb436e4a956ad7c48 *R/printMethods.R
 d6ca7c796305d5a69aaf35d4878f6c08 *R/request.R
-530c6e1bf69e71bc6055f57bf3df68e2 *build/vignette.rds
-d58917c7148491751bc8868fb04207a4 *inst/doc/Enhancing_Chemical_Data_Access_with_PubChemR.R
-7ca8d220498598060ef1a2e328d4a973 *inst/doc/Enhancing_Chemical_Data_Access_with_PubChemR.Rmd
-5c6bb08d2d79969e1dd962004c879200 *inst/doc/Enhancing_Chemical_Data_Access_with_PubChemR.html
-a291af346aa7344500cbd873fd5b8f0d *inst/doc/Exploring_Chemical_Data_with_PubChemR.R
-12686b2bc3e34e34248e888ed50da8fe *inst/doc/Exploring_Chemical_Data_with_PubChemR.Rmd
-4dde029bfd6dea2293facf9665054911 *inst/doc/Exploring_Chemical_Data_with_PubChemR.html
-1509f9f6066021d0fc93119bac13dde5 *inst/doc/Working_with_PubChemR_to_Access_Chemical_Data.R
-454207491152c9c1d486eca746b27cd6 *inst/doc/Working_with_PubChemR_to_Access_Chemical_Data.Rmd
-e22bbd6873c9fd4dd3151dc8e99f2533 *inst/doc/Working_with_PubChemR_to_Access_Chemical_Data.html
+a437826e46ec50d94e054a60d17b9096 *inst/CITATION
 805d8156c74d358616446422d9f4a0d5 *man/AIDs-SIDs-CIDs.Rd
 224c23369453fbaaaf71d3c66202b228 *man/PubChemR-classes.Rd
 58d11269088deda6d1fcefada5843d89 *man/PugView-classes.Rd
@@ -68,6 +59,3 @@ a612ebb2ac599f196847790d83f53c67 *tests/testthat/test-get_sdf.R
 d020430c746f7f467c825d3210037823 *tests/testthat/test-get_sids.R
 c007741f349f540f423d41f1da161f47 *tests/testthat/test-get_substances.R
 8665c6e828b8e2c2882dfdcd16f34680 *tests/testthat/test-get_synonyms.R
-7ca8d220498598060ef1a2e328d4a973 *vignettes/Enhancing_Chemical_Data_Access_with_PubChemR.Rmd
-12686b2bc3e34e34248e888ed50da8fe *vignettes/Exploring_Chemical_Data_with_PubChemR.Rmd
-454207491152c9c1d486eca746b27cd6 *vignettes/Working_with_PubChemR_to_Access_Chemical_Data.Rmd
