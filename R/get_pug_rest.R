@@ -151,8 +151,14 @@
 #' }
 #'
 #' @examples
-#' result <- get_pug_rest(identifier = "2244", namespace = "cid", domain = "compound", output = "JSON")
-#' pubChemData(result)
+#' \donttest{
+#'   result <- get_pug_rest(identifier = "2244",
+#'                          namespace = "cid",
+#'                          domain = "compound",
+#'                          output = "JSON"
+#'                         )
+#'   pubChemData(result)
+#' }
 #'
 #'
 #' @importFrom httr GET RETRY
