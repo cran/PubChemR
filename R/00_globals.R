@@ -2,7 +2,6 @@
 
 #' Import testthat Package
 #' @noRd
-#' @import testthat
 NULL
 
 # The base URL for the PubChem API.
