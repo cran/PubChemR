@@ -132,8 +132,12 @@ get_properties <- function(properties = NULL, identifier, namespace = 'cid', sea
                            propertyMatch = list(.ignore.case = FALSE, type = "contain")) {
 
   # Check if properties is a single string, and split it into a vector if needed
-  if (is.character(properties) && length(properties) == 1 && !grepl(",", properties)) {
+  if (is.character(properties) && length(properties) == 1 && grepl(",", properties)) {
     properties <- strsplit(properties, ",")[[1]]
+  }
+
+  if (is.null(properties) && (!("type" %in% names(propertyMatch)) || propertyMatch$type != "all")) {
+    propertyMatch$type <- "all"
   }
 
   propertyMatch$x <- properties
@@ -146,72 +150,29 @@ get_properties <- function(properties = NULL, identifier, namespace = 'cid', sea
   # Get property names from available properties
   propertyNames <- do.call("property_map", propertyMatch)
 
+  if (is.null(propertyNames) || length(propertyNames) == 0) {
+    stop("No valid properties matched the requested pattern. Use property_map(type = 'all') to inspect available properties.")
+  }
+
   # Create the properties string for the URL
   properties_str <- paste(propertyNames, collapse = ',')
   properties_endpoint <- paste('property', properties_str, sep = '/')
 
-  # Initialize result list
-  Properties_List <- list(
-    result = vector("list", length(identifier)),  # Create a list with the same length as identifiers
-    request_args = list(
-      properties = properties,
-      namespace = namespace,
+  structure(
+    pc_collect_instances(
       identifier = identifier,
+      namespace = namespace,
       domain = "compound",
       operation = properties_endpoint,
-      options = options,
       searchtype = searchtype,
-      propertyMatch = propertyMatch
+      options = options,
+      result_class = "PC_Properties",
+      request_args_extra = list(
+        properties = properties,
+        propertyMatch = propertyMatch
+      )
     ),
-    success = rep(FALSE, length(identifier)),  # Initialize success with FALSE for each identifier
-    error = vector("character", length(identifier))  # Initialize an empty character vector for errors
-  )
-
-  # Attempt to get the response and handle errors gracefully
-  result <- lapply(seq_along(identifier), function(i) {
-    x <- identifier[i]
-    # Use tryCatch to handle potential errors
-    response <- tryCatch({
-      # Attempt to retrieve data using the get_json function
-      tmp <- get_json(identifier = x, namespace = namespace, domain = 'compound',
-                      operation = properties_endpoint, searchtype = searchtype, options = options)
-      class(tmp) <- c(class(tmp), "PC_Properties")  # Add custom class to response
-      Properties_List$success[i] <- TRUE  # Set success to TRUE if request is successful
-      tmp
-    }, error = function(e) {
-      # Capture the error message
-      error_message <- conditionMessage(e)
-
-      # Determine the error type and assign an appropriate message
-      if (grepl("Timeout", error_message, ignore.case = TRUE)) {
-        error_message <- paste0("Request timeout: The server did not respond in time for identifier '", x, "'. Please try again later.")
-      } else if (grepl("Could not resolve host", error_message, ignore.case = TRUE) ||
-                 grepl("InternetOpenUrl", error_message, ignore.case = TRUE)) {
-        error_message <- "Network error: Could not connect to the server. Please check your internet connection and try again."
-      } else if (grepl("HTTP error", error_message, ignore.case = TRUE)) {
-        error_message <- paste0("HTTP error: The server returned an error for identifier '", x, "'. Please check the server status or try again later.")
-      } else {
-        error_message <- paste0("An unknown error occurred for identifier '", x, "': ", error_message)
-      }
-
-      # Append error message to Properties_List$error at the corresponding index
-      Properties_List$error[i] <- error_message
-      Properties_List$success[i] <- FALSE  # Ensure success is set to FALSE for this identifier
-
-      # Return NULL for this identifier to indicate failure
-      NULL
-    })
-    return(response)
-  })
-
-  # Store the results in the Properties_List object
-  Properties_List$result <- result
-
-  # Return the structured object with results and error details
-  structure(
-    Properties_List,
     class = c("PubChemInstanceList")
   )
 }
-
 

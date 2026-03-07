@@ -228,6 +228,18 @@ primaryClass <- function(x){
 }
 
 find_last_layer <- function(x, ...) {
+  if (is.null(x)) {
+    return(NULL)
+  }
+
+  if (!is.list(x)) {
+    return(x)
+  }
+
+  if (length(x) == 0) {
+    return(x)
+  }
+
   # Base case: if the current list has multiple elements, return it
   if (length(x) > 1) {
     return(x)
@@ -251,7 +263,7 @@ printSlotDetails <- function(x, ...){
     itemClass <- class(x[[item]])[1]
     itemNames <- names(x[[item]])
 
-    if (!is.null(itemNames) & length(itemNames) > 4){
+    if (!is.null(itemNames) && length(itemNames) > 4){
       itemNames <- c(itemNames[1:4], "...")
       named_unnamed <- "named"
     }

@@ -86,45 +86,18 @@ get_synonyms <- function(identifier, namespace = 'cid', domain = 'compound', sea
     stop("Error: 'identifier' cannot be NULL or empty. Please provide at least one valid identifier.")
   }
 
-  # Initialize result list
-  Synonyms_List <- list(
-    result = list(),
-    request_args = list(
-      namespace = namespace,
+  structure(
+    pc_collect_instances(
       identifier = identifier,
+      namespace = namespace,
       domain = domain,
-      operation = "synonyms"
+      operation = "synonyms",
+      searchtype = searchtype,
+      options = options,
+      drop_class = TRUE
     ),
-    success = logical(length(identifier)),  # Logical vector to track success/failure for each identifier
-    error = NULL
+    class = c("PubChemInstance_Synonyms")
   )
-
-  # Perform the request for each identifier and handle potential errors
-  Synonyms_List$result <- lapply(seq_along(identifier), function(i) {
-    id <- identifier[i]
-    result <- tryCatch({
-      # Get JSON content using the get_json function (assuming get_json is defined elsewhere)
-      tmp <- get_json(identifier = id, namespace, domain, 'synonyms', searchtype, options)
-      class(tmp) <- NULL  # Remove class attribute for standardization
-      Synonyms_List$success[i] <- TRUE  # Mark success for this identifier
-      return(tmp)
-    }, error = function(e) {
-      # If an error occurs, mark failure and store error message
-      Synonyms_List$success[i] <- FALSE
-      message(paste("Failed to retrieve synonyms for identifier '", id, "': ", conditionMessage(e), sep = ""))
-      return(NULL)  # Return NULL for failed identifiers
-    })
-    return(result)
-  })
-
-  # Check if any errors occurred
-  if (!all(Synonyms_List$success)) {
-    Synonyms_List$error <- paste("Failed to retrieve synonyms for the following identifiers: ",
-                                 paste(identifier[!Synonyms_List$success], collapse = ", "), sep = "")
-  }
-
-  # Return the structured synonyms list
-  structure(Synonyms_List, class = c("PubChemInstance_Synonyms"))
 }
 
 

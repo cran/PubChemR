@@ -111,7 +111,7 @@
 #'
 #' @noRd
 #'
-#' @importFrom httr GET http_status content
+#' @importFrom httr GET POST http_status content
 #' @importFrom RJSONIO fromJSON
 #'
 #' @examples
@@ -125,12 +125,57 @@ get_pubchem <- function(identifier, namespace = 'cid', domain = 'compound', oper
                         output = 'JSON', searchtype = NULL, options = NULL) {
   response <- NULL
   status <- NULL
+  content <- NULL
+  binary_outputs <- c("PNG")
+
+  response_to_content <- function(resp, out_format) {
+    fmt <- if (is.null(out_format)) "JSON" else toupper(as.character(out_format)[1])
+    payload <- resp$content
+    if (fmt %in% binary_outputs) {
+      return(payload)
+    }
+    rawToChar(payload)
+  }
+
+  safe_request <- function(url, post_body = NULL) {
+    resp <- if (!is.null(post_body)) {
+      POST(url, body = post_body, encode = "form")
+    } else {
+      GET(url)
+    }
+    status_obj <- httr::http_status(resp)
+    if (!identical(status_obj$category, "Success")) {
+      raw_text <- httr::content(resp, "text", encoding = "UTF-8")
+      fault_obj <- tryCatch(fromJSON(raw_text), error = function(e) NULL)
+      if (!is.null(fault_obj$Fault)) {
+        stop(pc_format_fault(fault_obj$Fault), call. = FALSE)
+      }
+      stop(paste0("HTTP ", httr::status_code(resp), " request failed."), call. = FALSE)
+    }
+    resp
+  }
+
+  # Build URL and optional POST body.
+  # Namespaces like smiles/inchi/sdf/smarts use POST to avoid URL-encoding
+  # issues with / and \ characters in the identifier.
+  build_req <- function(id, ns, dom, op, out, st, opts) {
+    if (pc_use_post(ns)) {
+      url <- pc_build_url(domain = dom, namespace = ns, identifier = NULL,
+                          operation = op, output = out, searchtype = st,
+                          options = opts)
+      body <- stats::setNames(list(as.character(id)), tolower(ns))
+      list(url = url, body = body)
+    } else {
+      list(url = request(id, ns, dom, op, out, st, opts), body = NULL)
+    }
+  }
 
   # If the searchtype is not 'xref' or if the namespace is 'formula', handle it differently
   if ((!is.null(searchtype) && searchtype != 'xref') || (!is.null(namespace) && namespace == 'formula')) {
-    response <- GET(request(identifier, namespace, domain, NULL, 'JSON', searchtype, options))
+    req <- build_req(identifier, namespace, domain, NULL, 'JSON', searchtype, options)
+    response <- safe_request(req$url, req$body)
 
-    content <- rawToChar(response$content)
+    content <- response_to_content(response, "JSON")
     status <- fromJSON(content)
 
     # Check if the response is asking to wait and has a ListKey
@@ -139,41 +184,49 @@ get_pubchem <- function(identifier, namespace = 'cid', domain = 'compound', oper
       namespace <- 'listkey'
 
       iter <- 1
+      max_iter <- 10
       while ('Waiting' %in% names(status) && !is.null(status$Waiting[["ListKey"]])) {
         # Delay before making the next request
         Sys.sleep(1.5)  # delay for 1.5 seconds not to blocked by PubChem API.
         # Make the next request
-        response <- GET(request(identifier, namespace, domain, operation, 'JSON', options))
-        content <- rawToChar(response$content)
+        req <- build_req(identifier, namespace, domain, operation, 'JSON', NULL, options)
+        response <- safe_request(req$url, req$body)
+        content <- response_to_content(response, "JSON")
         status <- fromJSON(content)
 
         iter <- iter + 1
-        if (iter == 3){
+        if (iter >= max_iter){
           break
         }
+      }
+
+      if ('Waiting' %in% names(status) && !is.null(status$Waiting[["ListKey"]])) {
+        stop(
+          paste0(
+            "PubChem request is still processing after ",
+            max_iter,
+            " polling attempts. Try again with the returned ListKey."
+          ),
+          call. = FALSE
+        )
       }
     }
 
     # If the final output is not JSON, we make another request for the correct output format
     if (output != 'JSON') {
-      response <- GET(request(identifier, namespace, domain, operation, output, searchtype, options))
-      content <- rawToChar(response$content)  # Assuming 'content' is the field with data
+      req <- build_req(identifier, namespace, domain, operation, output, searchtype, options)
+      response <- safe_request(req$url, req$body)
+      content <- response_to_content(response, output)
     }
   } else {
     # If it doesn't meet the conditions above, make a standard request
-    response <- GET(request(identifier, namespace, domain, operation, output, searchtype, options))
-
-    # Check if the request was successful
-    if (http_status(response)$category != "Success") {
-      stop(fromJSON(content(response, "text", encoding = "UTF-8")))
-    } else {
-      content <- rawToChar(response$content)
-    }
+    req <- build_req(identifier, namespace, domain, operation, output, searchtype, options)
+    response <- safe_request(req$url, req$body)
+    content <- response_to_content(response, output)
   }
 
   return(content)
 }
-
 
 
 

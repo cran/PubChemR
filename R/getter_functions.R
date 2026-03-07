@@ -11,6 +11,10 @@
 #' @param ... Additional arguments. These have no effect on the returned outputs and are included for
 #' compatibility with S3 methods in the PubChemR package.
 #'
+#' @details
+#' This accessor is useful for auditing request provenance when downstream
+#' objects are passed through multiple transformation steps.
+#'
 #' @return A list or string vector containing the options used in the function call.
 #'
 #' @examples
@@ -23,11 +27,97 @@
 #'
 #' @export
 request_args <- function(object, .which = NULL, ...){
-  if (is.null(.which)){
-    return(object[["request_args"]])
-  } else {
-    return(object[["request_args"]][[.which]])
+  req <- object[["request_args"]]
+  if (is.null(req)) {
+    req <- object[["request"]]
   }
+
+  if (is.null(.which)){
+    return(req)
+  } else {
+    return(req[[.which]])
+  }
+}
+
+#' @title Check Whether Queries Returned Hits
+#'
+#' @description
+#' Returns a named logical vector indicating whether each requested identifier
+#' produced hits. This is useful for guarding downstream formatting (for
+#' example, `sprintf`) when some identifiers return no results.
+#'
+#' @param object An object returned from PubChem request wrappers such as
+#' `get_cids()`, `get_aids()`, `get_sids()`, and related functions.
+#' @param .which Optional character vector of requested identifiers to subset.
+#' @param ... Additional arguments. Currently unused.
+#'
+#' @return A named logical vector. Names correspond to requested identifiers.
+#'
+#' @examples
+#' \donttest{
+#' req <- get_cids(c("aspirin", "definitely_not_real"), namespace = "name")
+#' flags <- has_hits(req)
+#' if (any(flags)) {
+#'   CIDs(req)
+#' }
+#' }
+#'
+#' @export
+has_hits <- function(object, .which = NULL, ...) {
+  identifiers <- request_args(object, "identifier")
+  flags <- object[["has_hits"]]
+
+  if (is.null(flags) && inherits(object, "PubChemResult")) {
+    one_id <- if (is.null(identifiers) || length(identifiers) == 0) {
+      ".request"
+    } else {
+      as.character(identifiers[[1]])
+    }
+
+    flags <- isTRUE(object$success) && nrow(pc_result_to_tibble(object)) > 0
+    flags <- as.logical(flags)
+    names(flags) <- one_id
+
+    if (!is.null(.which)) {
+      .which <- as.character(.which)
+      if (!all(.which %in% names(flags))) {
+        stop("Unknown instance identifier. Run 'request_args(object, \"identifier\")' to see all the requested instance identifiers.")
+      }
+      flags <- flags[.which]
+    }
+    return(flags)
+  }
+
+  if (is.null(identifiers) || length(identifiers) == 0) {
+    stop("No request identifiers found in 'object'.")
+  }
+
+  if (is.null(flags)) {
+    flags <- object[["success"]]
+  }
+
+  if (is.null(flags)) {
+    stop("No hit/success information found in 'object'.")
+  }
+
+  flags <- as.logical(flags)
+  identifiers <- as.character(identifiers)
+
+  if (length(flags) != length(identifiers)) {
+    stop("Hit flags do not align with requested identifiers.")
+  }
+
+  names(flags) <- identifiers
+
+  if (!is.null(.which)) {
+    .which <- as.character(.which)
+    if (!all(.which %in% identifiers)) {
+      stop("Unknown instance identifier. Run 'request_args(object, \"identifier\")' to see all the requested instance identifiers.")
+    }
+    flags <- flags[.which]
+  }
+
+  flags
 }
 
 #' @param .which A string specifying which instance's results to return. If NULL, the results of the first instance in
@@ -59,6 +149,13 @@ instance.PubChemInstanceList <- function(object, .which = NULL, ...){
 #' @param object An object of class \code{'PubChemInstanceList'} returned from a PubChem request.
 #' @param ... Additional arguments passed to other methods. Currently, these have no effect.
 #'
+#' @details
+#' `instance()` is a lightweight accessor that selects one requested identifier
+#' result from a multi-request container.
+#'
+#' @return A single instance object extracted from \code{object}, typically of
+#' class \code{PubChemInstance}.
+#'
 #' @rdname instance
 #' @name instance
 #' @order 1
@@ -88,6 +185,13 @@ instance <- function(object, ...){
 #'
 #' @param object An object returned from a PubChem request.
 #'
+#' @details
+#' `retrieve()` is a generic extractor that targets result slots across several
+#' PubChemR object classes and can optionally coerce outputs to tabular form.
+#'
+#' @return Retrieved slot contents as a vector, list, or tabular object,
+#' depending on method and arguments.
+#'
 #' @rdname retrieve
 #' @name retrieve
 #' @order 1
@@ -99,6 +203,101 @@ retrieve <- function(object, ...){
   }else{
     UseMethod("retrieve")
   }
+}
+
+#' @param .slot For `PubChemResult`/`PubChemRecord` objects, selects which
+#'   component to extract. Use:
+#'   - `"data"` (default) for payload data
+#'   - top-level fields such as `"error"`, `"status"`, `"request"`
+#'   - slash-delimited nested paths inside payload data, such as
+#'     `"PropertyTable/Properties"` or `"IdentifierList/CID"`.
+#' @param .to.data.frame A logical value. If `TRUE`, tabular coercion is
+#'   attempted for extracted values where practical.
+#' @param .verbose A logical value. If `TRUE`, prints the extracted result and
+#'   returns it invisibly.
+#' @param ... Additional arguments passed to other methods.
+#'
+#' @rdname retrieve
+#' @order 2
+#'
+#' @examples
+#' \donttest{
+#' res <- pc_response(
+#'   '{"IdentifierList":{"CID":[2244,3672]}}',
+#'   request = list(domain = "compound", namespace = "name", identifier = "aspirin")
+#' )
+#'
+#' retrieve(res)
+#' retrieve(res, .slot = "IdentifierList/CID", .to.data.frame = FALSE)
+#' }
+#' @export
+retrieve.PubChemResult <- function(object, .slot = "data", .to.data.frame = TRUE, .verbose = FALSE, ...) {
+  if (is.null(.slot) || length(.slot) == 0 || !nzchar(as.character(.slot[[1]]))) {
+    .slot <- "data"
+  }
+  if (length(.slot) > 1) {
+    warning("'.slot' should be length 1. Only the first value is used.")
+    .slot <- .slot[[1]]
+  }
+  .slot <- as.character(.slot[[1]])
+
+  if (identical(.slot, "data")) {
+    out <- object$data
+    if (isTRUE(.to.data.frame)) {
+      out <- pc_result_to_tibble(object)
+    }
+  } else {
+    out <- if (.slot %in% names(object)) {
+      object[[.slot]]
+    } else {
+      # First try explicit object path (e.g. error/code), then payload path.
+      val <- pc_pluck_path(object, .slot)
+      if (is.null(val)) {
+        val <- pc_pluck_path(object$data, .slot)
+      }
+      val
+    }
+
+    if (isTRUE(.to.data.frame)) {
+      if (is.null(out)) {
+        out <- tibble::tibble()
+      } else if (is.data.frame(out)) {
+        out <- tibble::as_tibble(out)
+      } else if (is.list(out)) {
+        out_named <- if (!is.null(names(out))) {
+          out[!vapply(out, is.null, logical(1))]
+        } else {
+          out
+        }
+
+        row_tbl <- if (!is.null(names(out_named)) && length(out_named) > 0) {
+          tryCatch(tibble::as_tibble_row(out_named, .name_repair = "unique"), error = function(e) NULL)
+        } else {
+          NULL
+        }
+
+        if (!is.null(row_tbl)) {
+          out <- row_tbl
+        } else {
+          out_tbl <- tryCatch(dplyr::bind_rows(out), error = function(e) NULL)
+          if (!is.null(out_tbl)) {
+            out <- tibble::as_tibble(out_tbl, .name_repair = "unique")
+          } else {
+            out <- tibble::tibble(value = I(list(out)))
+          }
+        }
+      } else {
+        out <- tibble::tibble(value = as.character(out))
+      }
+    }
+  }
+
+  if (isTRUE(.verbose)) {
+    print(out)
+    return(invisible(out))
+  }
+
+  out
 }
 
 #' @param .slot A string specifying which slot to return. Should not be NULL or length of >1 with some exceptions. See the notes for details.
@@ -232,10 +431,16 @@ retrieve.PubChemInstance <- function(object, .slot = NULL, .to.data.frame = TRUE
               as.data.frame(as.matrix(bind_cols(x)))
             })
 
-            resDF <- slotContents[[1]]
-            for (i in 2:length(slotContents)){
-              resDF <- suppressMessages(full_join(resDF, slotContents[[i]])) %>%
-                as_tibble
+            if (length(slotContents) == 0) {
+              resDF <- tibble()
+            } else {
+              resDF <- slotContents[[1]]
+              if (length(slotContents) > 1) {
+                for (i in seq.int(2, length(slotContents))) {
+                  resDF <- suppressMessages(full_join(resDF, slotContents[[i]])) %>%
+                    as_tibble
+                }
+              }
             }
           } else {
             resDF <- bind_cols(slotContents)
@@ -283,7 +488,7 @@ retrieve.PubChemInstance <- function(object, .slot = NULL, .to.data.frame = TRUE
   }
 
   # Bind identifier info to returned list or data.frame
-  if (.to.data.frame & !inherits(successDF, "try-error")){
+  if (isTRUE(.to.data.frame) && !inherits(successDF, "try-error")) {
     resDF <- tibble(Identifier = request_args(object, "identifier")) %>%
       bind_cols(resDF)
   } else {
@@ -301,7 +506,7 @@ retrieve.PubChemInstance <- function(object, .slot = NULL, .to.data.frame = TRUE
       if (.slot %in% c("description", "protocol", "comment")){
         cat(" PubChem Assay Details (", .slot, ")", "\n\n", sep = "")
 
-        for (i in 1:length(slotContents)){
+        for (i in seq_along(slotContents)){
           cat(" ", ifelse(is.null(names(slotContents[1])), "", paste0(" - ", names(slotContents[i]), ": ", sep = "")), slotContents[i], sep = "", "\n")
         }
         returnInvisible <- TRUE
@@ -309,9 +514,9 @@ retrieve.PubChemInstance <- function(object, .slot = NULL, .to.data.frame = TRUE
 
       if (.slot == "xref"){
         cat(" PubChem Assay Details (", .slot, ")", "\n\n", sep = "")
-        for (i in 1:length(slotContents)){
+        for (i in seq_along(slotContents)){
           slotNames <- names(slotContents[[i]])
-          for (j in 1:length(slotContents[[i]])){
+          for (j in seq_along(slotContents[[i]])){
             ref <- slotContents[[i]][[j]]
             refName <- names(ref)
             cat(ifelse(j == 1, " > ", "   "), sep = "")
@@ -624,7 +829,7 @@ retrieve.PC_Substance <- function(object, .slot = NULL, .idx = 1, .to.data.frame
   }
 
   # Bind identifier info to returned list or data.frame
-  if (.to.data.frame & !inherits(successDF, "try-error")){
+  if (isTRUE(.to.data.frame) && !inherits(successDF, "try-error")) {
     resDF <- tibble(Identifier = request_args(object, "identifier")) %>%
       bind_cols(resDF)
   } else {
@@ -641,7 +846,7 @@ retrieve.PC_Substance <- function(object, .slot = NULL, .idx = 1, .to.data.frame
     if (.slot %in% c("comment")){
       cat(" PubChem Substance Details (", .slot, ")", "\n\n", sep = "")
 
-      for (i in 1:length(slotContents)){
+      for (i in seq_along(slotContents)){
         cat(" ", ifelse(is.null(names(slotContents[1])), "", paste0(" - ", names(slotContents[i]), ": ", sep = "")), slotContents[i], sep = "", "\n")
       }
       returnInvisible <- TRUE
@@ -649,7 +854,7 @@ retrieve.PC_Substance <- function(object, .slot = NULL, .idx = 1, .to.data.frame
 
     if (.slot == "xref"){
       cat(" PubChem Substance Details (", .slot, ")", "\n\n", sep = "")
-      for (i in 1:length(slotContents)){
+      for (i in seq_along(slotContents)){
         slotName <- names(slotContents[[i]])
 
         cat(" > Source: ", slotName, sep = "", "\n")
@@ -779,7 +984,7 @@ retrieve.PugViewInstance <- function(object, .slot = NULL, .to.data.frame = TRUE
     })
   }
 
-  if (!.to.data.frame | inherits(successDF, "try-error")){
+  if (!isTRUE(.to.data.frame) || inherits(successDF, "try-error")) {
     resDF <- slotContents
   }
 
@@ -842,7 +1047,7 @@ retrieve.PugViewSection <- function(object, .slot = NULL, .to.data.frame = FALSE
     })
   }
 
-  if (!.to.data.frame | inherits(successDF, "try-error")){
+  if (!isTRUE(.to.data.frame) || inherits(successDF, "try-error")) {
     resDF <- slotContents
   }
 
@@ -867,18 +1072,21 @@ retrieve.PugViewSection <- function(object, .slot = NULL, .to.data.frame = FALSE
 #' @export
 AIDs.PubChemInstance_AIDs <- function(object, .to.data.frame = TRUE, ...) {
   tmp <- object$result
-  nms = toupper(request_args(object, "namespace"))
+  nms <- toupper(request_args(object, "namespace"))
+
+  valid <- Filter(function(x) is.list(x) && isTRUE(x$success), tmp)
 
   if (.to.data.frame) {
-    res <- lapply(tmp, function(x) {
-      # if (!x$success) {
-      #   return(NULL)
-      # }
+    res <- lapply(valid, function(x) {
+      info_rows <- x$result$InformationList$Information
+      if (!is.list(info_rows) || length(info_rows) == 0) {
+        return(NULL)
+      }
 
       if (nms == "FORMULA") {
         tmp2 <- tibble(CID = integer(), AID = integer())
 
-        for (info in x$result$InformationList$Information) {
+        for (info in info_rows) {
           if (is.list(info) && !is.null(info$AID)) {
             for (aid in info$AID) {
               tmp2 <- add_row(tmp2,
@@ -888,28 +1096,28 @@ AIDs.PubChemInstance_AIDs <- function(object, .to.data.frame = TRUE, ...) {
           }
         }
       } else {
-        tmp2 <- bind_cols(x$result$InformationList$Information)
+        tmp2 <- tryCatch(
+          suppressMessages(bind_cols(info_rows)),
+          error = function(e) NULL
+        )
       }
 
-      if(nrow(tmp2) == 0){
-
-        tmp2 = NULL
-
-      }else{
-
-        if (colnames(tmp2)[1] != nms) {
+      if (is.null(tmp2) || !is.data.frame(tmp2) || nrow(tmp2) == 0) {
+        tmp2 <- NULL
+      } else {
+        if (ncol(tmp2) > 0 && colnames(tmp2)[1] != nms) {
           tbl <- tibble(request_args(x, .which = "identifier"))
           names(tbl) <- toupper(stringr::str_to_title(request_args(x, .which = "namespace")))
           tmp2 <- bind_cols(tbl, tmp2)
         }
       }
 
-      return(tmp2)
+      tmp2
     }) %>%
       bind_rows %>%
       as_tibble
   } else {
-    res <- lapply(tmp, "[[", "result")
+    res <- lapply(valid, "[[", "result")
   }
 
   return(res)
@@ -923,6 +1131,12 @@ AIDs.PubChemInstance_AIDs <- function(object, .to.data.frame = TRUE, ...) {
 #' @param object An object returned from a PubChem request, typically generated by functions such as \link{get_cids}, \link{get_aids},
 #' and \link{get_sids}.
 #' @param ... Additional arguments passed to other methods. Currently, these arguments have no effect.
+#'
+#' @details
+#' The generic dispatches to class-specific methods and returns either a compact
+#' identifier table (\code{.to.data.frame = TRUE}) or raw nested payloads.
+#'
+#' @return A tibble (default) or list containing mapped identifier outputs.
 #'
 #' @rdname AIDs-SIDs-CIDs
 #' @name AIDs-SIDs-CIDs
@@ -949,35 +1163,38 @@ AIDs <- function(object, ...){
 #' @export
 CIDs.PubChemInstance_CIDs <- function(object, .to.data.frame = TRUE, ...){
   tmp <- object$result
+  valid <- Filter(function(x) is.list(x) && isTRUE(x$success), tmp)
 
-  if(is.null(object$result[[1]]$success)){
+  if (.to.data.frame){
+    res <- lapply(valid, function(x){
+      xx <- suppressMessages(tryCatch({
+        cid_values <- if (request_args(x, "domain") == "compound"){
+          x$result$IdentifierList$CID
+        } else if (request_args(x, "domain") %in% c("substance", "assay")){
+          info_rows <- x$result$InformationList$Information
+          if (is.list(info_rows) && length(info_rows) > 0) info_rows[[1]]$CID else NULL
+        } else {
+          x$result$IdentifierList$CID
+        }
 
-    res = NULL
+        if (is.null(cid_values) || length(cid_values) == 0) {
+          return(NULL)
+        }
 
-  }else{
+        c(list(x$request_args$identifier), list(CID = cid_values)) %>%
+          bind_cols
+      }, error = function(e) NULL))
 
-    if (.to.data.frame){
-      res <- lapply(tmp, function(x){
-        xx <- suppressMessages({
-          CID_List <- if (request_args(x, "domain") == "compound"){
-            list(CID = x$result$IdentifierList$CID)
-          } else if (request_args(x, "domain") %in% c("substance", "assay")){
-            list(CID = x$result$InformationList$Information[[1]]$CID)
-          } else {
-            list(CID = x$result$IdentifierList$CID)
-          }
-
-          c(list(x$request_args$identifier), CID_List) %>%
-            bind_cols
-        })
-        names(xx)[1] <- namespace_text(x$request_args$namespace)
-        return(xx)
-      }) %>%
-        bind_rows %>%
-        as_tibble
-    } else {
-      res <- lapply(tmp, "[[", "result")
-    }
+      if (is.null(xx)) {
+        return(NULL)
+      }
+      names(xx)[1] <- namespace_text(x$request_args$namespace)
+      xx
+    }) %>%
+      bind_rows %>%
+      as_tibble
+  } else {
+    res <- lapply(valid, "[[", "result")
   }
 
   return(res)
@@ -1008,25 +1225,35 @@ CIDs <- function(object, ...){
 #' @export
 SIDs.PubChemInstance_SIDs <- function(object, .to.data.frame = TRUE, ...){
   tmp <- object$result
+  valid <- Filter(function(x) is.list(x) && isTRUE(x$success), tmp)
 
   if (.to.data.frame){
-    res <- lapply(tmp, function(x){
-      xx <- suppressMessages({
+    res <- lapply(valid, function(x){
+      xx <- suppressMessages(tryCatch({
         # Modify the SID_List extraction if returned list has different structure for
         # different domains.
-        SID_List <- list(SID = x$result$InformationList$Information[[1]]$SID)
+        info_rows <- x$result$InformationList$Information
+        sid_values <- if (is.list(info_rows) && length(info_rows) > 0) info_rows[[1]]$SID else NULL
 
-        c(list(x$request_args$identifier), SID_List) %>%
+        if (is.null(sid_values) || length(sid_values) == 0) {
+          return(NULL)
+        }
+
+        c(list(x$request_args$identifier), list(SID = sid_values)) %>%
           bind_cols
-      })
+      }, error = function(e) NULL))
+
+      if (is.null(xx)) {
+        return(NULL)
+      }
 
       names(xx)[1] <- namespace_text(x$request_args$namespace)
-      return(xx)
+      xx
     }) %>%
       bind_rows %>%
       as_tibble
   } else {
-    res <- lapply(tmp, "[[", "result")
+    res <- lapply(valid, "[[", "result")
   }
 
   return(res)
@@ -1060,21 +1287,33 @@ SIDs <- function(object, ...){
 #' @export
 synonyms.PubChemInstance_Synonyms <- function(object, .to.data.frame = TRUE, ...){
   tmp <- object$result
+  valid <- Filter(function(x) is.list(x) && isTRUE(x$success), tmp)
 
   if (.to.data.frame){
-    res <- lapply(tmp, function(x){
-      xx <- suppressMessages({
-        list(x$request_args$identifier, Synonyms = x$result$InformationList$Information[[1]]$Synonym) %>%
+    res <- lapply(valid, function(x){
+      xx <- suppressMessages(tryCatch({
+        info_rows <- x$result$InformationList$Information
+        syn_values <- if (is.list(info_rows) && length(info_rows) > 0) info_rows[[1]]$Synonym else NULL
+
+        if (is.null(syn_values) || length(syn_values) == 0) {
+          return(NULL)
+        }
+
+        list(x$request_args$identifier, Synonyms = syn_values) %>%
           bind_cols
-      })
+      }, error = function(e) NULL))
+
+      if (is.null(xx)) {
+        return(NULL)
+      }
 
       names(xx)[1] <- namespace_text(x$request_args$namespace)
-      return(xx)
+      xx
     }) %>%
       bind_rows %>%
       as_tibble
   } else {
-    res <- lapply(tmp, "[[", "result")
+    res <- lapply(valid, "[[", "result")
   }
 
   return(res)
@@ -1087,6 +1326,10 @@ synonyms.PubChemInstance_Synonyms <- function(object, .to.data.frame = TRUE, ...
 #'
 #' @param object An object of class \code{'PubChemInstance_Synonyms'}.
 #' @param ... Additional arguments passed to other methods. Currently, these have no effect.
+#'
+#' @details
+#' The method can return either a combined tibble or raw synonym payloads,
+#' depending on \code{.to.data.frame}.
 #'
 #' @rdname synonyms
 #' @name synonyms
@@ -1116,6 +1359,13 @@ synonyms <- function(object, ...){
 #'
 #' @param object an object returned from \link{get_pug_view}.
 #' @param ... other arguments. Currently has no effect on the outputs. Can be ignored.
+#'
+#' @details
+#' `section()` traverses nested PUG View section structures and supports
+#' recursive drill-down by section IDs.
+#'
+#' @return A \code{PugViewSection} object for a selected section, or \code{NULL}
+#' when section content is unavailable.
 #'
 #' @rdname section
 #' @name section
@@ -1284,6 +1534,9 @@ section.PugViewSection <- function(object, .id = "S1", .verbose = FALSE, ...){
 #' @param object an object of PubChem request, generally returned from \link{get_pug_view}.
 #' @param ... other arguments. Currently has no effect on the outputs. Can be ignored.
 #'
+#' @return A tibble with section IDs/headings, or \code{NULL} when no section
+#' data are available.
+#'
 #' @name sectionList
 #' @rdname sectionList
 #'
@@ -1339,7 +1592,7 @@ sectionList.PugViewSectionList <- function(object, .pattern = NULL, .match_type 
   .match_type <- match.arg(.match_type)
   sectionList <- object$result
 
-  if (is.null(sectionList) | length(sectionList) == 0){
+  if (is.null(sectionList) || length(sectionList) == 0) {
     warning("No section data available. Returning NULL.")
     return(NULL)
   }
@@ -1397,7 +1650,7 @@ sectionList.PugViewSection <- function(object, .pattern = NULL, .match_type = c(
   .match_type <- match.arg(.match_type)
   sectionList <- object$result
 
-  if (is.null(sectionList) | length(sectionList) == 0){
+  if (is.null(sectionList) || length(sectionList) == 0) {
     warning("No section data available. Returning NULL.")
     return(NULL)
   }
@@ -1456,10 +1709,14 @@ sectionList.PugViewSection <- function(object, .pattern = NULL, .match_type = c(
 #' @title Retrieve Raw Data from PUG REST Object
 #'
 #' @description
-#' A short description...
+#' Generic accessor returning raw payload data from a \code{PugRestInstance}.
 #'
 #' @param object an object of class 'PugRestInstance' returned from \link{get_pug_rest} function.
 #' @param ... additional arguments. Currently has no effect on results.
+#'
+#' @details
+#' This helper bypasses higher-level format-specific extractors and returns the
+#' underlying parsed result object as stored on the request instance.
 #'
 #' @name pubChemData
 #' @rdname pubChemData

@@ -74,7 +74,7 @@ print.PubChemInstance <- function(x, ...){
       itemClass <- class(instance_results[[item]])[1]
       itemNames <- names(instance_results[[item]])
 
-      if (!is.null(itemNames) & length(itemNames) > 4){
+      if (!is.null(itemNames) && length(itemNames) > 4) {
         itemNames <- c(itemNames[1:4], "...")
         named_unnamed <- "named"
       }
@@ -291,10 +291,13 @@ print.PC_Substance <- function(x, ...){
 
     substanceNamesList <- lapply(instance_results, names)
     substanceNames <- unique(unlist(lapply(instance_results, names)))
+    if (length(substanceNames) == 0) {
+      indexData <- data.frame(slot = character(), idx = integer())
+    } else {
+      indexData <- data.frame(slot = substanceNames, idx = NA_integer_)
+    }
 
-    indexData <- data.frame(slot = substanceNames, idx = NA_integer_)
-
-    for (i in 1:length(substanceNames)){
+    for (i in seq_along(substanceNames)){
       continue <- TRUE
       j <- 1
       while (continue){
@@ -305,18 +308,18 @@ print.PC_Substance <- function(x, ...){
         }
         j <- j + 1
 
-        if (j > length(substanceNames)){
+        if (j > length(substanceNamesList)){
           break
         }
       }
     }
 
-    for (i in 1:nrow(indexData)){
+    for (i in seq_len(nrow(indexData))){
       substance.i <- instance_results[[indexData[i, "idx"]]]
       itemClass <- class(substance.i[[indexData[i, "slot"]]])[1]
       itemNames <- names(substance.i[[indexData[i, "slot"]]])
 
-      if (!is.null(itemNames) & length(itemNames) > 4){
+      if (!is.null(itemNames) && length(itemNames) > 4) {
         itemNames <- c(itemNames[1:4], "...")
         named_unnamed <- "named"
       }
@@ -513,7 +516,14 @@ print.PugRestInstance <- function(x, ...){
   }
 
   if (x$success){
-    if (request_args(x, "save") | toupper(request_args(x, "output")) == "SDF"){
+    save_flag <- isTRUE(request_args(x, "save"))
+    output_fmt <- request_args(x, "output")
+    output_is_sdf <- is.character(output_fmt) &&
+      length(output_fmt) > 0 &&
+      !is.na(output_fmt[1]) &&
+      identical(toupper(output_fmt[1]), "SDF")
+
+    if (save_flag || output_is_sdf) {
       cat(" Details [Saved File(s)]: ", "\n")
       cat("  - File name: '", x$fileDetails$Name, "'", "\n", sep = "")
       cat("  - Saved to: '", x$fileDetails$Path, "'", "\n", sep = "")

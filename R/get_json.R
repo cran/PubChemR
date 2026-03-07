@@ -59,53 +59,82 @@
 #'
 #' @return A list containing the parsed JSON response from PubChem. Returns NULL if an error or warning occurs.
 #'
-#' @importFrom RJSONIO fromJSON toJSON
+#' @importFrom RJSONIO fromJSON
 #'
 #' @keywords internal
 #'
 #' @noRd
 get_json <- function(identifier, namespace = 'cid', domain = 'compound', operation = NULL, searchtype = NULL, options = NULL, ...) {
 
-  PubChemList <- list(
-    result = list(),
-    request_args = list(
-      namespace = namespace,
-      identifier = identifier,
-      domain = domain
-    ),
-    success = logical(),
-    error = NULL
+  req_args <- list(
+    namespace = namespace,
+    identifier = identifier,
+    domain = domain,
+    operation = operation,
+    searchtype = searchtype,
+    options = options
   )
 
-  result <- fromJSON({
-    tryCatch({
-      get_pubchem(identifier, namespace, domain, operation, "JSON", searchtype, options)
-    },
+  raw_json <- tryCatch(
+    get_pubchem(identifier, namespace, domain, operation, "JSON", searchtype, options),
     error = function(e) {
-      err.text <- c("Failed", e$message)
-      names(err.text) <- c("Code", "Message")
-      return(toJSON(list(Fault = err.text)))
-    })
-  })
+      return(pc_make_failed_instance(
+        request_args = req_args,
+        code = "RequestFailed",
+        message = conditionMessage(e),
+        error_class = "request_error"
+      ))
+    }
+  )
 
-  # If not failed with an error.
-  if (is.null(result$Fault)){
-    PubChemList[["result"]] <- result
-    PubChemList[["success"]] <- TRUE
-  } else {
-    PubChemList[["success"]] <- FALSE
+  if (inherits(raw_json, "PubChemInstance")) {
+    return(raw_json)
+  }
 
-    # Command as a string
-    command_string <- result$Fault["Message"]
+  result <- tryCatch(
+    fromJSON(raw_json),
+    error = function(e) {
+      return(pc_make_failed_instance(
+        request_args = req_args,
+        code = "ParseError",
+        message = paste0("Failed to parse PubChem JSON: ", conditionMessage(e)),
+        details = list(raw = raw_json),
+        error_class = "parse_error"
+      ))
+    }
+  )
 
-    # Parsing and evaluating the command string
-    error_details <- eval(parse(text = command_string))
+  if (inherits(result, "PubChemInstance")) {
+    return(result)
+  }
 
-    PubChemList[["error"]] <- error_details
+  if (!is.list(result)) {
+    return(pc_make_failed_instance(
+      request_args = req_args,
+      code = "ParseError",
+      message = "Parsed PubChem response is not a list.",
+      details = list(raw = raw_json),
+      error_class = "parse_error"
+    ))
+  }
+
+  if (!is.null(result$Fault)) {
+    return(pc_make_failed_instance(
+      request_args = req_args,
+      code = ifelse(is.null(result$Fault$Code), "PubChemFault", result$Fault$Code),
+      message = pc_format_fault(result$Fault),
+      details = result$Fault$Details,
+      error_class = "pubchem_fault"
+    ))
   }
 
   structure(
-    PubChemList,
+    list(
+      result = result,
+      request_args = pc_drop_null(req_args),
+      success = TRUE,
+      error = NULL
+    ),
     class = "PubChemInstance"
   )
 }

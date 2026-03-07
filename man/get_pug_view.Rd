@@ -5,7 +5,7 @@
 \title{Retrieve PUG View Data from PubChem}
 \usage{
 get_pug_view(
-  annotation = NULL,
+  annotation = "data",
   identifier = NULL,
   domain = "compound",
   output = "JSON",
@@ -21,7 +21,9 @@ get_pug_view(
 
                   Valid values are:
 
-                   \code{annotations} (default): Retrieve annotations across all of PubChem’s primary databases.
+                   \code{data} (default): Retrieve a full PUG View record for a specific identifier.
+
+                   \code{annotations}: Retrieve annotations across all of PubChem primary databases.
 
                    \code{categories}: List all PubChem depositors and their SIDs for a given compound, including categorization.
 
@@ -37,7 +39,8 @@ get_pug_view(
 
 \item{identifier}{A single identifier for the query, either numeric or character.
 **Note:** Only one identifier is allowed per request for certain annotations.
-For some annotations like \code{annotations} with a \code{heading}, the \code{identifier} can be \code{NULL}.}
+For \code{annotation = "annotations"} with \code{heading} or \code{headingType},
+\code{identifier} can be \code{NULL}.}
 
 \item{domain}{A character string specifying the domain for the request.
 
